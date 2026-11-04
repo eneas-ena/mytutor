@@ -230,7 +230,7 @@ button { cursor: pointer; }
 .bar > span { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
 .bar.done > span { background: var(--green); }
 .track-del {
-  position: absolute; right: 10px; bottom: 30px; width: 28px; height: 28px; border-radius: 8px;
+  position: absolute; right: 8px; top: 34px; width: 28px; height: 28px; border-radius: 8px;
   display: grid; place-items: center; border: 1px solid transparent; background: transparent; color: var(--text-3);
 }
 .track-del:hover { color: var(--red); border-color: var(--line-2); }
@@ -336,6 +336,83 @@ button { cursor: pointer; }
 
 .loading { display: grid; place-items: center; height: 100%; color: var(--text-3); }
 
+/* Diagnóstico */
+.diag-progress { display: flex; align-items: center; gap: 12px; margin: 18px 0 6px; font-size: 13px; color: var(--text-2); }
+.diag-progress .bar { flex: 1; margin: 0; }
+.diag-intro { color: var(--text-2); margin: 10px 0 0; font-size: 14px; }
+.diag-q { font-size: 19px; font-weight: 700; line-height: 1.45; margin: 18px 0 16px; white-space: pre-wrap; }
+.opts { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.opt {
+  display: flex; gap: 12px; align-items: flex-start; text-align: left; width: 100%;
+  padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--bg-2); color: var(--text);
+}
+.opt .letra {
+  flex: none; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center;
+  font-weight: 700; font-size: 13px; background: var(--panel-2); border: 1px solid var(--line-2); color: var(--text-2);
+}
+.opt.sel { border-color: var(--cyan); background: var(--chip-bg); }
+.opt.sel .letra { background: var(--cyan); color: #04111c; border-color: var(--cyan); }
+.rac-wrap { position: relative; }
+.rac-wrap textarea { padding-right: 52px; }
+.mic {
+  position: absolute; right: 8px; top: 8px; width: 36px; height: 36px; border-radius: 10px;
+  border: 1px solid var(--line-2); background: var(--panel); color: var(--text-2); display: grid; place-items: center;
+}
+.mic.on { color: #fff; background: var(--red); border-color: var(--red); }
+.confs { display: flex; gap: 8px; flex-wrap: wrap; }
+.conf {
+  flex: 1; min-width: 120px; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line-2);
+  background: var(--bg-2); color: var(--text-2); font-weight: 600;
+}
+.conf.sel { border-color: var(--blue); background: var(--blue-2); color: #fff; }
+.diag-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+.diag-actions .grow { flex: 1; }
+.wait { text-align: center; padding: 48px 20px; }
+.spinner {
+  width: 42px; height: 42px; margin: 0 auto 16px; border-radius: 50%;
+  border: 3px solid var(--line-2); border-top-color: var(--cyan); animation: girar 0.9s linear infinite;
+}
+@keyframes girar { to { transform: rotate(360deg); } }
+.wait h3 { margin: 0 0 6px; }
+.wait p { margin: 0 auto; color: var(--text-2); max-width: 440px; }
+.err-box { border: 1px solid var(--red); border-radius: 14px; padding: 14px 16px; color: var(--red); margin: 14px 0; }
+
+/* Plano da trilha */
+.sec-title { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 800; margin: 0 0 12px; }
+.sec-title .ic { color: var(--cyan); }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.resumo { color: var(--text); margin: 0 0 14px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.list-box { background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.list-box .k { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.list-box.ok .k { color: var(--green); }
+.list-box.gap .k { color: var(--amber); }
+.list-box ul { margin: 6px 0 0; padding-left: 18px; color: var(--text); font-size: 14px; }
+.list-box li + li { margin-top: 4px; }
+.modo-note { margin-top: 12px; font-size: 14px; color: var(--text-2); }
+.modo-note b { color: var(--text); }
+.conc { display: flex; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+.conc:first-child { border-top: none; padding-top: 4px; }
+.conc-n {
+  flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+  font-weight: 800; font-size: 14px; border: 2px solid var(--line-2); color: var(--text-3);
+}
+.conc-n.dominado { border-color: var(--green); color: var(--green); }
+.conc-n.disponivel { border-color: var(--cyan); color: var(--cyan); }
+.conc-n.em_estudo { border-color: var(--blue); color: var(--blue); }
+.conc-body { flex: 1; min-width: 0; }
+.conc-top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+.conc-title { font-weight: 700; }
+.conc-desc { font-size: 14px; color: var(--text-2); margin-top: 2px; }
+.conc-pre { font-size: 12px; color: var(--text-3); margin-top: 6px; }
+.conc .bar { max-width: 240px; }
+.cs-dominado { color: var(--green); border-color: rgba(52,211,153,.4); }
+.cs-disponivel { color: var(--cyan); border-color: rgba(34,211,238,.35); }
+.cs-em_estudo { color: var(--blue); border-color: rgba(59,130,246,.4); }
+.cs-bloqueado { color: var(--text-3); border-color: var(--line-2); }
+.row-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 4px; flex-wrap: wrap; }
+@media (max-width: 900px) { .two { grid-template-columns: 1fr; } }
+
 /* =========================================================
    RESPONSIVO
    ========================================================= */
@@ -356,7 +433,8 @@ button { cursor: pointer; }
   .sidebar.open { transform: none; }
   .scrim { position: fixed; inset: 0; z-index: 45; background: rgba(5,10,20,.5); }
   .info-grid { grid-template-columns: 1fr; }
-  .topbar .brand-name, .topbar .chip-ai, .topbar .version-badge { display: none; }
+  .topbar .brand-name, .topbar .chip-ai { display: none; }
+  .topbar { gap: 10px; padding-left: 12px; padding-right: 12px; }
   .modes { margin-left: 0; }
 }
 </style>
@@ -387,6 +465,7 @@ button { cursor: pointer; }
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
     <symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5M8 22h8"/></symbol>
     <symbol id="i-cards" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="14" rx="2"/><path d="M8 2h12a2 2 0 0 1 2 2v12"/></symbol>
   </defs>
 </svg>
@@ -486,7 +565,7 @@ button { cursor: pointer; }
 <div class="overlay hidden" id="trackModal">
   <form class="modal" id="trackForm" autocomplete="off">
     <h3>Nova trilha de estudo</h3>
-    <p class="sub">Nesta etapa a trilha é criada só com os dados básicos. O diagnóstico e o plano com IA chegam na próxima etapa.</p>
+    <p class="sub">Depois de criar, o tutor faz 5 perguntas rápidas para descobrir o seu ponto de partida e monta a trilha até o seu objetivo.</p>
     <div class="field"><label for="fTitulo">O que você quer aprender?</label><input id="fTitulo" required maxlength="140" placeholder="Ex.: Fundamentos de Redes Neurais"></div>
     <div class="field"><label for="fArea">Área</label>
       <input id="fArea" list="areas" maxlength="40" placeholder="Ex.: Teologia">
@@ -496,10 +575,11 @@ button { cursor: pointer; }
         <option>Ciências</option><option>Liderança</option><option>Outros</option>
       </datalist>
     </div>
-    <div class="field"><label for="fObjetivo">Objetivo (opcional)</label><textarea id="fObjetivo" rows="3" maxlength="500" placeholder="Ex.: Entender o suficiente para explicar numa aula do curso teológico"></textarea></div>
+    <div class="field"><label for="fPrevio">O que você já sabe sobre isso? (opcional)</label><textarea id="fPrevio" rows="3" maxlength="1200" placeholder="Ex.: Já ouvi falar, mas nunca estudei. Sei o que é um algoritmo."></textarea></div>
+    <div class="field"><label for="fObjetivo">Para que você quer aprender? (opcional)</label><textarea id="fObjetivo" rows="2" maxlength="500" placeholder="Ex.: Para explicar numa aula do curso teológico"></textarea></div>
     <div class="modal-actions">
       <button type="button" class="btn" data-close>Cancelar</button>
-      <button type="submit" class="btn btn-primary" id="saveTrackBtn">Criar trilha</button>
+      <button type="submit" class="btn btn-primary" id="saveTrackBtn">Criar e começar diagnóstico</button>
     </div>
   </form>
 </div>
@@ -528,10 +608,11 @@ button { cursor: pointer; }
 /* =========================================================
    CONFIGURAÇÃO
    ========================================================= */
-const APP_VERSION = '1.0.1';
+const APP_VERSION = '1.1.0';
 const SUPABASE_URL = 'https://ghjbljypxksubmcsvaig.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_qXCYqg1WdmelY9D1mptZXg_U8NdoKby';
 const DB_SCHEMA = 'mytutor';
+const WORKER_URL = 'https://mytutor-ia.eneaspr.workers.dev';
 
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
   db: { schema: DB_SCHEMA },
@@ -548,7 +629,10 @@ const state = {
   tab: 'aula',
   search: '',
   totalSeg: 0,
-  pendingDelete: null
+  pendingDelete: null,
+  conceitos: {},      // conceitos por trilha (cache)
+  carregandoC: {},
+  diag: null          // diagnóstico em andamento
 };
 
 const $ = (s) => document.querySelector(s);
@@ -735,16 +819,18 @@ async function createTrack(e) {
   const { data, error } = await sb.from('trilhas').insert({
     titulo,
     area: $('#fArea').value.trim() || null,
-    objetivo: $('#fObjetivo').value.trim() || null
+    objetivo: $('#fObjetivo').value.trim() || null,
+    conhecimento_previo: $('#fPrevio').value.trim() || null
   }).select().single();
-  btn.disabled = false; btn.textContent = 'Criar trilha';
+  btn.disabled = false; btn.textContent = 'Criar e começar diagnóstico';
   if (error) { toast(dbErrorMessage(error), true); return; }
   state.trilhas.unshift(data);
   state.selectedId = data.id;
   closeModal('#trackModal');
   $('#trackForm').reset();
-  toast('Trilha criada.');
+  state.tab = 'aula';
   render();
+  startDiagnostico(data.id);
 }
 
 function askDelete(id) {
@@ -764,6 +850,8 @@ async function confirmDelete() {
   btn.disabled = false;
   if (error) { toast(dbErrorMessage(error), true); return; }
   state.trilhas = state.trilhas.filter(t => t.id !== id);
+  delete state.conceitos[id];
+  if (state.diag && state.diag.trilhaId === id) { pararDitado(); state.diag = null; }
   if (state.selectedId === id) state.selectedId = state.trilhas[0]?.id || null;
   state.pendingDelete = null;
   closeModal('#delModal');
@@ -847,7 +935,7 @@ const FUTURE = {
     ic: 'i-graph', title: 'Mapa de Conhecimento',
     sub: 'Os conceitos de cada trilha e como um leva ao outro.',
     items: [
-      ['i-graph', 'Grafo de conceitos', 'Gerado pela IA a partir do diagnóstico, com pré-requisitos.', 'Etapa 2'],
+      ['i-graph', 'Grafo de conceitos', 'Os conceitos do plano ligados pelos pré-requisitos. A lista já aparece na Sala de Aula.', 'Etapa 4'],
       ['i-target', 'Situação de cada conceito', 'Dominado, em estudo, disponível ou bloqueado.', 'Etapa 4'],
       ['i-spark', 'Próxima recomendação', 'O que estudar agora para avançar na trilha.', 'Etapa 4']
     ]
@@ -891,38 +979,366 @@ function renderMain() {
       <div class="card empty-main">
         ${icon('i-spark')}
         <h3>O que você quer aprender hoje?</h3>
-        <p>Crie uma trilha com o assunto que deseja estudar. Nas próximas etapas, o tutor fará um diagnóstico e montará o caminho até o seu objetivo.</p>
+        <p>Crie uma trilha com o assunto que deseja estudar. O tutor faz um diagnóstico rápido e monta o caminho até o seu objetivo.</p>
         <button class="btn btn-primary" data-new>${icon('i-plus')}Nova trilha</button>
       </div>`;
     return;
   }
 
+  if (state.diag && state.diag.trilhaId === t.id) { main.innerHTML = renderDiag(t); return; }
+  main.innerHTML = renderTrilha(t);
+}
+
+const CSTATUS = {
+  dominado:   'Dominado',
+  disponivel: 'Disponível',
+  em_estudo:  'Em estudo',
+  bloqueado:  'Bloqueado'
+};
+
+function lousaHead(t, label) {
+  return `
+    <div class="lousa-head">
+      <div class="brand-logo">${icon('i-brain')}</div>
+      <div>
+        <div class="lousa-label">${label}</div>
+        <div class="lousa-title">${esc(t.titulo)}</div>
+      </div>
+      ${label === 'LOUSA INTELIGENTE' ? `
+      <div class="modes" role="group" aria-label="Modo de ensino">
+        <button class="${t.modo_preferido === 'socratico' ? 'on' : ''}" data-mode="socratico">Método Socrático</button>
+        <button class="${t.modo_preferido === 'direto' ? 'on' : ''}" data-mode="direto">Direto &amp; Prático</button>
+      </div>` : ''}
+    </div>`;
+}
+
+function renderTrilha(t) {
   const st = STATUS[t.status] || STATUS.nova;
-  const criada = new Date(t.created_at).toLocaleDateString('pt-BR');
-  main.innerHTML = `
-    <div class="card">
-      <div class="lousa-head">
-        <div class="brand-logo">${icon('i-brain')}</div>
-        <div>
-          <div class="lousa-label">LOUSA INTELIGENTE</div>
-          <div class="lousa-title">${esc(t.titulo)}</div>
+  const d = t.diagnostico;
+
+  if (!d) {
+    return `
+      <div class="card">
+        ${lousaHead(t, 'LOUSA INTELIGENTE')}
+        <div class="info-grid">
+          <div class="info"><div class="k">Área</div><div class="v">${esc(t.area || 'Geral')}</div></div>
+          <div class="info"><div class="k">Situação</div><div class="v">${st.label}</div></div>
+          <div class="info"><div class="k">Criada em</div><div class="v">${new Date(t.created_at).toLocaleDateString('pt-BR')}</div></div>
         </div>
-        <div class="modes" role="group" aria-label="Modo de ensino">
-          <button class="${t.modo_preferido === 'socratico' ? 'on' : ''}" data-mode="socratico">Método Socrático</button>
-          <button class="${t.modo_preferido === 'direto' ? 'on' : ''}" data-mode="direto">Direto &amp; Prático</button>
+        ${t.objetivo ? `<div class="info" style="margin-top:12px"><div class="k">Objetivo</div><div class="v">${esc(t.objetivo)}</div></div>` : ''}
+        <div class="card empty-main" style="margin-top:16px;padding:36px 18px">
+          ${icon('i-target')}
+          <h3>Vamos descobrir o seu ponto de partida</h3>
+          <p>São 5 perguntas rápidas. Não é prova: responder "não sei" também ajuda o tutor a montar o caminho certo para você.</p>
+          <button class="btn btn-primary" data-diag-start>${icon('i-spark')}Fazer diagnóstico</button>
+        </div>
+      </div>`;
+  }
+
+  const conc = state.conceitos[t.id];
+  if (!conc) { loadConceitos(t.id); }
+  const dominados = conc ? conc.filter(c => c.status === 'dominado').length : 0;
+  const nomes = conc ? Object.fromEntries(conc.map(c => [c.id, c.titulo])) : {};
+
+  const listaConceitos = !conc
+    ? `<div class="wait" style="padding:24px"><div class="spinner"></div><p>Carregando o plano…</p></div>`
+    : conc.map((c, i) => `
+      <div class="conc">
+        <div class="conc-n ${c.status}">${c.status === 'dominado' ? '✓' : i + 1}</div>
+        <div class="conc-body">
+          <div class="conc-top">
+            <div class="conc-title">${esc(c.titulo)}</div>
+            <span class="status cs-${c.status}">${CSTATUS[c.status] || c.status}</span>
+          </div>
+          ${c.descricao ? `<div class="conc-desc">${esc(c.descricao)}</div>` : ''}
+          ${(c.prerequisitos || []).length ? `<div class="conc-pre">Depende de: ${c.prerequisitos.map(id => esc(nomes[id] || '?')).join(', ')}</div>` : ''}
+          <div class="track-meta" style="max-width:240px;margin-top:8px"><span>Domínio</span><span>${c.dominio}%</span></div>
+          <div class="bar ${c.dominio >= 100 ? 'done' : ''}"><span style="width:${c.dominio}%"></span></div>
+        </div>
+      </div>`).join('');
+
+  const itens = (arr) => (arr || []).map(x => `<li>${esc(x)}</li>`).join('') || '<li>—</li>';
+  const modoNome = d.modo_sugerido === 'direto' ? 'Direto & Prático' : 'Método Socrático';
+
+  return `
+    <div class="stack">
+      <div class="card">
+        ${lousaHead(t, 'LOUSA INTELIGENTE')}
+        <div class="info-grid">
+          <div class="info"><div class="k">Área</div><div class="v">${esc(t.area || 'Geral')}</div></div>
+          <div class="info"><div class="k">Situação</div><div class="v">${st.label} · domínio ${t.dominio}%</div></div>
+          <div class="info"><div class="k">Conceitos dominados</div><div class="v">${conc ? `${dominados} de ${conc.length}` : '…'}</div></div>
         </div>
       </div>
-      <div class="info-grid">
-        <div class="info"><div class="k">Área</div><div class="v">${esc(t.area || 'Geral')}</div></div>
-        <div class="info"><div class="k">Situação</div><div class="v">${st.label} · domínio ${t.dominio}%</div></div>
-        <div class="info"><div class="k">Criada em</div><div class="v">${criada}</div></div>
+
+      <div class="card">
+        <div class="sec-title">${icon('i-target')}Seu ponto de partida</div>
+        <p class="resumo">${esc(d.resumo)}</p>
+        <div class="two">
+          <div class="list-box ok"><div class="k">Pontos fortes</div><ul>${itens(d.pontos_fortes)}</ul></div>
+          <div class="list-box gap"><div class="k">O que precisa de atenção</div><ul>${itens(d.lacunas)}</ul></div>
+        </div>
+        ${d.justificativa_modo ? `<div class="modo-note">Modo sugerido: <b>${modoNome}</b>. ${esc(d.justificativa_modo)}</div>` : ''}
       </div>
-      ${t.objetivo ? `<div class="info" style="margin-top:12px"><div class="k">Objetivo</div><div class="v">${esc(t.objetivo)}</div></div>` : ''}
-      <div class="soon">
+
+      <div class="card">
+        <div class="sec-title">${icon('i-layers')}Plano da trilha</div>
+        ${listaConceitos}
+      </div>
+
+      <div class="soon" style="margin-top:0">
         ${icon('i-spark')}
-        <div><b>Próximas etapas:</b> o diagnóstico inicial e o plano da trilha gerado pela IA (Etapa 2), e depois a aula com o tutor, com perguntas, exemplos e o campo "como eu pensei" (Etapa 3).</div>
+        <div><b>Próxima etapa:</b> a aula com o tutor, começando pelo primeiro conceito disponível, com perguntas, exemplos e o campo "como eu pensei" (Etapa 3).</div>
+      </div>
+
+      <div class="row-actions">
+        <button class="btn" data-diag-redo>${icon('i-refresh')}Refazer diagnóstico</button>
       </div>
     </div>`;
+}
+
+async function loadConceitos(trilhaId) {
+  if (state.carregandoC[trilhaId]) return;
+  state.carregandoC[trilhaId] = true;
+  const { data, error } = await sb.from('conceitos').select('*').eq('trilha_id', trilhaId).order('ordem');
+  state.carregandoC[trilhaId] = false;
+  if (error) { toast(dbErrorMessage(error), true); state.conceitos[trilhaId] = []; }
+  else state.conceitos[trilhaId] = data || [];
+  if (state.selectedId === trilhaId && state.tab === 'aula') renderMain();
+}
+
+/* =========================================================
+   DIAGNÓSTICO COM IA
+   ========================================================= */
+function trilhaParaIA(t) {
+  return { titulo: t.titulo, area: t.area, objetivo: t.objetivo, conhecimento_previo: t.conhecimento_previo };
+}
+
+async function callIA(rota, corpo) {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) throw new Error('Sua sessão expirou. Saia e entre de novo.');
+  let r;
+  try {
+    r = await fetch(`${WORKER_URL}/${rota}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + session.access_token },
+      body: JSON.stringify(corpo)
+    });
+  } catch {
+    throw new Error('Não foi possível falar com o Worker mytutor-ia. Confira se ele foi publicado e se a internet está funcionando.');
+  }
+  let dados = {};
+  try { dados = await r.json(); } catch {}
+  if (!r.ok) throw new Error(dados.erro || `O Worker respondeu com erro ${r.status}.`);
+  return dados;
+}
+
+async function startDiagnostico(trilhaId) {
+  const t = state.trilhas.find(x => x.id === trilhaId);
+  if (!t) return;
+  pararDitado();
+  state.selectedId = trilhaId;
+  state.tab = 'aula';
+  state.diag = { trilhaId, fase: 'carregando', perguntas: [], respostas: [], idx: 0, inicio: Date.now(), erro: '', etapa: 'perguntas' };
+  render();
+  try {
+    const r = await callIA('diagnostico', { trilha: trilhaParaIA(t) });
+    if (!state.diag || state.diag.trilhaId !== trilhaId) return;
+    state.diag.apresentacao = r.apresentacao;
+    state.diag.perguntas = r.perguntas;
+    state.diag.respostas = r.perguntas.map(() => ({ resposta: '', opcao: null, raciocinio: '', confianca: '', nao_sei: false }));
+    state.diag.fase = 'perguntas';
+    state.diag.inicio = Date.now();
+  } catch (e) {
+    if (!state.diag || state.diag.trilhaId !== trilhaId) return;
+    state.diag.fase = 'erro'; state.diag.etapa = 'perguntas'; state.diag.erro = e.message;
+  }
+  renderMain();
+}
+
+const CONFIANCAS = ['Chutei', 'Acho que sim', 'Tenho certeza'];
+
+function renderDiag(t) {
+  const d = state.diag;
+  if (d.fase === 'carregando') {
+    return `<div class="card">${lousaHead(t, 'DIAGNÓSTICO INICIAL')}
+      <div class="wait"><div class="spinner"></div><h3>Preparando suas perguntas…</h3><p>O tutor está pensando em perguntas sob medida para este assunto.</p></div></div>`;
+  }
+  if (d.fase === 'analisando') {
+    return `<div class="card">${lousaHead(t, 'DIAGNÓSTICO INICIAL')}
+      <div class="wait"><div class="spinner"></div><h3>Analisando suas respostas…</h3><p>O tutor está montando a sua trilha: os conceitos, a ordem de estudo e o que você já domina. Isso leva alguns segundos.</p></div></div>`;
+  }
+  if (d.fase === 'erro') {
+    const oQue = { perguntas: 'preparar as perguntas', plano: 'montar o plano', salvar: 'salvar o plano' }[d.etapa];
+    return `<div class="card">${lousaHead(t, 'DIAGNÓSTICO INICIAL')}
+      <div class="err-box"><b>Não foi possível ${oQue}.</b><br>${esc(d.erro)}</div>
+      <div class="diag-actions">
+        <button class="btn btn-primary" data-diag-retry>${icon('i-refresh')}Tentar de novo</button>
+        <button class="btn" data-diag-cancel>Deixar para depois</button>
+      </div></div>`;
+  }
+
+  const n = d.perguntas.length, i = d.idx;
+  const p = d.perguntas[i], r = d.respostas[i];
+  const temDitado = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+  const pct = Math.round((i / n) * 100);
+
+  return `<div class="card">
+    ${lousaHead(t, 'DIAGNÓSTICO INICIAL')}
+    ${i === 0 && d.apresentacao ? `<p class="diag-intro">${esc(d.apresentacao)}</p>` : ''}
+    <div class="diag-progress"><span>Pergunta ${i + 1} de ${n}</span><div class="bar"><span style="width:${pct}%"></span></div></div>
+    <div class="diag-q">${esc(p.pergunta)}</div>
+
+    ${p.tipo === 'multipla' ? `
+      <div class="opts">
+        ${p.opcoes.map((o, j) => `<button class="opt ${r.opcao === j ? 'sel' : ''}" data-opt="${j}"><span class="letra">${String.fromCharCode(65 + j)}</span><span>${esc(o)}</span></button>`).join('')}
+      </div>` : `
+      <div class="field"><label for="dResp">Sua resposta</label><textarea id="dResp" rows="3" maxlength="1500" placeholder="Responda com suas palavras, em 1 a 3 frases.">${esc(r.resposta)}</textarea></div>`}
+
+    <div class="field">
+      <label for="dRac">Como eu pensei (opcional)</label>
+      <div class="rac-wrap">
+        <textarea id="dRac" rows="2" maxlength="1500" placeholder="Explique o seu raciocínio ou a sua dúvida. Isso ajuda o tutor a entender você.">${esc(r.raciocinio)}</textarea>
+        ${temDitado ? `<button class="mic ${ditado ? 'on' : ''}" data-mic title="Ditar">${icon('i-mic')}</button>` : ''}
+      </div>
+    </div>
+
+    <div class="field" style="margin-bottom:0">
+      <label>Qual a sua certeza?</label>
+      <div class="confs">${CONFIANCAS.map(c => `<button class="conf ${r.confianca === c ? 'sel' : ''}" data-conf="${c}">${c}</button>`).join('')}</div>
+    </div>
+
+    <div class="diag-actions">
+      ${i > 0 ? `<button class="btn" data-diag-prev>← Anterior</button>` : ''}
+      <span class="grow"></span>
+      <button class="btn" data-diag-naosei>Não sei</button>
+      <button class="btn btn-primary" data-diag-next>${i === n - 1 ? 'Concluir diagnóstico' : 'Próxima →'}</button>
+    </div>
+  </div>`;
+}
+
+function diagAvancar(naoSei) {
+  const d = state.diag; if (!d) return;
+  const r = d.respostas[d.idx];
+  if (naoSei) {
+    r.nao_sei = true;
+  } else {
+    if (!r.resposta.trim()) { toast(d.perguntas[d.idx].tipo === 'multipla' ? 'Escolha uma alternativa ou toque em "Não sei".' : 'Escreva sua resposta ou toque em "Não sei".', true); return; }
+    if (!r.confianca) { toast('Marque qual a sua certeza na resposta.', true); return; }
+    r.nao_sei = false;
+  }
+  pararDitado();
+  if (d.idx < d.perguntas.length - 1) { d.idx++; renderMain(); $('#main').scrollTop = 0; }
+  else gerarPlano();
+}
+
+async function gerarPlano() {
+  const d = state.diag; if (!d) return;
+  const t = state.trilhas.find(x => x.id === d.trilhaId);
+  d.fase = 'analisando'; d.fim = d.fim || Date.now();
+  renderMain();
+  const respostas = d.perguntas.map((p, i) => ({
+    pergunta: p.pergunta, o_que_avalia: p.o_que_avalia, opcoes: p.opcoes,
+    resposta: d.respostas[i].resposta, raciocinio: d.respostas[i].raciocinio,
+    confianca: d.respostas[i].confianca, nao_sei: d.respostas[i].nao_sei
+  }));
+  try {
+    d.plano = await callIA('plano', { trilha: trilhaParaIA(t), respostas });
+  } catch (e) {
+    if (state.diag !== d) return;
+    d.fase = 'erro'; d.etapa = 'plano'; d.erro = e.message; renderMain(); return;
+  }
+  if (state.diag !== d) return;
+  salvarPlano();
+}
+
+async function salvarPlano() {
+  const d = state.diag; if (!d || !d.plano) return;
+  const t = state.trilhas.find(x => x.id === d.trilhaId);
+  const plano = d.plano;
+  d.fase = 'analisando'; renderMain();
+  const falhou = (e) => { d.fase = 'erro'; d.etapa = 'salvar'; d.erro = dbErrorMessage(e); renderMain(); };
+
+  // 1. Sessão de diagnóstico e a conversa
+  if (!d.sessaoSalva) {
+    const dur = Math.max(1, Math.round(((d.fim || Date.now()) - d.inicio) / 1000));
+    const ses = await sb.from('sessoes').insert({
+      trilha_id: t.id, tipo: 'diagnostico', modo: t.modo_preferido,
+      iniciada_em: new Date(d.inicio).toISOString(), encerrada_em: new Date(d.fim || Date.now()).toISOString(), duracao_seg: dur
+    }).select().single();
+    if (ses.error) return falhou(ses.error);
+    const msgs = [];
+    d.perguntas.forEach((p, i) => {
+      const r = d.respostas[i];
+      const alt = p.opcoes.length ? '\n' + p.opcoes.map((o, j) => `${String.fromCharCode(65 + j)}) ${o}`).join('\n') : '';
+      msgs.push({ sessao_id: ses.data.id, papel: 'tutor', conteudo: p.pergunta + alt });
+      msgs.push({
+        sessao_id: ses.data.id, papel: 'aluno',
+        conteudo: r.nao_sei ? 'Não sei' : r.resposta,
+        raciocinio: [r.nao_sei ? '' : `[Certeza: ${r.confianca}]`, r.raciocinio].filter(Boolean).join(' ') || null
+      });
+    });
+    const m = await sb.from('mensagens').insert(msgs);
+    if (m.error) return falhou(m.error);
+    d.sessaoSalva = true;
+    state.totalSeg += dur;
+  }
+
+  // 2. Conceitos (substitui o plano anterior, se houver)
+  const del = await sb.from('conceitos').delete().eq('trilha_id', t.id);
+  if (del.error) return falhou(del.error);
+  const ids = plano.conceitos.map(() => crypto.randomUUID());
+  const linhas = plano.conceitos.map((c, i) => ({
+    id: ids[i], trilha_id: t.id, titulo: c.titulo, descricao: c.descricao, ordem: i,
+    prerequisitos: c.prerequisitos.map(k => ids[k]), dominio: c.dominio, status: c.situacao
+  }));
+  const ins = await sb.from('conceitos').insert(linhas).select();
+  if (ins.error) return falhou(ins.error);
+
+  // 3. Trilha
+  const media = Math.round(linhas.reduce((a, c) => a + c.dominio, 0) / linhas.length);
+  const up = await sb.from('trilhas').update({
+    status: 'em_curso', dominio: media, modo_preferido: plano.modo_sugerido,
+    diagnostico: {
+      resumo: plano.resumo, pontos_fortes: plano.pontos_fortes, lacunas: plano.lacunas,
+      modo_sugerido: plano.modo_sugerido, justificativa_modo: plano.justificativa_modo,
+      feito_em: new Date().toISOString()
+    }
+  }).eq('id', t.id).select().single();
+  if (up.error) return falhou(up.error);
+
+  Object.assign(t, up.data);
+  state.conceitos[t.id] = (ins.data || []).sort((a, b) => a.ordem - b.ordem);
+  state.diag = null;
+  render();
+  toast('Sua trilha está pronta!');
+}
+
+/* Ditado por voz (quando o navegador oferece) */
+let ditado = null;
+function alternarDitado() {
+  if (ditado) { pararDitado(); renderMain(); return; }
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR || !state.diag) { toast('Ditado indisponível aqui. Use o microfone do teclado.', true); return; }
+  const rec = new SR();
+  rec.lang = 'pt-BR'; rec.continuous = true; rec.interimResults = false;
+  rec.onresult = (ev) => {
+    const d = state.diag; if (!d || !d.respostas[d.idx]) return;
+    let novo = '';
+    for (let k = ev.resultIndex; k < ev.results.length; k++) if (ev.results[k].isFinal) novo += ev.results[k][0].transcript;
+    if (!novo) return;
+    const r = d.respostas[d.idx];
+    r.raciocinio = (r.raciocinio ? r.raciocinio.trim() + ' ' : '') + novo.trim();
+    const ta = $('#dRac'); if (ta) ta.value = r.raciocinio;
+  };
+  rec.onerror = (ev) => { if (ev.error === 'not-allowed') toast('Permita o uso do microfone para ditar.', true); };
+  rec.onend = () => { if (ditado === rec) { ditado = null; renderMain(); } };
+  try { rec.start(); ditado = rec; renderMain(); } catch { toast('Não foi possível iniciar o ditado.', true); }
+}
+function pararDitado() {
+  if (!ditado) return;
+  const r = ditado; ditado = null;
+  try { r.stop(); } catch {}
 }
 
 /* =========================================================
@@ -943,7 +1359,7 @@ function bindEvents() {
 
   $('#tabs').addEventListener('click', e => {
     const b = e.target.closest('.tab'); if (!b) return;
-    state.tab = b.dataset.tab; renderTabs(); renderMain();
+    pararDitado(); state.tab = b.dataset.tab; renderTabs(); renderMain();
   });
 
   $('#trackList').addEventListener('click', e => {
@@ -964,8 +1380,34 @@ function bindEvents() {
   const openNew = () => { closeSidebar(); $('#trackForm').reset(); openModal('#trackModal'); };
   $('#newTrackBtn').addEventListener('click', openNew);
   $('#main').addEventListener('click', e => {
-    if (e.target.closest('[data-new]')) openNew();
-    const m = e.target.closest('[data-mode]'); if (m) setMode(m.dataset.mode);
+    const alvo = (sel) => e.target.closest(sel);
+    if (alvo('[data-new]')) return openNew();
+    const m = alvo('[data-mode]'); if (m) return setMode(m.dataset.mode);
+    if (alvo('[data-diag-start]')) return startDiagnostico(state.selectedId);
+    if (alvo('[data-diag-redo]')) {
+      if (confirm('Refazer o diagnóstico? O plano atual desta trilha será substituído por um novo.')) startDiagnostico(state.selectedId);
+      return;
+    }
+    const d = state.diag; if (!d) return;
+    if (alvo('[data-diag-cancel]')) { pararDitado(); state.diag = null; return renderMain(); }
+    if (alvo('[data-diag-retry]')) {
+      if (d.etapa === 'perguntas') return startDiagnostico(d.trilhaId);
+      if (d.etapa === 'plano') return gerarPlano();
+      return salvarPlano();
+    }
+    const r = d.respostas[d.idx];
+    const o = alvo('[data-opt]');
+    if (o) { const j = +o.dataset.opt; r.opcao = j; r.resposta = d.perguntas[d.idx].opcoes[j]; return renderMain(); }
+    const c = alvo('[data-conf]'); if (c) { r.confianca = c.dataset.conf; return renderMain(); }
+    if (alvo('[data-mic]')) return alternarDitado();
+    if (alvo('[data-diag-prev]')) { pararDitado(); d.idx--; return renderMain(); }
+    if (alvo('[data-diag-naosei]')) return diagAvancar(true);
+    if (alvo('[data-diag-next]')) return diagAvancar(false);
+  });
+  $('#main').addEventListener('input', e => {
+    const d = state.diag; if (!d || !d.respostas[d.idx]) return;
+    if (e.target.id === 'dResp') d.respostas[d.idx].resposta = e.target.value;
+    if (e.target.id === 'dRac') d.respostas[d.idx].raciocinio = e.target.value;
   });
 
   $('#trackForm').addEventListener('submit', createTrack);
