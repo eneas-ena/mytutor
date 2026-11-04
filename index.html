@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MyTutor</title>
+<meta name="description" content="MyTutor — tutor pessoal com IA">
+<meta name="theme-color" content="#0b1120">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MyTutor">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+/* =========================================================
+   TEMAS
+   ========================================================= */
+:root, :root[data-theme="dark"] {
+  --bg: #0b1120;
+  --bg-2: #0e1628;
+  --panel: #111a2e;
+  --panel-2: #142039;
+  --line: #1e2b47;
+  --line-2: #26365a;
+  --text: #e6ecf7;
+  --text-2: #a9b5cc;
+  --text-3: #6f7d99;
+  --blue: #3b82f6;
+  --blue-2: #2563eb;
+  --cyan: #22d3ee;
+  --green: #34d399;
+  --amber: #f59e0b;
+  --red: #f87171;
+  --grad: linear-gradient(90deg, #3b82f6 0%, #22d3ee 55%, #a5b4fc 100%);
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --chip-bg: rgba(34,211,238,.08);
+}
+:root[data-theme="light"] {
+  --bg: #f3f6fb;
+  --bg-2: #eaf0f8;
+  --panel: #ffffff;
+  --panel-2: #f6f9fd;
+  --line: #dbe3ef;
+  --line-2: #c9d5e6;
+  --text: #0f1b33;
+  --text-2: #42506b;
+  --text-3: #7a879e;
+  --blue: #2563eb;
+  --blue-2: #1d4ed8;
+  --cyan: #0891b2;
+  --green: #059669;
+  --amber: #b45309;
+  --red: #dc2626;
+  --grad: linear-gradient(90deg, #2563eb 0%, #0891b2 55%, #6366f1 100%);
+  --shadow: 0 10px 30px rgba(15,27,51,.08);
+  --chip-bg: rgba(8,145,178,.08);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+button, input, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+.mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+.hidden { display: none !important; }
+
+/* Ícones */
+.ic { width: 18px; height: 18px; flex: none; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Botões */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border: 1px solid var(--line-2); background: var(--panel-2); color: var(--text);
+  padding: 10px 16px; border-radius: 12px; font-weight: 600; transition: .15s;
+}
+.btn:hover { border-color: var(--cyan); }
+.btn-primary { background: var(--blue-2); border-color: var(--blue-2); color: #fff; }
+.btn-primary:hover { background: var(--blue); border-color: var(--blue); }
+.btn-danger { background: transparent; border-color: var(--red); color: var(--red); }
+.btn-ghost { background: transparent; border-color: transparent; }
+.icon-btn {
+  width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 12px; border: 1px solid var(--line); background: var(--panel); color: var(--text-2);
+}
+.icon-btn:hover { color: var(--text); border-color: var(--line-2); }
+
+.version-badge {
+  font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--text-3);
+  border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; white-space: nowrap;
+}
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+#login {
+  min-height: 100%; display: flex; flex-direction: column;
+  padding: 24px clamp(16px, 5vw, 72px) 32px;
+}
+.login-top { display: flex; justify-content: flex-end; gap: 10px; align-items: center; }
+.login-grid {
+  flex: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px, 5vw, 80px);
+  align-items: center; max-width: 1280px; width: 100%; margin: 0 auto;
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 999px;
+  border: 1px solid var(--line-2); background: var(--chip-bg); color: var(--cyan);
+  font-weight: 700; letter-spacing: .12em; font-size: 12px; text-transform: uppercase;
+}
+.hero h1 {
+  font-size: clamp(40px, 6.2vw, 84px); line-height: 1.02; letter-spacing: -.035em;
+  margin: 26px 0 22px; font-weight: 800;
+}
+.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero p { font-size: clamp(16px, 1.5vw, 20px); color: var(--text-2); max-width: 620px; margin: 0 0 34px; }
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.feature {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px;
+}
+.feature .ic { width: 26px; height: 26px; color: var(--cyan); }
+.feature:nth-child(2) .ic { color: var(--blue); }
+.feature:nth-child(3) .ic { color: var(--amber); }
+.feature h3 { margin: 12px 0 6px; font-size: 16px; }
+.feature p { margin: 0; font-size: 14px; color: var(--text-2); }
+
+.login-card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 24px; padding: 34px;
+  box-shadow: var(--shadow);
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-logo {
+  width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center;
+  background: linear-gradient(135deg, #3b82f6, #22d3ee); color: #fff; flex: none;
+  box-shadow: 0 6px 20px rgba(34,211,238,.25);
+}
+.brand-logo .ic { width: 28px; height: 28px; }
+.brand-name { font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
+.brand-sub { color: var(--cyan); font-size: 14px; font-weight: 500; }
+.login-card .lead { color: var(--text-2); margin: 26px 0 22px; }
+.btn-google {
+  width: 100%; padding: 15px 18px; font-size: 16px; border-radius: 14px;
+  background: var(--blue-2); border: none; color: #fff; font-weight: 700;
+  box-shadow: 0 8px 24px rgba(37,99,235,.35);
+}
+.btn-google:hover { background: var(--blue); }
+.g-mark { width: 22px; height: 22px; background: #fff; border-radius: 50%; display: grid; place-items: center; }
+.login-note { margin-top: 22px; text-align: center; font-size: 13px; color: var(--text-3); }
+.login-error { margin-top: 14px; color: var(--red); font-size: 14px; text-align: center; }
+
+/* =========================================================
+   APP
+   ========================================================= */
+#app { height: 100%; display: grid; grid-template-rows: auto 1fr; }
+.topbar {
+  display: flex; align-items: center; gap: 16px; padding: 12px 20px;
+  border-bottom: 1px solid var(--line); background: var(--bg-2);
+  padding-top: max(12px, env(safe-area-inset-top));
+}
+.topbar .brand-logo { width: 40px; height: 40px; border-radius: 12px; }
+.topbar .brand-logo .ic { width: 22px; height: 22px; }
+.topbar .brand-name { font-size: 20px; }
+.chip-ai {
+  font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: .08em;
+  color: var(--cyan); background: var(--chip-bg); border: 1px solid var(--line-2);
+  padding: 3px 8px; border-radius: 6px;
+}
+.tabs { display: flex; gap: 6px; margin: 0 auto; overflow-x: auto; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  padding: 9px 14px; border-radius: 12px; border: 1px solid transparent;
+  background: transparent; color: var(--text-2); font-weight: 600;
+}
+.tab:hover { color: var(--text); }
+.tab.active { background: var(--blue-2); color: #fff; box-shadow: 0 4px 16px rgba(37,99,235,.3); }
+.top-actions { display: flex; align-items: center; gap: 8px; }
+#menuBtn { display: none; }
+
+.layout { display: grid; grid-template-columns: 330px 1fr; min-height: 0; }
+.sidebar {
+  border-right: 1px solid var(--line); background: var(--bg-2);
+  display: flex; flex-direction: column; min-height: 0;
+}
+.side-head { padding: 18px 18px 12px; border-bottom: 1px solid var(--line); }
+.side-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.side-title .label {
+  display: flex; align-items: center; gap: 8px; color: var(--cyan);
+  font-weight: 700; font-size: 13px; letter-spacing: .1em;
+}
+.side-title .count { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--text-3); }
+.search {
+  display: flex; align-items: center; gap: 8px; padding: 9px 12px; border-radius: 10px;
+  border: 1px solid var(--line-2); background: var(--panel); color: var(--text-3);
+}
+.search input { border: none; outline: none; background: transparent; width: 100%; color: var(--text); }
+.btn-new { width: 100%; margin-top: 10px; }
+.track-list { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.track {
+  position: relative; text-align: left; width: 100%;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 14px 12px;
+  transition: .15s;
+}
+.track:hover { border-color: var(--line-2); }
+.track.selected { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); background: var(--panel-2); }
+.track-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.track-area { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); }
+.status {
+  display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600;
+  padding: 2px 8px; border-radius: 6px; border: 1px solid; white-space: nowrap;
+}
+.st-nova { color: var(--text-2); border-color: var(--line-2); }
+.st-em_curso { color: var(--cyan); border-color: rgba(34,211,238,.35); }
+.st-revisao { color: var(--amber); border-color: rgba(245,158,11,.4); }
+.st-concluida { color: var(--green); border-color: rgba(52,211,153,.4); }
+.track-title { font-weight: 700; margin: 6px 0 10px; padding-right: 26px; }
+.track-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-3); }
+.bar { height: 6px; border-radius: 99px; background: var(--line); margin-top: 6px; overflow: hidden; }
+.bar > span { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+.bar.done > span { background: var(--green); }
+.track-del {
+  position: absolute; right: 10px; bottom: 30px; width: 28px; height: 28px; border-radius: 8px;
+  display: grid; place-items: center; border: 1px solid transparent; background: transparent; color: var(--text-3);
+}
+.track-del:hover { color: var(--red); border-color: var(--line-2); }
+.track-del .ic { width: 15px; height: 15px; }
+.empty-side { color: var(--text-3); font-size: 14px; text-align: center; padding: 28px 12px; }
+
+.side-foot { padding: 12px; border-top: 1px solid var(--line); }
+.foot-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.foot-row { display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
+.foot-row .val { color: var(--cyan); font-family: "JetBrains Mono", monospace; }
+.foot-sub { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+
+.main { overflow-y: auto; padding: 24px clamp(16px, 3vw, 36px) 40px; min-width: 0; }
+.page-head h2 { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 26px; letter-spacing: -.02em; }
+.page-head h2 .ic { width: 26px; height: 26px; color: var(--cyan); }
+.page-head p { margin: 4px 0 22px; color: var(--text-2); }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+.empty-main { text-align: center; padding: 56px 22px; }
+.empty-main .ic { width: 44px; height: 44px; color: var(--cyan); }
+.empty-main h3 { margin: 14px 0 6px; font-size: 20px; }
+.empty-main p { margin: 0 auto 20px; color: var(--text-2); max-width: 460px; }
+
+.lousa-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.lousa-head .brand-logo { width: 46px; height: 46px; }
+.lousa-label { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--cyan); }
+.lousa-title { font-size: 22px; font-weight: 800; letter-spacing: -.01em; }
+.modes { margin-left: auto; display: inline-flex; background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; padding: 3px; }
+.modes button { border: none; background: transparent; color: var(--text-2); padding: 7px 12px; border-radius: 9px; font-weight: 600; font-size: 14px; }
+.modes button.on { background: var(--blue-2); color: #fff; }
+.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+.info { background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.info .k { font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--cyan); text-transform: uppercase; }
+.info:nth-child(2) .k { color: var(--blue); }
+.info:nth-child(3) .k { color: var(--amber); }
+.info .v { margin-top: 4px; color: var(--text); font-size: 14px; word-break: break-word; }
+.soon {
+  margin-top: 16px; display: flex; gap: 12px; align-items: flex-start;
+  background: var(--chip-bg); border: 1px dashed var(--line-2); border-radius: 14px; padding: 14px 16px; color: var(--text-2);
+}
+.soon .ic { color: var(--cyan); margin-top: 2px; }
+.soon b { color: var(--text); }
+
+.future-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.future { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+.future .ic { color: var(--cyan); width: 22px; height: 22px; }
+.future h4 { margin: 10px 0 4px; }
+.future p { margin: 0; font-size: 14px; color: var(--text-2); }
+.stage-tag {
+  display: inline-block; margin-top: 10px; font-family: "JetBrains Mono", monospace; font-size: 11px;
+  color: var(--amber); border: 1px solid rgba(245,158,11,.4); border-radius: 6px; padding: 2px 7px;
+}
+
+/* Menu de ajustes */
+.dropdown {
+  position: absolute; right: 16px; top: 64px; z-index: 40; width: 270px;
+  background: var(--panel); border: 1px solid var(--line-2); border-radius: 16px; box-shadow: var(--shadow); padding: 8px;
+}
+.dd-user { padding: 10px 12px 12px; border-bottom: 1px solid var(--line); margin-bottom: 6px; }
+.dd-user .n { font-weight: 700; }
+.dd-user .e { font-size: 13px; color: var(--text-3); word-break: break-all; }
+.dd-item {
+  width: 100%; display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px;
+  border: none; background: transparent; text-align: left; color: var(--text);
+}
+.dd-item:hover { background: var(--panel-2); }
+.dd-item.danger { color: var(--red); }
+.dd-ver { padding: 8px 12px 4px; font-size: 12px; color: var(--text-3); font-family: "JetBrains Mono", monospace; }
+
+/* Modal */
+.overlay {
+  position: fixed; inset: 0; z-index: 60; background: rgba(5,10,20,.6); backdrop-filter: blur(3px);
+  display: grid; place-items: center; padding: 16px;
+}
+.modal { width: 100%; max-width: 480px; background: var(--panel); border: 1px solid var(--line-2); border-radius: 20px; padding: 24px; box-shadow: var(--shadow); }
+.modal h3 { margin: 0 0 4px; font-size: 20px; }
+.modal .sub { margin: 0 0 18px; color: var(--text-2); font-size: 14px; }
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 13px; font-weight: 600; color: var(--text-2); margin-bottom: 6px; }
+.field input, .field textarea, .field select {
+  width: 100%; padding: 11px 13px; border-radius: 12px; border: 1px solid var(--line-2);
+  background: var(--bg-2); outline: none; resize: vertical;
+}
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--cyan); }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; }
+
+/* Aviso de nova versão */
+.update-bar {
+  position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 80;
+  display: flex; align-items: center; gap: 14px; padding: 12px 14px 12px 18px;
+  background: var(--panel); border: 1px solid var(--cyan); border-radius: 16px; box-shadow: var(--shadow);
+  max-width: calc(100% - 24px);
+}
+.update-bar span { font-size: 14px; }
+
+/* Toast */
+#toast {
+  position: fixed; left: 50%; top: 18px; transform: translateX(-50%); z-index: 90;
+  background: var(--panel); border: 1px solid var(--line-2); border-radius: 12px; padding: 11px 16px;
+  box-shadow: var(--shadow); font-size: 14px; max-width: calc(100% - 24px); text-align: center;
+}
+#toast.err { border-color: var(--red); color: var(--red); }
+
+.loading { display: grid; place-items: center; height: 100%; color: var(--text-3); }
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+@media (max-width: 1100px) {
+  .tab .tab-text { display: none; }
+  .tab { padding: 9px 11px; }
+}
+@media (max-width: 900px) {
+  .login-grid { grid-template-columns: 1fr; padding-top: 18px; }
+  .features { grid-template-columns: 1fr; }
+  .layout { grid-template-columns: 1fr; }
+  #menuBtn { display: inline-flex; }
+  .sidebar {
+    position: fixed; z-index: 50; top: 0; bottom: 0; left: 0; width: min(330px, 88vw);
+    transform: translateX(-102%); transition: transform .22s ease; box-shadow: var(--shadow);
+    padding-top: env(safe-area-inset-top);
+  }
+  .sidebar.open { transform: none; }
+  .scrim { position: fixed; inset: 0; z-index: 45; background: rgba(5,10,20,.5); }
+  .info-grid { grid-template-columns: 1fr; }
+  .topbar .brand-name, .topbar .chip-ai, .topbar .version-badge { display: none; }
+  .modes { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- Biblioteca de ícones -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/><path d="M19 3v4M17 5h4"/></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9.5 3a3 3 0 0 0-3 3 3 3 0 0 0-2.5 4.5A3 3 0 0 0 5 16a3 3 0 0 0 4.5 3V3Z"/><path d="M14.5 3a3 3 0 0 1 3 3 3 3 0 0 1 2.5 4.5A3 3 0 0 1 19 16a3 3 0 0 1-4.5 3V3Z"/></symbol>
+    <symbol id="i-graph" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-2h14v2"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c4 0 7-3 7-7 0-4-3-6-4-9-1 2-2 3-4 3 0-2 0-4-1-6-3 3-5 7-5 12 0 4 3 7 7 7Z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2Z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7Z"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16"/><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8"/><path d="M21 3v5h-5M3 21v-5h5"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-cards" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="14" rx="2"/><path d="M8 2h12a2 2 0 0 1 2 2v12"/></symbol>
+  </defs>
+</svg>
+
+<div id="boot" class="loading">Carregando…</div>
+
+<!-- =========================== LOGIN =========================== -->
+<section id="login" class="hidden">
+  <div class="login-top">
+    <span class="version-badge" data-version></span>
+    <button class="icon-btn" data-theme-toggle title="Alternar modo claro/escuro"></button>
+  </div>
+  <div class="login-grid">
+    <div class="hero">
+      <span class="badge"><svg class="ic"><use href="#i-spark"/></svg>Seu tutor pessoal com IA</span>
+      <h1>Aprenda qualquer assunto com um <span class="grad-text">tutor que se adapta a você.</span></h1>
+      <p>O MyTutor descobre o que você já sabe, monta o caminho até o seu objetivo, ensina passo a passo e programa as revisões no momento certo para você não esquecer.</p>
+      <div class="features">
+        <div class="feature"><svg class="ic"><use href="#i-brain"/></svg><h3>Método Socrático</h3><p>Perguntas sob medida que fazem você raciocinar, não só ler.</p></div>
+        <div class="feature"><svg class="ic"><use href="#i-graph"/></svg><h3>Mapa de Conhecimento</h3><p>Veja como cada conceito se liga ao próximo.</p></div>
+        <div class="feature"><svg class="ic"><use href="#i-flame"/></svg><h3>Revisão Espaçada</h3><p>Lembretes de revisão antes que o conteúdo se perca.</p></div>
+      </div>
+    </div>
+    <div class="login-card">
+      <div class="brand">
+        <div class="brand-logo"><svg class="ic"><use href="#i-cap"/></svg></div>
+        <div><div class="brand-name">MyTutor</div><div class="brand-sub">Ambiente de Ensino Individualizado</div></div>
+      </div>
+      <p class="lead">Entre com sua conta Google para continuar sua jornada de estudos.</p>
+      <button class="btn btn-google" id="googleBtn">
+        <span class="g-mark"><svg width="14" height="14" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.3-.4-3.5Z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7Z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44Z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.3-.4-3.5Z"/></svg></span>
+        Entrar com Google
+      </button>
+      <div class="login-error hidden" id="loginError"></div>
+      <div class="login-note">Seus estudos ficam guardados na sua conta e só você tem acesso a eles.</div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== APP =========================== -->
+<section id="app" class="hidden">
+  <header class="topbar">
+    <button class="icon-btn" id="menuBtn" title="Trilhas"><svg class="ic"><use href="#i-menu"/></svg></button>
+    <div class="brand">
+      <div class="brand-logo"><svg class="ic"><use href="#i-cap"/></svg></div>
+      <div class="brand-name">MyTutor</div>
+      <span class="chip-ai">AI TUTOR</span>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="aula"><svg class="ic"><use href="#i-book"/></svg><span class="tab-text">Sala de Aula</span></button>
+      <button class="tab" data-tab="progresso"><svg class="ic"><use href="#i-grid"/></svg><span class="tab-text">Progresso</span></button>
+      <button class="tab" data-tab="mapa"><svg class="ic"><use href="#i-graph"/></svg><span class="tab-text">Mapa de Conhecimento</span></button>
+      <button class="tab" data-tab="agenda"><svg class="ic"><use href="#i-cal"/></svg><span class="tab-text">Agenda</span></button>
+      <button class="tab" data-tab="metas"><svg class="ic"><use href="#i-target"/></svg><span class="tab-text">Metas &amp; XP</span></button>
+    </nav>
+    <div class="top-actions">
+      <span class="version-badge" data-version></span>
+      <button class="icon-btn" data-theme-toggle title="Alternar modo claro/escuro"></button>
+      <button class="icon-btn" id="gearBtn" title="Ajustes"><svg class="ic"><use href="#i-gear"/></svg></button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="side-head">
+        <div class="side-title">
+          <span class="label"><svg class="ic"><use href="#i-layers"/></svg>TRILHAS DE ESTUDO</span>
+          <span class="count" id="trackCount">0 trilhas</span>
+        </div>
+        <label class="search"><svg class="ic"><use href="#i-search"/></svg><input id="searchInput" type="search" placeholder="Pesquisar assuntos…"></label>
+        <button class="btn btn-primary btn-new" id="newTrackBtn"><svg class="ic"><use href="#i-plus"/></svg>Nova trilha</button>
+      </div>
+      <div class="track-list" id="trackList"></div>
+      <div class="side-foot">
+        <div class="foot-card">
+          <div class="foot-row"><span style="display:flex;gap:8px;align-items:center"><svg class="ic" style="color:var(--cyan)"><use href="#i-clock"/></svg>Tempo estudado</span><span class="val" id="totalTime">0h 00m</span></div>
+          <div class="foot-sub">Somado a partir das suas sessões de estudo</div>
+        </div>
+      </div>
+    </aside>
+    <div class="scrim hidden" id="scrim"></div>
+
+    <main class="main" id="main"></main>
+  </div>
+</section>
+
+<!-- Menu de ajustes -->
+<div class="dropdown hidden" id="dropdown">
+  <div class="dd-user"><div class="n" id="ddName"></div><div class="e" id="ddEmail"></div></div>
+  <button class="dd-item" id="ddUpdate"><svg class="ic"><use href="#i-refresh"/></svg>Atualizar app</button>
+  <button class="dd-item danger" id="ddLogout"><svg class="ic"><use href="#i-out"/></svg>Sair</button>
+  <div class="dd-ver" data-version-long></div>
+</div>
+
+<!-- Modal nova trilha -->
+<div class="overlay hidden" id="trackModal">
+  <form class="modal" id="trackForm" autocomplete="off">
+    <h3>Nova trilha de estudo</h3>
+    <p class="sub">Nesta etapa a trilha é criada só com os dados básicos. O diagnóstico e o plano com IA chegam na próxima etapa.</p>
+    <div class="field"><label for="fTitulo">O que você quer aprender?</label><input id="fTitulo" required maxlength="140" placeholder="Ex.: Fundamentos de Redes Neurais"></div>
+    <div class="field"><label for="fArea">Área</label>
+      <input id="fArea" list="areas" maxlength="40" placeholder="Ex.: Teologia">
+      <datalist id="areas">
+        <option>Teologia</option><option>Bíblia</option><option>Homilética</option><option>IA &amp; Dados</option>
+        <option>Tecnologia</option><option>Matemática</option><option>Idiomas</option><option>História</option>
+        <option>Ciências</option><option>Liderança</option><option>Outros</option>
+      </datalist>
+    </div>
+    <div class="field"><label for="fObjetivo">Objetivo (opcional)</label><textarea id="fObjetivo" rows="3" maxlength="500" placeholder="Ex.: Entender o suficiente para explicar numa aula do curso teológico"></textarea></div>
+    <div class="modal-actions">
+      <button type="button" class="btn" data-close>Cancelar</button>
+      <button type="submit" class="btn btn-primary" id="saveTrackBtn">Criar trilha</button>
+    </div>
+  </form>
+</div>
+
+<!-- Modal confirmar exclusão -->
+<div class="overlay hidden" id="delModal">
+  <div class="modal">
+    <h3>Apagar trilha?</h3>
+    <p class="sub" id="delText"></p>
+    <div class="modal-actions">
+      <button class="btn" data-close>Cancelar</button>
+      <button class="btn btn-danger" id="confirmDelBtn">Apagar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Aviso de nova versão -->
+<div class="update-bar hidden" id="updateBar">
+  <span id="updateText">Nova versão disponível.</span>
+  <button class="btn btn-primary" id="updateNowBtn"><svg class="ic"><use href="#i-refresh"/></svg>Atualizar agora</button>
+</div>
+
+<div id="toast" class="hidden"></div>
+
+<script>
+/* =========================================================
+   CONFIGURAÇÃO
+   ========================================================= */
+const APP_VERSION = '1.0.0';
+const SUPABASE_URL = 'https://ghjbljypxksubmcsvaig.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_qXCYqg1WdmelY9D1mptZXg_U8NdoKby';
+const DB_SCHEMA = 'mytutor';
+
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+  db: { schema: DB_SCHEMA },
+  auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: 'pkce' }
+});
+
+/* =========================================================
+   ESTADO
+   ========================================================= */
+const state = {
+  user: null,
+  trilhas: [],
+  selectedId: null,
+  tab: 'aula',
+  search: '',
+  totalSeg: 0,
+  pendingDelete: null
+};
+
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const icon = (id, extra = '') => `<svg class="ic" ${extra}><use href="#${id}"/></svg>`;
+
+const STATUS = {
+  nova:      { label: 'Nova',      ic: 'i-spark' },
+  em_curso:  { label: 'Em curso',  ic: 'i-book' },
+  revisao:   { label: 'Revisão',   ic: 'i-clock' },
+  concluida: { label: 'Concluída', ic: 'i-target' }
+};
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+let toastTimer;
+function toast(msg, isErr = false) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.toggle('err', isErr);
+  t.classList.remove('hidden');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.add('hidden'), isErr ? 6000 : 2800);
+}
+
+function dbErrorMessage(err) {
+  const m = (err && (err.message || err.details || '')) + '';
+  if (/schema must be one of|Invalid schema|PGRST106/i.test(m)) return 'O schema "mytutor" ainda não está exposto no Supabase (Data API → Exposed schemas).';
+  if (/permission denied/i.test(m)) return 'Permissão negada no banco. Confira se o script SQL da Etapa 1 rodou inteiro.';
+  if (/relation .* does not exist|PGRST205|Could not find the table/i.test(m)) return 'Tabelas não encontradas. Rode o script SQL da Etapa 1.';
+  if (/Failed to fetch|NetworkError/i.test(m)) return 'Sem conexão com o servidor. Verifique a internet.';
+  return 'Erro: ' + m;
+}
+
+/* =========================================================
+   TEMA (sol/lua)
+   ========================================================= */
+function getTheme() {
+  try { return localStorage.getItem('mytutor-theme') || 'dark'; } catch { return 'dark'; }
+}
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', t === 'dark' ? '#0b1120' : '#f3f6fb');
+  $$('[data-theme-toggle]').forEach(b => {
+    b.innerHTML = t === 'dark' ? icon('i-sun') : icon('i-moon');
+    b.title = t === 'dark' ? 'Mudar para modo claro' : 'Mudar para modo escuro';
+  });
+}
+function toggleTheme() {
+  const t = getTheme() === 'dark' ? 'light' : 'dark';
+  try { localStorage.setItem('mytutor-theme', t); } catch {}
+  applyTheme(t);
+}
+
+/* =========================================================
+   VERSÃO E ATUALIZAÇÃO
+   ========================================================= */
+function showVersion() {
+  $$('[data-version]').forEach(el => el.textContent = 'v' + APP_VERSION);
+  $$('[data-version-long]').forEach(el => el.textContent = 'MyTutor · versão ' + APP_VERSION);
+}
+
+async function checkForUpdate(manual = false) {
+  try {
+    const url = location.pathname + '?check=' + Date.now();
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const html = await res.text();
+    const m = html.match(/const APP_VERSION\s*=\s*['"]([^'"]+)['"]/);
+    if (m && m[1] !== APP_VERSION) {
+      $('#updateText').textContent = `Nova versão disponível: v${m[1]} (você está na v${APP_VERSION}).`;
+      $('#updateBar').classList.remove('hidden');
+      return true;
+    }
+    if (manual) toast('Você já está na versão mais recente (v' + APP_VERSION + ').');
+    return false;
+  } catch (e) {
+    if (manual) toast('Não foi possível verificar agora. Tente novamente.', true);
+    return false;
+  }
+}
+
+async function hardRefresh() {
+  toast('Atualizando…');
+  try {
+    if ('serviceWorker' in navigator) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map(r => r.unregister()));
+    }
+    if (window.caches) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => caches.delete(k)));
+    }
+  } catch {}
+  location.replace(location.pathname + '?v=' + Date.now());
+}
+
+function manualUpdate() {
+  closeDropdown();
+  hardRefresh();
+}
+
+/* =========================================================
+   AUTENTICAÇÃO
+   ========================================================= */
+async function loginGoogle() {
+  $('#loginError').classList.add('hidden');
+  const redirectTo = location.origin + location.pathname;
+  const { error } = await sb.auth.signInWithOAuth({ provider: 'google', options: { redirectTo } });
+  if (error) {
+    $('#loginError').textContent = 'Não foi possível entrar: ' + error.message;
+    $('#loginError').classList.remove('hidden');
+  }
+}
+
+async function logout() {
+  closeDropdown();
+  await sb.auth.signOut();
+  state.user = null; state.trilhas = []; state.selectedId = null;
+  showLogin();
+}
+
+function cleanUrl() {
+  if (location.search.includes('code=') || location.hash.includes('access_token')) {
+    history.replaceState(null, '', location.pathname);
+  }
+}
+
+function showLogin() {
+  $('#boot').classList.add('hidden');
+  $('#app').classList.add('hidden');
+  $('#login').classList.remove('hidden');
+}
+
+async function showApp(user) {
+  state.user = user;
+  const meta = user.user_metadata || {};
+  $('#ddName').textContent = meta.full_name || meta.name || 'Usuário';
+  $('#ddEmail').textContent = user.email || '';
+  $('#boot').classList.add('hidden');
+  $('#login').classList.add('hidden');
+  $('#app').classList.remove('hidden');
+  render();
+  await loadData();
+}
+
+/* =========================================================
+   DADOS
+   ========================================================= */
+async function loadData() {
+  const { data, error } = await sb.from('trilhas')
+    .select('*')
+    .order('updated_at', { ascending: false });
+  if (error) { toast(dbErrorMessage(error), true); return; }
+  state.trilhas = data || [];
+  if (state.selectedId && !state.trilhas.find(t => t.id === state.selectedId)) state.selectedId = null;
+  if (!state.selectedId && state.trilhas.length) state.selectedId = state.trilhas[0].id;
+
+  const s = await sb.from('sessoes').select('duracao_seg');
+  state.totalSeg = (!s.error && s.data) ? s.data.reduce((a, r) => a + (r.duracao_seg || 0), 0) : 0;
+
+  render();
+}
+
+async function createTrack(e) {
+  e.preventDefault();
+  const titulo = $('#fTitulo').value.trim();
+  if (!titulo) return;
+  const btn = $('#saveTrackBtn');
+  btn.disabled = true; btn.textContent = 'Salvando…';
+  const { data, error } = await sb.from('trilhas').insert({
+    titulo,
+    area: $('#fArea').value.trim() || null,
+    objetivo: $('#fObjetivo').value.trim() || null
+  }).select().single();
+  btn.disabled = false; btn.textContent = 'Criar trilha';
+  if (error) { toast(dbErrorMessage(error), true); return; }
+  state.trilhas.unshift(data);
+  state.selectedId = data.id;
+  closeModal('#trackModal');
+  $('#trackForm').reset();
+  toast('Trilha criada.');
+  render();
+}
+
+function askDelete(id) {
+  const t = state.trilhas.find(x => x.id === id);
+  if (!t) return;
+  state.pendingDelete = id;
+  $('#delText').textContent = `"${t.titulo}" e tudo o que estiver ligado a ela (conceitos, aulas e cartões) serão apagados. Isso não pode ser desfeito.`;
+  openModal('#delModal');
+}
+
+async function confirmDelete() {
+  const id = state.pendingDelete;
+  if (!id) return;
+  const btn = $('#confirmDelBtn');
+  btn.disabled = true;
+  const { error } = await sb.from('trilhas').delete().eq('id', id);
+  btn.disabled = false;
+  if (error) { toast(dbErrorMessage(error), true); return; }
+  state.trilhas = state.trilhas.filter(t => t.id !== id);
+  if (state.selectedId === id) state.selectedId = state.trilhas[0]?.id || null;
+  state.pendingDelete = null;
+  closeModal('#delModal');
+  toast('Trilha apagada.');
+  render();
+}
+
+async function setMode(modo) {
+  const t = currentTrack();
+  if (!t || t.modo_preferido === modo) return;
+  const prev = t.modo_preferido;
+  t.modo_preferido = modo;
+  renderMain();
+  const { error } = await sb.from('trilhas').update({ modo_preferido: modo }).eq('id', t.id);
+  if (error) { t.modo_preferido = prev; renderMain(); toast(dbErrorMessage(error), true); }
+}
+
+/* =========================================================
+   RENDERIZAÇÃO
+   ========================================================= */
+function currentTrack() { return state.trilhas.find(t => t.id === state.selectedId) || null; }
+
+function fmtTime(seg) {
+  const h = Math.floor(seg / 3600), m = Math.floor((seg % 3600) / 60);
+  return `${h}h ${String(m).padStart(2, '0')}m`;
+}
+
+function render() {
+  renderSidebar();
+  renderTabs();
+  renderMain();
+}
+
+function renderSidebar() {
+  const q = state.search.toLowerCase();
+  const list = state.trilhas.filter(t => !q || (t.titulo + ' ' + (t.area || '')).toLowerCase().includes(q));
+  const n = state.trilhas.length;
+  $('#trackCount').textContent = n === 1 ? '1 trilha' : `${n} trilhas`;
+  $('#totalTime').textContent = fmtTime(state.totalSeg);
+
+  if (!n) {
+    $('#trackList').innerHTML = `<div class="empty-side">Nenhuma trilha ainda.<br>Toque em <b>Nova trilha</b> para começar.</div>`;
+    return;
+  }
+  if (!list.length) {
+    $('#trackList').innerHTML = `<div class="empty-side">Nada encontrado para "${esc(state.search)}".</div>`;
+    return;
+  }
+  $('#trackList').innerHTML = list.map(t => {
+    const st = STATUS[t.status] || STATUS.nova;
+    return `
+      <div class="track ${t.id === state.selectedId ? 'selected' : ''}" data-id="${t.id}" role="button" tabindex="0">
+        <div class="track-top">
+          <span class="track-area">${esc(t.area || 'Geral')}</span>
+          <span class="status st-${t.status}">${icon(st.ic, 'style="width:12px;height:12px"')}${st.label}</span>
+        </div>
+        <div class="track-title">${esc(t.titulo)}</div>
+        <div class="track-meta"><span>Domínio</span><span>${t.dominio}%</span></div>
+        <div class="bar ${t.dominio >= 100 ? 'done' : ''}"><span style="width:${t.dominio}%"></span></div>
+        <button class="track-del" data-del="${t.id}" title="Apagar trilha">${icon('i-trash')}</button>
+      </div>`;
+  }).join('');
+}
+
+function renderTabs() {
+  $$('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === state.tab));
+}
+
+const FUTURE = {
+  progresso: {
+    ic: 'i-grid', title: 'Painel de Progresso',
+    sub: 'Métricas reais calculadas a partir das suas sessões e revisões.',
+    items: [
+      ['i-clock', 'Tempo de estudo', 'Horas por dia e por trilha, somadas das sessões.', 'Etapa 6'],
+      ['i-target', 'Conceitos dominados', 'Quantos conceitos de cada trilha já estão firmes.', 'Etapa 6'],
+      ['i-flame', 'Sequência de estudos', 'Dias seguidos estudando e seu recorde.', 'Etapa 6'],
+      ['i-trend', 'Revisões em dia', 'Quantos cartões estão em dia ou atrasados.', 'Etapa 6']
+    ]
+  },
+  mapa: {
+    ic: 'i-graph', title: 'Mapa de Conhecimento',
+    sub: 'Os conceitos de cada trilha e como um leva ao outro.',
+    items: [
+      ['i-graph', 'Grafo de conceitos', 'Gerado pela IA a partir do diagnóstico, com pré-requisitos.', 'Etapa 2'],
+      ['i-target', 'Situação de cada conceito', 'Dominado, em estudo, disponível ou bloqueado.', 'Etapa 4'],
+      ['i-spark', 'Próxima recomendação', 'O que estudar agora para avançar na trilha.', 'Etapa 4']
+    ]
+  },
+  agenda: {
+    ic: 'i-cal', title: 'Agenda & Ciclo de Revisão',
+    sub: 'Revisões programadas no momento certo para não esquecer.',
+    items: [
+      ['i-cards', 'Cartões de revisão', 'Gerados pela IA ao fim de cada aula.', 'Etapa 5'],
+      ['i-clock', 'Revisões do dia', 'O que precisa ser revisado hoje e o que está atrasado.', 'Etapa 5'],
+      ['i-cal', 'Próximas sessões', 'Calendário das revisões e aulas recomendadas.', 'Etapa 5']
+    ]
+  },
+  metas: {
+    ic: 'i-target', title: 'Metas & XP',
+    sub: 'Metas diárias e conquistas (opcional).',
+    items: [
+      ['i-target', 'Metas diárias', 'Tempo de estudo, revisões e perguntas respondidas.', 'Etapa 7'],
+      ['i-flame', 'Conquistas', 'Marcos de constância e de domínio.', 'Etapa 7']
+    ]
+  }
+};
+
+function renderMain() {
+  const main = $('#main');
+  if (state.tab !== 'aula') {
+    const f = FUTURE[state.tab];
+    main.innerHTML = `
+      <div class="page-head"><h2>${icon(f.ic)}${f.title}</h2><p>${f.sub}</p></div>
+      <div class="future-grid">
+        ${f.items.map(([ic, h, p, etapa]) => `
+          <div class="future">${icon(ic)}<h4>${h}</h4><p>${p}</p><span class="stage-tag">${etapa}</span></div>`).join('')}
+      </div>`;
+    return;
+  }
+
+  const t = currentTrack();
+  if (!t) {
+    main.innerHTML = `
+      <div class="page-head"><h2>${icon('i-book')}Sala de Aula</h2><p>Escolha uma trilha ao lado ou crie uma nova.</p></div>
+      <div class="card empty-main">
+        ${icon('i-spark')}
+        <h3>O que você quer aprender hoje?</h3>
+        <p>Crie uma trilha com o assunto que deseja estudar. Nas próximas etapas, o tutor fará um diagnóstico e montará o caminho até o seu objetivo.</p>
+        <button class="btn btn-primary" data-new>${icon('i-plus')}Nova trilha</button>
+      </div>`;
+    return;
+  }
+
+  const st = STATUS[t.status] || STATUS.nova;
+  const criada = new Date(t.created_at).toLocaleDateString('pt-BR');
+  main.innerHTML = `
+    <div class="card">
+      <div class="lousa-head">
+        <div class="brand-logo">${icon('i-brain')}</div>
+        <div>
+          <div class="lousa-label">LOUSA INTELIGENTE</div>
+          <div class="lousa-title">${esc(t.titulo)}</div>
+        </div>
+        <div class="modes" role="group" aria-label="Modo de ensino">
+          <button class="${t.modo_preferido === 'socratico' ? 'on' : ''}" data-mode="socratico">Método Socrático</button>
+          <button class="${t.modo_preferido === 'direto' ? 'on' : ''}" data-mode="direto">Direto &amp; Prático</button>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info"><div class="k">Área</div><div class="v">${esc(t.area || 'Geral')}</div></div>
+        <div class="info"><div class="k">Situação</div><div class="v">${st.label} · domínio ${t.dominio}%</div></div>
+        <div class="info"><div class="k">Criada em</div><div class="v">${criada}</div></div>
+      </div>
+      ${t.objetivo ? `<div class="info" style="margin-top:12px"><div class="k">Objetivo</div><div class="v">${esc(t.objetivo)}</div></div>` : ''}
+      <div class="soon">
+        ${icon('i-spark')}
+        <div><b>Próximas etapas:</b> o diagnóstico inicial e o plano da trilha gerado pela IA (Etapa 2), e depois a aula com o tutor, com perguntas, exemplos e o campo "como eu pensei" (Etapa 3).</div>
+      </div>
+    </div>`;
+}
+
+/* =========================================================
+   MODAIS, MENU E GAVETA
+   ========================================================= */
+function openModal(sel) { $(sel).classList.remove('hidden'); const f = $(sel).querySelector('input'); if (f) setTimeout(() => f.focus(), 50); }
+function closeModal(sel) { $(sel).classList.add('hidden'); }
+function closeDropdown() { $('#dropdown').classList.add('hidden'); }
+function openSidebar() { $('#sidebar').classList.add('open'); $('#scrim').classList.remove('hidden'); }
+function closeSidebar() { $('#sidebar').classList.remove('open'); $('#scrim').classList.add('hidden'); }
+
+/* =========================================================
+   EVENTOS
+   ========================================================= */
+function bindEvents() {
+  $$('[data-theme-toggle]').forEach(b => b.addEventListener('click', toggleTheme));
+  $('#googleBtn').addEventListener('click', loginGoogle);
+
+  $('#tabs').addEventListener('click', e => {
+    const b = e.target.closest('.tab'); if (!b) return;
+    state.tab = b.dataset.tab; renderTabs(); renderMain();
+  });
+
+  $('#trackList').addEventListener('click', e => {
+    const del = e.target.closest('[data-del]');
+    if (del) { e.stopPropagation(); askDelete(del.dataset.del); return; }
+    const card = e.target.closest('.track'); if (!card) return;
+    state.selectedId = card.dataset.id; state.tab = 'aula';
+    render(); closeSidebar();
+  });
+  $('#trackList').addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    const card = e.target.closest('.track'); if (!card) return;
+    state.selectedId = card.dataset.id; state.tab = 'aula'; render();
+  });
+
+  $('#searchInput').addEventListener('input', e => { state.search = e.target.value; renderSidebar(); });
+
+  const openNew = () => { closeSidebar(); $('#trackForm').reset(); openModal('#trackModal'); };
+  $('#newTrackBtn').addEventListener('click', openNew);
+  $('#main').addEventListener('click', e => {
+    if (e.target.closest('[data-new]')) openNew();
+    const m = e.target.closest('[data-mode]'); if (m) setMode(m.dataset.mode);
+  });
+
+  $('#trackForm').addEventListener('submit', createTrack);
+  $('#confirmDelBtn').addEventListener('click', confirmDelete);
+  $$('[data-close]').forEach(b => b.addEventListener('click', () => b.closest('.overlay').classList.add('hidden')));
+  $$('.overlay').forEach(o => o.addEventListener('click', e => { if (e.target === o) o.classList.add('hidden'); }));
+
+  $('#gearBtn').addEventListener('click', e => { e.stopPropagation(); $('#dropdown').classList.toggle('hidden'); });
+  document.addEventListener('click', e => { if (!e.target.closest('#dropdown')) closeDropdown(); });
+  $('#ddUpdate').addEventListener('click', manualUpdate);
+  $('#ddLogout').addEventListener('click', logout);
+  $('#updateNowBtn').addEventListener('click', hardRefresh);
+
+  $('#menuBtn').addEventListener('click', openSidebar);
+  $('#scrim').addEventListener('click', closeSidebar);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { $$('.overlay').forEach(o => o.classList.add('hidden')); closeDropdown(); closeSidebar(); }
+  });
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') checkForUpdate(); });
+}
+
+/* =========================================================
+   INÍCIO
+   ========================================================= */
+async function init() {
+  applyTheme(getTheme());
+  showVersion();
+  bindEvents();
+
+  sb.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_IN' && session?.user && !state.user) { cleanUrl(); showApp(session.user); }
+    if (event === 'SIGNED_OUT') { state.user = null; showLogin(); }
+  });
+
+  const { data: { session } } = await sb.auth.getSession();
+  cleanUrl();
+  if (session?.user) { if (!state.user) await showApp(session.user); }
+  else if (!state.user) showLogin();
+
+  checkForUpdate();
+  setInterval(checkForUpdate, 30 * 60 * 1000);
+}
+
+init();
+</script>
+</body>
+</html>
