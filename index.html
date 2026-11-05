@@ -515,6 +515,92 @@ button { cursor: pointer; }
 .fim-card .prox { margin-top: 12px; font-size: 14px; }
 .fim-card .prox b { color: var(--cyan); }
 @media (max-width: 640px) { .lousa-cards { grid-template-columns: 1fr; } }
+
+/* Mapa de Conhecimento */
+.map-head { display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+.map-head .page-head { flex: 1; min-width: 240px; }
+.map-head .page-head p { margin-bottom: 0; }
+.map-tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.sel {
+  padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--panel);
+  color: var(--text); max-width: 320px; font-weight: 600;
+}
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--text-2); margin-bottom: 12px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: 0; }
+.map-grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 16px; align-items: start; }
+.map-wrap { overflow: auto; padding: 8px; -webkit-overflow-scrolling: touch; }
+.map-wrap svg { display: block; margin: 0 auto; }
+.edge { fill: none; stroke-width: 2.5; }
+.edge.ok { stroke: var(--green); opacity: .7; }
+.edge.pend { stroke: var(--line-2); stroke-dasharray: 6 6; }
+.edge.sel { stroke: var(--cyan); opacity: 1; stroke-width: 3.5; }
+.node { cursor: pointer; }
+.node .ring-bg { fill: none; stroke: var(--line); stroke-width: 5; }
+.node .ring { fill: none; stroke-width: 5; stroke-linecap: round; }
+.node .core { stroke-width: 2.5; }
+.node.dominado .core { fill: rgba(52,211,153,.16); stroke: var(--green); }
+.node.dominado .ring { stroke: var(--green); }
+.node.em_estudo .core { fill: rgba(59,130,246,.18); stroke: var(--blue); }
+.node.em_estudo .ring { stroke: var(--blue); }
+.node.disponivel .core { fill: rgba(34,211,238,.14); stroke: var(--cyan); }
+.node.disponivel .ring { stroke: var(--cyan); }
+.node.bloqueado .core { fill: var(--panel-2); stroke: var(--line-2); }
+.node.bloqueado .ring { stroke: var(--text-3); }
+.node .num { font: 800 17px Inter, sans-serif; fill: var(--text); }
+.node.bloqueado .num { fill: var(--text-3); }
+.node .lbl { font: 700 13px Inter, sans-serif; fill: var(--text); }
+.node.bloqueado .lbl { fill: var(--text-3); }
+.node .sub { font: 500 11px Inter, sans-serif; fill: var(--text-3); }
+.node .lock { stroke: var(--text-3); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.node .halo { fill: none; stroke: var(--cyan); stroke-width: 2; stroke-dasharray: 4 4; opacity: 0; }
+.node.sel .halo { opacity: 1; }
+.node:hover .core { filter: brightness(1.15); }
+.det h3 { margin: 4px 0 6px; font-size: 19px; }
+.det .desc { color: var(--text-2); font-size: 14px; margin: 0 0 12px; }
+.det .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+.det .stats .info .v { font-weight: 700; }
+.det .pre { font-size: 13px; color: var(--text-2); margin-bottom: 12px; }
+.det .pre b { color: var(--text); }
+.det .list-box { margin-bottom: 10px; }
+.det .acts { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.rec { margin-top: 16px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.rec .txt { flex: 1; min-width: 220px; }
+.rec .k { font-size: 12px; font-weight: 700; letter-spacing: .06em; color: var(--cyan); text-transform: uppercase; }
+.rec .v { margin-top: 4px; }
+.rec .v b { color: var(--text); }
+@media (max-width: 1150px) { .map-grid { grid-template-columns: 1fr; } }
+
+/* Editor do plano */
+.ed-note { font-size: 14px; color: var(--text-2); margin: 0 0 14px; }
+.ed-item { border: 1px solid var(--line); border-radius: 14px; padding: 14px; background: var(--bg-2); margin-bottom: 12px; }
+.ed-item.novo { border-color: var(--cyan); }
+.ed-top { display: flex; gap: 10px; align-items: center; }
+.ed-top .conc-n { width: 30px; height: 30px; font-size: 13px; }
+.ed-top input {
+  flex: 1; min-width: 0; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line-2);
+  background: var(--panel); font-weight: 700; outline: none;
+}
+.ed-item textarea {
+  width: 100%; margin-top: 8px; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line-2);
+  background: var(--panel); outline: none; resize: vertical; font-size: 14px;
+}
+.ed-item input:focus, .ed-item textarea:focus { border-color: var(--cyan); }
+.ed-mini { display: flex; gap: 4px; }
+.ed-mini .icon-btn { width: 34px; height: 34px; border-radius: 10px; }
+.ed-mini .icon-btn[disabled] { opacity: .35; cursor: default; }
+.ed-mini .icon-btn.del:hover { color: var(--red); border-color: var(--red); }
+.ed-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 10px; font-size: 13px; color: var(--text-2); }
+.ed-row .lbl { font-weight: 700; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); }
+.ed-chip {
+  border: 1px solid var(--line-2); background: var(--panel); color: var(--text-2); border-radius: 999px;
+  padding: 4px 10px; font-size: 12px; font-weight: 600;
+}
+.ed-chip.on { border-color: var(--cyan); color: var(--cyan); background: var(--chip-bg); }
+.ed-check { display: inline-flex; gap: 8px; align-items: center; cursor: pointer; font-weight: 600; color: var(--text); }
+.ed-check input { width: 18px; height: 18px; accent-color: var(--green); }
+.ed-bar { position: sticky; bottom: 0; z-index: 5; display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap;
+  background: var(--bg); padding: 12px 0 4px; border-top: 1px solid var(--line); margin-top: 6px; }
+.ed-bar .grow { flex: 1; }
 @media (max-width: 900px) {
   .lousa-cards .info { padding: 10px 12px; }
   .msg { max-width: 100%; }
@@ -580,6 +666,9 @@ button { cursor: pointer; }
     <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
     <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
     <symbol id="i-cards" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="14" rx="2"/><path d="M8 2h12a2 2 0 0 1 2 2v12"/></symbol>
   </defs>
 </svg>
@@ -722,7 +811,7 @@ button { cursor: pointer; }
 /* =========================================================
    CONFIGURAÇÃO
    ========================================================= */
-const APP_VERSION = '1.2.0';
+const APP_VERSION = '1.3.0';
 const SUPABASE_URL = 'https://ghjbljypxksubmcsvaig.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_qXCYqg1WdmelY9D1mptZXg_U8NdoKby';
 const DB_SCHEMA = 'mytutor';
@@ -747,7 +836,10 @@ const state = {
   conceitos: {},      // conceitos por trilha (cache)
   carregandoC: {},
   diag: null,         // diagnóstico em andamento
-  aula: null          // aula em andamento
+  aula: null,         // aula em andamento
+  editor: null,       // edição do plano
+  mapaSel: null,      // conceito selecionado no mapa
+  detCache: {}        // estatísticas por conceito
 };
 
 const $ = (s) => document.querySelector(s);
@@ -968,6 +1060,7 @@ async function confirmDelete() {
   state.trilhas = state.trilhas.filter(t => t.id !== id);
   delete state.conceitos[id];
   if (state.aula && state.aula.trilhaId === id) { pararDitado(); state.aula = null; }
+  if (state.editor && state.editor.trilhaId === id) state.editor = null;
   if (state.diag && state.diag.trilhaId === id) { pararDitado(); state.diag = null; }
   if (state.selectedId === id) state.selectedId = state.trilhas[0]?.id || null;
   state.pendingDelete = null;
@@ -1048,15 +1141,6 @@ const FUTURE = {
       ['i-trend', 'Revisões em dia', 'Quantos cartões estão em dia ou atrasados.', 'Etapa 6']
     ]
   },
-  mapa: {
-    ic: 'i-graph', title: 'Mapa de Conhecimento',
-    sub: 'Os conceitos de cada trilha e como um leva ao outro.',
-    items: [
-      ['i-graph', 'Grafo de conceitos', 'Os conceitos do plano ligados pelos pré-requisitos. A lista já aparece na Sala de Aula.', 'Etapa 4'],
-      ['i-target', 'Situação de cada conceito', 'Dominado, em estudo, disponível ou bloqueado.', 'Etapa 4'],
-      ['i-spark', 'Próxima recomendação', 'O que estudar agora para avançar na trilha.', 'Etapa 4']
-    ]
-  },
   agenda: {
     ic: 'i-cal', title: 'Agenda & Ciclo de Revisão',
     sub: 'Revisões programadas no momento certo para não esquecer.',
@@ -1078,6 +1162,9 @@ const FUTURE = {
 
 function renderMain() {
   const main = $('#main');
+  const tSel = currentTrack();
+  if (state.editor && tSel && state.editor.trilhaId === tSel.id) { main.innerHTML = renderEditor(tSel); return; }
+  if (state.tab === 'mapa') { main.innerHTML = renderMapa(); return; }
   if (state.tab !== 'aula') {
     const f = FUTURE[state.tab];
     main.innerHTML = `
@@ -1216,7 +1303,7 @@ function renderTrilha(t) {
       </div>
 
       <div class="card">
-        <div class="sec-title">${icon('i-layers')}Plano da trilha</div>
+        <div class="sec-title">${icon('i-layers')}Plano da trilha<span style="flex:1"></span>${conc ? `<button class="btn btn-sm" data-editar>${icon('i-edit', 'style="width:14px;height:14px"')}Editar plano</button>` : ''}</div>
         ${listaConceitos}
       </div>
 
@@ -1883,9 +1970,330 @@ function renderAula(t) {
 }
 
 /* =========================================================
+   MAPA DE CONHECIMENTO
+   ========================================================= */
+function niveis(conc) {
+  const porId = Object.fromEntries(conc.map(c => [c.id, c]));
+  const nivel = {};
+  const calc = (c, pilha = new Set()) => {
+    if (nivel[c.id] !== undefined) return nivel[c.id];
+    if (pilha.has(c.id)) return 0;
+    pilha.add(c.id);
+    const pres = (c.prerequisitos || []).map(id => porId[id]).filter(Boolean);
+    nivel[c.id] = pres.length ? 1 + Math.max(...pres.map(x => calc(x, pilha))) : 0;
+    return nivel[c.id];
+  };
+  conc.forEach(c => calc(c));
+  return nivel;
+}
+
+function quebrar(texto, max = 17, linhas = 3) {
+  const palavras = String(texto || '').split(/\s+/);
+  const out = []; let atual = '';
+  for (const w of palavras) {
+    if (!atual) atual = w;
+    else if ((atual + ' ' + w).length <= max) atual += ' ' + w;
+    else { out.push(atual); atual = w; }
+  }
+  if (atual) out.push(atual);
+  if (out.length > linhas) { out.length = linhas; out[linhas - 1] = out[linhas - 1].replace(/.{0,2}$/, '') + '…'; }
+  return out;
+}
+
+function recomendacao(conc) {
+  if (!conc.length) return null;
+  if (conc.every(c => c.status === 'dominado')) return { tipo: 'fim' };
+  const est = conc.find(c => c.status === 'em_estudo');
+  if (est) return { tipo: 'continuar', c: est };
+  const disp = conc.filter(c => c.status === 'disponivel');
+  if (!disp.length) return null;
+  const dependentes = (id) => conc.filter(x => (x.prerequisitos || []).includes(id));
+  const melhor = disp.map(c => ({ c, deps: dependentes(c.id) })).sort((a, b) => b.deps.length - a.deps.length || a.c.ordem - b.c.ordem)[0];
+  return { tipo: 'estudar', c: melhor.c, deps: melhor.deps };
+}
+
+// Maior salto de colunas entre um conceito e um pré-requisito (para reservar espaço aos arcos)
+function nColsSalto(conc) {
+  const nv = niveis(conc); let m = 0;
+  conc.forEach(c => (c.prerequisitos || []).forEach(p => { if (nv[p] !== undefined) m = Math.max(m, nv[c.id] - nv[p] - 1); }));
+  return m;
+}
+
+function renderGrafo(conc) {
+  const nivel = niveis(conc);
+  const cols = {};
+  [...conc].sort((a, b) => a.ordem - b.ordem).forEach(c => { (cols[nivel[c.id]] = cols[nivel[c.id]] || []).push(c); });
+  const nCols = Math.max(...Object.keys(cols).map(Number)) + 1;
+  const maxLin = Math.max(...Object.values(cols).map(l => l.length));
+  const CW = 200, RH = 158, PADX = 40, R = 34;
+  const PADY = 30 + Math.min(4, nColsSalto(conc)) * 22;
+  const W = PADX * 2 + (nCols - 1) * CW + 120, H = PADY * 2 + maxLin * RH;
+  const pos = {};
+  Object.entries(cols).forEach(([k, lista]) => {
+    const off = (maxLin - lista.length) * RH / 2;
+    lista.forEach((c, i) => { pos[c.id] = { x: PADX + 60 + Number(k) * CW, y: PADY + off + i * RH + 48 }; });
+  });
+  const porId = Object.fromEntries(conc.map(c => [c.id, c]));
+  const sel = state.mapaSel;
+
+  const edges = [];
+  conc.forEach(c => (c.prerequisitos || []).forEach(pid => {
+    const a = pos[pid], b = pos[c.id]; if (!a || !b) return;
+    const pr = porId[pid];
+    const cls = sel && (sel === c.id || sel === pid) ? 'sel' : (pr && pr.status === 'dominado' ? 'ok' : 'pend');
+    const salto = Math.round((b.x - a.x) / CW);
+    // Ligação que pula colunas e ficaria atrás de outros círculos: faz um arco por cima
+    const atravessa = salto > 1 && conc.some(o => o.id !== pid && o.id !== c.id && pos[o.id] && pos[o.id].x > a.x && pos[o.id].x < b.x &&
+      Math.abs(pos[o.id].y - (a.y + (b.y - a.y) * (pos[o.id].x - a.x) / (b.x - a.x))) < R + 20);
+    if (atravessa) {
+      const x1 = a.x + R * 0.7, y1 = a.y - R * 0.7, x2 = b.x - R * 0.7, y2 = b.y - R * 0.7;
+      const topo = Math.min(y1, y2) - 34 - 18 * salto;
+      edges.push(`<path class="edge ${cls}" d="M${x1},${y1} C${x1 + 30},${topo} ${x2 - 30},${topo} ${x2},${y2}"/>`);
+    } else {
+      const x1 = a.x + R + 6, x2 = b.x - R - 6, dx = (x2 - x1) / 2;
+      edges.push(`<path class="edge ${cls}" d="M${x1},${a.y} C${x1 + dx},${a.y} ${x2 - dx},${b.y} ${x2},${b.y}"/>`);
+    }
+  }));
+  // arestas selecionadas por cima
+  edges.sort((x, y) => (x.includes('edge sel') ? 1 : 0) - (y.includes('edge sel') ? 1 : 0));
+
+  const circ = 2 * Math.PI * (R + 7);
+  const nodes = [...conc].sort((a, b) => a.ordem - b.ordem).map((c) => {
+    const { x, y } = pos[c.id];
+    const pct = Math.max(0, Math.min(100, c.dominio || 0));
+    const linhas = quebrar(c.titulo);
+    const sub = c.status === 'bloqueado' ? 'Bloqueado' : `${pct}% · ${CSTATUS[c.status] || ''}`;
+    const centro = c.status === 'bloqueado'
+      ? `<g class="lock" transform="translate(${x - 10},${y - 11})"><rect x="2" y="9" width="16" height="11" rx="2"/><path d="M5 9V6a5 5 0 0 1 10 0v3"/></g>`
+      : c.status === 'dominado'
+        ? `<path d="M${x - 10},${y} l7,7 l13,-14" fill="none" stroke="var(--green)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>`
+        : `<text class="num" x="${x}" y="${y + 6}" text-anchor="middle">${c.ordem + 1}</text>`;
+    return `<g class="node ${c.status} ${sel === c.id ? 'sel' : ''}" data-node="${c.id}" role="button" tabindex="0" aria-label="${esc(c.titulo)}">
+      <circle class="halo" cx="${x}" cy="${y}" r="${R + 15}"/>
+      <circle class="ring-bg" cx="${x}" cy="${y}" r="${R + 7}"/>
+      <circle class="ring" cx="${x}" cy="${y}" r="${R + 7}" stroke-dasharray="${(circ * pct / 100).toFixed(1)} ${circ.toFixed(1)}" transform="rotate(-90 ${x} ${y})"/>
+      <circle class="core" cx="${x}" cy="${y}" r="${R}"/>
+      ${centro}
+      ${linhas.map((l, i) => `<text class="lbl" x="${x}" y="${y + R + 26 + i * 16}" text-anchor="middle">${esc(l)}</text>`).join('')}
+      <text class="sub" x="${x}" y="${y + R + 26 + linhas.length * 16 + 2}" text-anchor="middle">${esc(sub)}</text>
+    </g>`;
+  }).join('');
+
+  return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;max-width:${W}px;min-width:${Math.round(W * 0.62)}px;height:auto" role="img" aria-label="Mapa dos conceitos da trilha">${edges.join('')}${nodes}</svg>`;
+}
+
+async function carregarDetalhe(cid) {
+  if (state.detCache[cid]) return;
+  state.detCache[cid] = { carregando: true };
+  const r = await sb.from('sessoes').select('duracao_seg, resumo, encerrada_em, iniciada_em').eq('conceito_id', cid).eq('tipo', 'aula').order('iniciada_em', { ascending: true });
+  const lista = r.error ? [] : (r.data || []);
+  const ult = [...lista].reverse().find(x => x.resumo && !x.resumo.manual);
+  state.detCache[cid] = {
+    aulas: lista.length,
+    seg: lista.reduce((a, x) => a + (x.duracao_seg || 0), 0),
+    resumo: ult ? ult.resumo : null,
+    aberta: lista.some(x => !x.encerrada_em)
+  };
+  if (state.tab === 'mapa' && state.mapaSel === cid) renderMain();
+}
+
+function renderDetalhe(conc, c) {
+  if (!c) return `<div class="card det"><div class="empty-main" style="padding:30px 10px">${icon('i-graph')}<h3>Toque num conceito</h3><p>Veja a descrição, o seu domínio, as aulas feitas e o que ficou para revisar.</p></div></div>`;
+  const nomes = Object.fromEntries(conc.map(x => [x.id, x.titulo]));
+  const dep = conc.filter(x => (x.prerequisitos || []).includes(c.id));
+  const d = state.detCache[c.id];
+  if (!d) carregarDetalhe(c.id);
+  const itens = (arr) => (arr || []).map(x => `<li>${esc(x)}</li>`).join('') || '<li>—</li>';
+  const pendentes = (c.prerequisitos || []).filter(id => (conc.find(x => x.id === id) || {}).status !== 'dominado');
+  return `<div class="card det">
+    <span class="status cs-${c.status}">${CSTATUS[c.status]}</span>
+    <h3>${esc(c.titulo)}</h3>
+    ${c.descricao ? `<p class="desc">${esc(c.descricao)}</p>` : ''}
+    <div class="stats">
+      <div class="info"><div class="k">Domínio</div><div class="v">${c.dominio || 0}%</div></div>
+      <div class="info"><div class="k">Aulas</div><div class="v">${!d || d.carregando ? '…' : `${d.aulas} · ${fmtTime(d.seg)}`}</div></div>
+    </div>
+    <div class="pre"><b>Depende de:</b> ${(c.prerequisitos || []).length ? c.prerequisitos.map(id => esc(nomes[id] || '?')).join(', ') : 'nada, é um ponto de partida'}</div>
+    ${dep.length ? `<div class="pre"><b>Libera:</b> ${dep.map(x => esc(x.titulo)).join(', ')}</div>` : ''}
+    ${d && d.resumo ? `
+      <div class="list-box ok"><div class="k">O que você aprendeu</div><ul>${itens(d.resumo.aprendeu)}</ul></div>
+      <div class="list-box gap"><div class="k">Para revisar</div><ul>${itens(d.resumo.pendente)}</ul></div>` : ''}
+    <div class="acts">
+      ${c.status === 'bloqueado'
+        ? `<div class="lock-note" style="margin-top:0">${icon('i-lock', 'style="width:14px;height:14px"')}Libera quando você dominar: ${pendentes.map(id => esc(nomes[id] || '?')).join(', ')}</div>`
+        : `<button class="btn btn-sm ${c.status === 'dominado' ? '' : 'btn-primary'}" data-estudar="${c.id}">${icon(c.status === 'dominado' ? 'i-refresh' : 'i-play', 'style="width:14px;height:14px"')}${c.status === 'dominado' ? 'Rever' : (c.status === 'em_estudo' || (d && d.aberta)) ? 'Continuar' : 'Estudar'}</button>
+           ${c.status !== 'dominado' ? `<button class="btn btn-sm" data-jadomino="${c.id}">${icon('i-check', 'style="width:14px;height:14px"')}Já domino</button>` : ''}`}
+    </div>
+  </div>`;
+}
+
+function renderMapa() {
+  const comPlano = state.trilhas.filter(t => t.diagnostico);
+  const head = (extra = '') => `<div class="map-head">
+      <div class="page-head"><h2>${icon('i-graph')}Mapa de Conhecimento</h2><p>Os conceitos da trilha e como um leva ao outro. Toque num conceito para ver os detalhes.</p></div>
+      ${extra}</div>`;
+  if (!comPlano.length) {
+    return head() + `<div class="card empty-main">${icon('i-graph')}<h3>Nenhuma trilha com plano ainda</h3><p>Crie uma trilha e faça o diagnóstico: o tutor monta o plano e ele aparece aqui como um mapa.</p><button class="btn btn-primary" data-new>${icon('i-plus')}Nova trilha</button></div>`;
+  }
+  let t = currentTrack();
+  if (!t || !t.diagnostico) { t = comPlano[0]; state.selectedId = t.id; renderSidebar(); }
+  const conc = state.conceitos[t.id];
+  const tools = `<div class="map-tools">
+      <select class="sel" data-map-trilha aria-label="Trilha">${comPlano.map(x => `<option value="${x.id}" ${x.id === t.id ? 'selected' : ''}>${esc(x.titulo)}</option>`).join('')}</select>
+      ${conc ? `<button class="btn" data-editar>${icon('i-edit')}Editar plano</button>` : ''}
+    </div>`;
+  if (!conc) { loadConceitos(t.id); return head(tools) + `<div class="card"><div class="wait"><div class="spinner"></div><p>Carregando o mapa…</p></div></div>`; }
+  if (!conc.length) return head(tools) + `<div class="card empty-main">${icon('i-graph')}<h3>O plano está vazio</h3><p>Use "Editar plano" para acrescentar conceitos ou refaça o diagnóstico na Sala de Aula.</p></div>`;
+
+  if (state.mapaSel && !conc.find(c => c.id === state.mapaSel)) state.mapaSel = null;
+  const sel = conc.find(c => c.id === state.mapaSel) || null;
+  const rec = recomendacao(conc);
+  let recHtml = '';
+  if (rec && rec.tipo === 'fim') recHtml = `<div class="card rec"><div class="txt"><div class="k" style="color:var(--green)">Trilha concluída</div><div class="v">Você dominou todos os conceitos. Use "Rever" em qualquer um deles para reforçar.</div></div></div>`;
+  else if (rec && rec.tipo === 'continuar') recHtml = `<div class="card rec"><div class="txt"><div class="k">Próxima recomendação</div><div class="v">Continue <b>${esc(rec.c.titulo)}</b>: você já começou esse conceito e está com ${rec.c.dominio || 0}% de domínio.</div></div><button class="btn btn-primary" data-estudar="${rec.c.id}">${icon('i-play')}Continuar</button></div>`;
+  else if (rec && rec.tipo === 'estudar') recHtml = `<div class="card rec"><div class="txt"><div class="k">Próxima recomendação</div><div class="v">Estude <b>${esc(rec.c.titulo)}</b>${rec.deps.length ? `: ele libera ${rec.deps.map(x => `<b>${esc(x.titulo)}</b>`).join(', ')}.` : '.'}</div></div><button class="btn btn-primary" data-estudar="${rec.c.id}">${icon('i-play')}Estudar</button></div>`;
+
+  return head(tools) + `
+    <div class="legend">
+      <span><i style="background:var(--green)"></i>Dominado</span>
+      <span><i style="background:var(--blue)"></i>Em estudo</span>
+      <span><i style="background:var(--cyan)"></i>Disponível</span>
+      <span><i style="background:var(--text-3)"></i>Bloqueado</span>
+    </div>
+    <div class="map-grid">
+      <div class="card map-wrap">${renderGrafo(conc)}</div>
+      ${renderDetalhe(conc, sel)}
+    </div>
+    ${recHtml}`;
+}
+
+/* =========================================================
+   EDITOR DO PLANO
+   ========================================================= */
+function abrirEditor() {
+  const t = currentTrack(); if (!t) return;
+  const conc = state.conceitos[t.id]; if (!conc) return;
+  pararDitado();
+  state.editor = {
+    trilhaId: t.id, voltarPara: state.tab, salvando: false,
+    itens: [...conc].sort((a, b) => a.ordem - b.ordem).map(c => ({
+      id: c.id, titulo: c.titulo, descricao: c.descricao || '', prerequisitos: [...(c.prerequisitos || [])],
+      dominado: c.status === 'dominado', original: c
+    })),
+    removidos: []
+  };
+  renderMain(); $('#main').scrollTop = 0;
+}
+
+function renderEditor(t) {
+  const e = state.editor;
+  const itens = e.itens;
+  const n = itens.length;
+  return `
+    <div class="page-head"><h2>${icon('i-edit')}Editar plano</h2><p>${esc(t.titulo)}</p></div>
+    <p class="ed-note">Renomeie, reordene, exclua ou acrescente conceitos e escolha de quais anteriores cada um depende. Um conceito só pode depender de conceitos que vêm antes dele na lista. Marque <b>Já domino</b> no que o senhor já conhece.</p>
+    ${itens.map((it, i) => {
+      const anteriores = itens.slice(0, i);
+      return `<div class="ed-item ${it.original ? '' : 'novo'}" data-ed="${i}">
+        <div class="ed-top">
+          <div class="conc-n ${it.dominado ? 'dominado' : 'disponivel'}">${i + 1}</div>
+          <input data-ed-titulo="${i}" value="${esc(it.titulo)}" maxlength="120" placeholder="Nome do conceito" aria-label="Nome do conceito ${i + 1}">
+          <div class="ed-mini">
+            <button class="icon-btn" data-ed-up="${i}" title="Subir" ${i === 0 ? 'disabled' : ''}>${icon('i-up')}</button>
+            <button class="icon-btn" data-ed-down="${i}" title="Descer" ${i === n - 1 ? 'disabled' : ''}>${icon('i-down')}</button>
+            <button class="icon-btn del" data-ed-del="${i}" title="Excluir">${icon('i-trash')}</button>
+          </div>
+        </div>
+        <textarea data-ed-desc="${i}" rows="2" maxlength="500" placeholder="O que você vai entender neste conceito (opcional)">${esc(it.descricao)}</textarea>
+        <div class="ed-row">
+          <span class="lbl">Depende de:</span>
+          ${anteriores.length ? anteriores.map((x, j) => `<button class="ed-chip ${it.prerequisitos.includes(x.id) ? 'on' : ''}" data-ed-pre="${i}:${j}">${j + 1}. ${esc(x.titulo || 'sem nome')}</button>`).join('') : '<span>nada (é o primeiro)</span>'}
+        </div>
+        <div class="ed-row">
+          <label class="ed-check"><input type="checkbox" data-ed-dom="${i}" ${it.dominado ? 'checked' : ''}> Já domino</label>
+          ${it.original && it.original.status === 'em_estudo' ? '<span>· em estudo</span>' : ''}
+          ${!it.original ? '<span>· conceito novo</span>' : ''}
+        </div>
+      </div>`;
+    }).join('')}
+    <button class="btn" data-ed-add>${icon('i-plus')}Adicionar conceito</button>
+    <div class="ed-bar">
+      <span class="grow" style="align-self:center;font-size:13px;color:var(--text-2)">${n} conceito${n === 1 ? '' : 's'}${e.removidos.length ? ` · ${e.removidos.length} para excluir` : ''}</span>
+      <button class="btn" data-ed-cancel ${e.salvando ? 'disabled' : ''}>Cancelar</button>
+      <button class="btn btn-primary" data-ed-save ${e.salvando ? 'disabled' : ''}>${icon('i-check')}${e.salvando ? 'Salvando…' : 'Salvar plano'}</button>
+    </div>`;
+}
+
+// Mantém só pré-requisitos que vêm antes na lista
+function limparPreReqs() {
+  const e = state.editor; let removidos = 0;
+  e.itens.forEach((it, i) => {
+    const antes = new Set(e.itens.slice(0, i).map(x => x.id));
+    const novo = it.prerequisitos.filter(id => antes.has(id));
+    removidos += it.prerequisitos.length - novo.length;
+    it.prerequisitos = novo;
+  });
+  return removidos;
+}
+
+function moverItem(i, d) {
+  const e = state.editor; const j = i + d;
+  if (j < 0 || j >= e.itens.length) return;
+  [e.itens[i], e.itens[j]] = [e.itens[j], e.itens[i]];
+  const r = limparPreReqs();
+  renderMain();
+  if (r) toast('Uma dependência foi desfeita: um conceito só pode depender dos que vêm antes dele.');
+}
+
+async function salvarEditor() {
+  const e = state.editor; if (!e || e.salvando) return;
+  const t = state.trilhas.find(x => x.id === e.trilhaId);
+  if (!e.itens.length) { toast('O plano precisa de pelo menos um conceito.', true); return; }
+  const vazio = e.itens.findIndex(it => !it.titulo.trim());
+  if (vazio >= 0) { toast(`Dê um nome ao conceito ${vazio + 1}.`, true); return; }
+  const perdidos = e.removidos.filter(it => it.original && (it.original.status === 'em_estudo' || it.original.status === 'dominado' || (it.original.dominio || 0) > 0));
+  if (perdidos.length && !confirm(`Excluir ${perdidos.map(x => `"${x.titulo}"`).join(', ')}? O progresso desse conceito será perdido (as aulas continuam no histórico).`)) return;
+  limparPreReqs();
+
+  // Recalcula a situação de cada conceito
+  const dominado = new Set(e.itens.filter(it => it.dominado).map(it => it.id));
+  const linhas = e.itens.map((it, i) => {
+    const o = it.original;
+    let dominio = o ? (o.dominio || 0) : 0;
+    let status;
+    if (it.dominado) { status = 'dominado'; if (!o || o.status !== 'dominado') dominio = Math.max(dominio, 90); }
+    else {
+      if (dominio >= 85) dominio = 80;
+      const livre = it.prerequisitos.every(id => dominado.has(id));
+      status = !livre ? 'bloqueado' : (o && o.status === 'em_estudo' ? 'em_estudo' : 'disponivel');
+    }
+    return { id: it.id, trilha_id: t.id, titulo: it.titulo.trim(), descricao: it.descricao.trim() || null, ordem: i, prerequisitos: it.prerequisitos, status, dominio };
+  });
+
+  e.salvando = true; renderMain();
+  const falhou = (err) => { e.salvando = false; renderMain(); toast(dbErrorMessage(err), true); };
+  const ids = e.removidos.filter(it => it.original).map(it => it.id);
+  if (ids.length) {
+    const del = await sb.from('conceitos').delete().in('id', ids);
+    if (del.error) return falhou(del.error);
+  }
+  const up = await sb.from('conceitos').upsert(linhas, { onConflict: 'id' }).select();
+  if (up.error) return falhou(up.error);
+
+  state.conceitos[t.id] = (up.data || []).sort((a, b) => a.ordem - b.ordem);
+  ids.forEach(id => delete state.detCache[id]);
+  if (state.aula && state.aula.trilhaId === t.id && !state.conceitos[t.id].find(c => c.id === state.aula.conceitoId)) { pararDitado(); state.aula = null; }
+  await atualizarTrilha(t);
+  state.tab = e.voltarPara === 'mapa' ? 'mapa' : 'aula';
+  state.editor = null;
+  render();
+  toast('Plano atualizado.');
+}
+
+/* =========================================================
    MODAIS, MENU E GAVETA
    ========================================================= */
-function openModal(sel) { $(sel).classList.remove('hidden'); const f = $(sel).querySelector('input'); if (f) setTimeout(() => f.focus(), 50); }
+function openModal(sel) { $(sel).classList.remove('hidden'); const f = $(sel).querySelector('input'); if (f) f.focus(); }
 function closeModal(sel) { $(sel).classList.add('hidden'); }
 function closeDropdown() { $('#dropdown').classList.add('hidden'); }
 function openSidebar() { $('#sidebar').classList.add('open'); $('#scrim').classList.remove('hidden'); }
@@ -1900,7 +2308,7 @@ function bindEvents() {
 
   $('#tabs').addEventListener('click', e => {
     const b = e.target.closest('.tab'); if (!b) return;
-    pararDitado(); state.tab = b.dataset.tab; renderTabs(); renderMain();
+    pararDitado(); state.tab = b.dataset.tab; if (state.tab === 'mapa') state.detCache = {}; renderTabs(); renderMain();
   });
 
   $('#trackList').addEventListener('click', e => {
@@ -1908,7 +2316,9 @@ function bindEvents() {
     if (del) { e.stopPropagation(); askDelete(del.dataset.del); return; }
     const card = e.target.closest('.track'); if (!card) return;
     pararDitado();
-    state.selectedId = card.dataset.id; state.tab = 'aula';
+    if (state.editor && state.editor.trilhaId !== card.dataset.id) state.editor = null;
+    state.selectedId = card.dataset.id; state.mapaSel = null;
+    if (state.tab !== 'mapa') state.tab = 'aula';
     render(); closeSidebar();
   });
   $('#trackList').addEventListener('keydown', e => {
@@ -1930,7 +2340,41 @@ function bindEvents() {
       if (confirm('Refazer o diagnóstico? O plano atual desta trilha será substituído por um novo.')) startDiagnostico(state.selectedId);
       return;
     }
-    const est = alvo('[data-estudar]'); if (est) return abrirAula(est.dataset.estudar);
+    const ed = state.editor;
+    if (ed && ed.trilhaId === state.selectedId) {
+      const g = (sel) => { const el = alvo(sel); return el ? el.getAttribute(sel.slice(1, -1)) : null; };
+      let v;
+      if ((v = g('[data-ed-up]')) !== null) return moverItem(+v, -1);
+      if ((v = g('[data-ed-down]')) !== null) return moverItem(+v, 1);
+      if ((v = g('[data-ed-del]')) !== null) {
+        const [it] = ed.itens.splice(+v, 1);
+        ed.removidos.push(it);
+        ed.itens.forEach(x => { x.prerequisitos = x.prerequisitos.filter(id => id !== it.id); });
+        return renderMain();
+      }
+      if ((v = g('[data-ed-pre]')) !== null) {
+        const [i, j] = v.split(':').map(Number);
+        const it = ed.itens[i], alvoId = ed.itens[j].id;
+        it.prerequisitos = it.prerequisitos.includes(alvoId) ? it.prerequisitos.filter(x => x !== alvoId) : [...it.prerequisitos, alvoId];
+        return renderMain();
+      }
+      if (alvo('[data-ed-add]')) {
+        const ultimo = ed.itens[ed.itens.length - 1];
+        ed.itens.push({ id: crypto.randomUUID(), titulo: '', descricao: '', prerequisitos: ultimo ? [ultimo.id] : [], dominado: false, original: null });
+        renderMain();
+        const ins = $$('[data-ed-titulo]'); const el = ins[ins.length - 1];
+        if (el) { el.focus(); el.scrollIntoView({ block: 'center' }); }
+        return;
+      }
+      if (alvo('[data-ed-cancel]')) { state.tab = ed.voltarPara === 'mapa' ? 'mapa' : 'aula'; state.editor = null; return render(); }
+      if (alvo('[data-ed-save]')) return salvarEditor();
+      return;
+    }
+    if (alvo('[data-editar]')) return abrirEditor();
+    const nd = alvo('[data-node]');
+    if (nd) { state.mapaSel = state.mapaSel === nd.dataset.node ? null : nd.dataset.node; return renderMain(); }
+    const est = alvo('[data-estudar]');
+    if (est) { state.tab = 'aula'; renderTabs(); return abrirAula(est.dataset.estudar); }
     const jd = alvo('[data-jadomino]'); if (jd) return jaDomino(jd.dataset.jadomino);
     const a = state.aula;
     if (a && a.trilhaId === state.selectedId) {
@@ -1969,7 +2413,14 @@ function bindEvents() {
     if (alvo('[data-diag-naosei]')) return diagAvancar(true);
     if (alvo('[data-diag-next]')) return diagAvancar(false);
   });
+  $('#main').addEventListener('change', e => {
+    if (e.target.matches('[data-map-trilha]')) { pararDitado(); state.selectedId = e.target.value; state.mapaSel = null; render(); }
+    if (e.target.matches('[data-ed-dom]') && state.editor) { state.editor.itens[+e.target.dataset.edDom].dominado = e.target.checked; renderMain(); }
+  });
   $('#main').addEventListener('input', e => {
+    const ed = state.editor;
+    if (ed && e.target.dataset.edTitulo !== undefined) { ed.itens[+e.target.dataset.edTitulo].titulo = e.target.value; return; }
+    if (ed && e.target.dataset.edDesc !== undefined) { ed.itens[+e.target.dataset.edDesc].descricao = e.target.value; return; }
     const a = state.aula;
     if (a && e.target.id === 'aMsg') { a.draft = e.target.value; return; }
     if (a && e.target.id === 'aRac') { a.rac = e.target.value; return; }
@@ -1979,6 +2430,8 @@ function bindEvents() {
   });
 
   $('#main').addEventListener('keydown', e => {
+    const nd = e.target.closest && e.target.closest('[data-node]');
+    if (nd && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); state.mapaSel = nd.dataset.node; renderMain(); return; }
     if (e.target.id === 'aMsg' && e.key === 'Enter' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); enviarAluno(); }
   });
 
