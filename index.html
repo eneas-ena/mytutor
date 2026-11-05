@@ -413,6 +413,114 @@ button { cursor: pointer; }
 .row-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 4px; flex-wrap: wrap; }
 @media (max-width: 900px) { .two { grid-template-columns: 1fr; } }
 
+/* Próximo passo da trilha */
+.next-box {
+  margin-top: 16px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  background: var(--chip-bg); border: 1px solid var(--line-2); border-radius: 14px; padding: 14px 16px;
+}
+.next-box .txt { flex: 1; min-width: 200px; }
+.next-box .k { font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--cyan); text-transform: uppercase; }
+.next-box .v { font-weight: 700; margin-top: 2px; }
+.next-box.done { border-color: rgba(52,211,153,.4); }
+.next-box.done .k { color: var(--green); }
+.conc-actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.btn-sm { padding: 6px 12px; font-size: 13px; border-radius: 10px; }
+.lock-note { font-size: 12px; color: var(--text-3); margin-top: 10px; display: flex; align-items: center; gap: 6px; }
+
+/* Aula */
+.aula-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+.aula-top .grow { flex: 1; }
+.live {
+  font-size: 11px; font-weight: 600; color: var(--cyan); border: 1px solid var(--line-2); background: var(--chip-bg);
+  padding: 2px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle; letter-spacing: 0;
+}
+.lousa-sub { font-size: 13px; color: var(--text-3); }
+.lousa-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+.lousa-cards .info .v { color: var(--text); }
+.chat-card { margin-top: 16px; padding: 0; overflow: visible; }
+.chat-head {
+  display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--line);
+}
+.avatar {
+  width: 38px; height: 38px; border-radius: 50%; flex: none; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--blue), var(--cyan)); color: #fff; font-weight: 800; font-size: 14px;
+}
+.chat-head .n { font-weight: 700; }
+.chat-head .m { font-size: 12px; color: var(--cyan); }
+.chat { padding: 18px; display: flex; flex-direction: column; gap: 16px; }
+.msg { display: flex; gap: 10px; max-width: 92%; }
+.msg.aluno { align-self: flex-end; flex-direction: row-reverse; }
+.msg .avatar { width: 32px; height: 32px; font-size: 12px; }
+.msg.aluno .avatar { background: var(--panel-2); color: var(--text-2); border: 1px solid var(--line-2); }
+.bubble {
+  background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 12px 16px;
+  min-width: 0; overflow-wrap: anywhere;
+}
+.msg.aluno .bubble { background: var(--blue-2); border-color: var(--blue-2); color: #fff; }
+.bubble p { margin: 0 0 10px; }
+.bubble p:last-child, .bubble ul:last-child { margin-bottom: 0; }
+.bubble ul { margin: 0 0 10px; padding-left: 20px; }
+.bubble .hora { font-size: 11px; color: var(--text-3); text-align: right; margin-top: 6px; font-family: "JetBrains Mono", monospace; }
+.msg.aluno .bubble .hora { color: rgba(255,255,255,.7); }
+.rac-note { font-size: 13px; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,.25); opacity: .9; font-style: italic; }
+.cert-tag { display: inline-block; font-size: 11px; font-weight: 600; margin-top: 6px; padding: 1px 7px; border-radius: 6px; background: rgba(255,255,255,.18); }
+.aval { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; padding: 8px 10px; border-radius: 10px; margin-bottom: 10px; border: 1px solid; }
+.aval b { white-space: nowrap; }
+.aval.correta { color: var(--green); border-color: rgba(52,211,153,.4); background: rgba(52,211,153,.08); }
+.aval.parcial { color: var(--amber); border-color: rgba(245,158,11,.4); background: rgba(245,158,11,.08); }
+.aval.incorreta { color: var(--red); border-color: rgba(248,113,113,.4); background: rgba(248,113,113,.08); }
+.aval span { color: var(--text); }
+.q-box { margin-top: 10px; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--cyan); background: var(--chip-bg); font-weight: 600; }
+.q-box .tag { display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--cyan); text-transform: uppercase; margin-bottom: 2px; }
+.q-box.final { border-color: var(--amber); }
+.q-box.final .tag { color: var(--amber); }
+.bubble .opts { margin: 10px 0 0; }
+.bubble .opt[disabled] { cursor: default; opacity: .75; }
+.typing { display: inline-flex; gap: 5px; padding: 4px 2px; }
+.typing i { width: 8px; height: 8px; border-radius: 50%; background: var(--text-3); animation: pulo 1.2s infinite ease-in-out; }
+.typing i:nth-child(2) { animation-delay: .15s; }
+.typing i:nth-child(3) { animation-delay: .3s; }
+@keyframes pulo { 0%, 80%, 100% { opacity: .3; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-4px); } }
+.composer {
+  position: sticky; bottom: 0; z-index: 5; background: var(--panel); border-top: 1px solid var(--line);
+  border-radius: 0 0 18px 18px; padding: 12px 16px 14px;
+}
+.quick { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+.quick .lbl { font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--text-3); text-transform: uppercase; }
+.chip-btn {
+  border: 1px solid var(--line-2); background: var(--bg-2); color: var(--text); border-radius: 999px;
+  padding: 6px 12px; font-size: 13px; font-weight: 600;
+}
+.chip-btn:hover { border-color: var(--cyan); }
+.chip-btn.on { border-color: var(--cyan); color: var(--cyan); }
+.comp-row { display: flex; gap: 10px; align-items: flex-end; }
+.comp-row textarea {
+  flex: 1; min-height: 48px; max-height: 180px; padding: 12px 14px; border-radius: 14px;
+  border: 1px solid var(--line-2); background: var(--bg-2); outline: none; resize: vertical;
+}
+.comp-row textarea:focus { border-color: var(--cyan); }
+.send {
+  width: 48px; height: 48px; border-radius: 14px; border: none; background: var(--blue-2); color: #fff;
+  display: grid; place-items: center; flex: none;
+}
+.send[disabled], .chip-btn[disabled], .btn[disabled] { opacity: .5; cursor: not-allowed; }
+.comp-extra { margin-top: 8px; }
+.comp-row textarea { min-height: 44px; }
+.comp-hint { font-size: 13px; color: var(--text-2); margin-bottom: 8px; }
+.confs.small .conf { padding: 7px 10px; font-size: 13px; min-width: 100px; }
+.fim-card { border: 1px solid var(--line-2); border-radius: 16px; padding: 18px; background: var(--bg-2); }
+.fim-card.ok { border-color: rgba(52,211,153,.5); }
+.fim-card h3 { margin: 0 0 6px; display: flex; gap: 10px; align-items: center; }
+.fim-card.ok h3 { color: var(--green); }
+.fim-card .prox { margin-top: 12px; font-size: 14px; }
+.fim-card .prox b { color: var(--cyan); }
+@media (max-width: 640px) { .lousa-cards { grid-template-columns: 1fr; } }
+@media (max-width: 900px) {
+  .lousa-cards .info { padding: 10px 12px; }
+  .msg { max-width: 100%; }
+  .composer { padding: 10px 12px 12px; }
+}
+
 /* =========================================================
    RESPONSIVO
    ========================================================= */
@@ -466,6 +574,12 @@ button { cursor: pointer; }
     <symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
     <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5M8 22h8"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8Z"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></symbol>
     <symbol id="i-cards" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="14" rx="2"/><path d="M8 2h12a2 2 0 0 1 2 2v12"/></symbol>
   </defs>
 </svg>
@@ -608,7 +722,7 @@ button { cursor: pointer; }
 /* =========================================================
    CONFIGURAÇÃO
    ========================================================= */
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '1.2.0';
 const SUPABASE_URL = 'https://ghjbljypxksubmcsvaig.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_qXCYqg1WdmelY9D1mptZXg_U8NdoKby';
 const DB_SCHEMA = 'mytutor';
@@ -632,7 +746,8 @@ const state = {
   pendingDelete: null,
   conceitos: {},      // conceitos por trilha (cache)
   carregandoC: {},
-  diag: null          // diagnóstico em andamento
+  diag: null,         // diagnóstico em andamento
+  aula: null          // aula em andamento
 };
 
 const $ = (s) => document.querySelector(s);
@@ -665,6 +780,7 @@ function dbErrorMessage(err) {
   if (/schema must be one of|Invalid schema|PGRST106/i.test(m)) return 'O schema "mytutor" ainda não está exposto no Supabase (Data API → Exposed schemas).';
   if (/permission denied/i.test(m)) return 'Permissão negada no banco. Confira se o script SQL da Etapa 1 rodou inteiro.';
   if (/relation .* does not exist|PGRST205|Could not find the table/i.test(m)) return 'Tabelas não encontradas. Rode o script SQL da Etapa 1.';
+  if (/column .* does not exist|PGRST204|Could not find the '.*' column/i.test(m)) return 'Falta uma coluna nova no banco. Rode o script SQL da etapa mais recente (Etapa 3).';
   if (/Failed to fetch|NetworkError/i.test(m)) return 'Sem conexão com o servidor. Verifique a internet.';
   return 'Erro: ' + m;
 }
@@ -851,6 +967,7 @@ async function confirmDelete() {
   if (error) { toast(dbErrorMessage(error), true); return; }
   state.trilhas = state.trilhas.filter(t => t.id !== id);
   delete state.conceitos[id];
+  if (state.aula && state.aula.trilhaId === id) { pararDitado(); state.aula = null; }
   if (state.diag && state.diag.trilhaId === id) { pararDitado(); state.diag = null; }
   if (state.selectedId === id) state.selectedId = state.trilhas[0]?.id || null;
   state.pendingDelete = null;
@@ -985,6 +1102,7 @@ function renderMain() {
     return;
   }
 
+  if (state.aula && state.aula.trilhaId === t.id) { main.innerHTML = renderAula(t); return; }
   if (state.diag && state.diag.trilhaId === t.id) { main.innerHTML = renderDiag(t); return; }
   main.innerHTML = renderTrilha(t);
 }
@@ -1054,8 +1172,23 @@ function renderTrilha(t) {
           ${(c.prerequisitos || []).length ? `<div class="conc-pre">Depende de: ${c.prerequisitos.map(id => esc(nomes[id] || '?')).join(', ')}</div>` : ''}
           <div class="track-meta" style="max-width:240px;margin-top:8px"><span>Domínio</span><span>${c.dominio}%</span></div>
           <div class="bar ${c.dominio >= 100 ? 'done' : ''}"><span style="width:${c.dominio}%"></span></div>
+          ${c.status === 'bloqueado'
+            ? `<div class="lock-note">${icon('i-lock', 'style="width:14px;height:14px"')}Libera quando você dominar: ${c.prerequisitos.filter(id => (conc.find(x => x.id === id) || {}).status !== 'dominado').map(id => esc(nomes[id] || '?')).join(', ')}</div>`
+            : `<div class="conc-actions">
+                <button class="btn btn-sm ${c.status === 'dominado' ? '' : 'btn-primary'}" data-estudar="${c.id}">${icon(c.status === 'dominado' ? 'i-refresh' : 'i-play', 'style="width:14px;height:14px"')}${c.status === 'dominado' ? 'Rever' : c.status === 'em_estudo' ? 'Continuar' : 'Estudar'}</button>
+                ${c.status !== 'dominado' ? `<button class="btn btn-sm" data-jadomino="${c.id}">${icon('i-check', 'style="width:14px;height:14px"')}Já domino</button>` : ''}
+              </div>`}
         </div>
       </div>`).join('');
+
+  const prox = conc ? proximoConceito(conc) : null;
+  const tudo = conc && conc.length && conc.every(c => c.status === 'dominado');
+  const nextBox = !conc ? '' : tudo
+    ? `<div class="next-box done"><div class="txt"><div class="k">Trilha concluída</div><div class="v">Você dominou todos os conceitos desta trilha.</div></div></div>`
+    : prox
+      ? `<div class="next-box"><div class="txt"><div class="k">${prox.status === 'em_estudo' ? 'Continuar de onde parei' : 'Próximo conceito'}</div><div class="v">${esc(prox.titulo)}</div></div>
+          <button class="btn btn-primary" data-estudar="${prox.id}">${icon('i-play')}${prox.status === 'em_estudo' ? 'Continuar aula' : 'Começar aula'}</button></div>`
+      : '';
 
   const itens = (arr) => (arr || []).map(x => `<li>${esc(x)}</li>`).join('') || '<li>—</li>';
   const modoNome = d.modo_sugerido === 'direto' ? 'Direto & Prático' : 'Método Socrático';
@@ -1069,6 +1202,7 @@ function renderTrilha(t) {
           <div class="info"><div class="k">Situação</div><div class="v">${st.label} · domínio ${t.dominio}%</div></div>
           <div class="info"><div class="k">Conceitos dominados</div><div class="v">${conc ? `${dominados} de ${conc.length}` : '…'}</div></div>
         </div>
+        ${nextBox}
       </div>
 
       <div class="card">
@@ -1084,11 +1218,6 @@ function renderTrilha(t) {
       <div class="card">
         <div class="sec-title">${icon('i-layers')}Plano da trilha</div>
         ${listaConceitos}
-      </div>
-
-      <div class="soon" style="margin-top:0">
-        ${icon('i-spark')}
-        <div><b>Próxima etapa:</b> a aula com o tutor, começando pelo primeiro conceito disponível, com perguntas, exemplos e o campo "como eu pensei" (Etapa 3).</div>
       </div>
 
       <div class="row-actions">
@@ -1316,20 +1445,32 @@ async function salvarPlano() {
 
 /* Ditado por voz (quando o navegador oferece) */
 let ditado = null;
+function alvoDitado() {
+  if (state.aula && state.tab === 'aula' && state.aula.trilhaId === state.selectedId) {
+    const a = state.aula;
+    return { id: 'aRac', get: () => a.rac, set: (v) => { a.rac = v; } };
+  }
+  const d = state.diag;
+  if (d && d.respostas[d.idx]) {
+    const r = d.respostas[d.idx];
+    return { id: 'dRac', get: () => r.raciocinio, set: (v) => { r.raciocinio = v; } };
+  }
+  return null;
+}
 function alternarDitado() {
   if (ditado) { pararDitado(); renderMain(); return; }
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR || !state.diag) { toast('Ditado indisponível aqui. Use o microfone do teclado.', true); return; }
+  const alvo = alvoDitado();
+  if (!SR || !alvo) { toast('Ditado indisponível aqui. Use o microfone do teclado.', true); return; }
   const rec = new SR();
   rec.lang = 'pt-BR'; rec.continuous = true; rec.interimResults = false;
   rec.onresult = (ev) => {
-    const d = state.diag; if (!d || !d.respostas[d.idx]) return;
     let novo = '';
     for (let k = ev.resultIndex; k < ev.results.length; k++) if (ev.results[k].isFinal) novo += ev.results[k][0].transcript;
     if (!novo) return;
-    const r = d.respostas[d.idx];
-    r.raciocinio = (r.raciocinio ? r.raciocinio.trim() + ' ' : '') + novo.trim();
-    const ta = $('#dRac'); if (ta) ta.value = r.raciocinio;
+    const atual = alvo.get();
+    alvo.set((atual ? atual.trim() + ' ' : '') + novo.trim());
+    const ta = document.getElementById(alvo.id); if (ta) ta.value = alvo.get();
   };
   rec.onerror = (ev) => { if (ev.error === 'not-allowed') toast('Permita o uso do microfone para ditar.', true); };
   rec.onend = () => { if (ditado === rec) { ditado = null; renderMain(); } };
@@ -1339,6 +1480,406 @@ function pararDitado() {
   if (!ditado) return;
   const r = ditado; ditado = null;
   try { r.stop(); } catch {}
+}
+
+/* =========================================================
+   AULA COM O TUTOR
+   ========================================================= */
+const MAX_PAUSA = 5 * 60 * 1000;   // pausas maiores que 5 min não contam como estudo
+
+function proximoConceito(conc) {
+  return conc.find(c => c.status === 'em_estudo') || conc.find(c => c.status === 'disponivel') || null;
+}
+
+// Texto simples com **negrito** e listas "- "
+function md(texto) {
+  const blocos = String(texto || '').replace(/\r/g, '').split(/\n{2,}/);
+  return blocos.map(b => {
+    const linhas = b.split('\n');
+    const inline = (l) => esc(l).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+    if (linhas.every(l => /^\s*[-•]\s+/.test(l))) {
+      return '<ul>' + linhas.map(l => `<li>${inline(l.replace(/^\s*[-•]\s+/, ''))}</li>`).join('') + '</ul>';
+    }
+    return '<p>' + linhas.map(inline).join('<br>') + '</p>';
+  }).join('');
+}
+
+const hora = (iso) => { try { return new Date(iso).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }); } catch { return ''; } };
+
+function contarTempo() {
+  const a = state.aula; if (!a) return;
+  const agora = Date.now();
+  const gap = Math.min(agora - a.ultimoEvento, MAX_PAUSA);
+  a.ultimoEvento = agora;
+  const seg = Math.round(gap / 1000);
+  a.duracao += seg;
+  state.totalSeg += seg;
+  renderSidebarTempo();
+}
+function renderSidebarTempo() { const el = $('#totalTime'); if (el) el.textContent = fmtTime(state.totalSeg); }
+
+function rolarFim() {
+  requestAnimationFrame(() => { const m = $('#main'); if (m) m.scrollTop = m.scrollHeight; });
+}
+
+async function abrirAula(conceitoId) {
+  const t = currentTrack(); if (!t) return;
+  const conc = state.conceitos[t.id] || [];
+  const c = conc.find(x => x.id === conceitoId); if (!c) return;
+  if (c.status === 'bloqueado') { toast('Este conceito ainda está bloqueado. Domine os pré-requisitos primeiro.', true); return; }
+  pararDitado();
+  state.diag = null;
+  state.aula = {
+    trilhaId: t.id, conceitoId: c.id, sessaoId: null, msgs: [], lousa: [], resumos: [],
+    carregando: true, esperando: false, erro: '', pendente: null,
+    draft: '', rac: '', conf: '', opcao: null, showRac: false,
+    ultimoEvento: Date.now(), duracao: 0, fim: null
+  };
+  const a = state.aula;
+  renderMain();
+
+  // Aulas anteriores deste conceito
+  const ses = await sb.from('sessoes').select('*').eq('conceito_id', c.id).eq('tipo', 'aula').order('iniciada_em', { ascending: true });
+  if (state.aula !== a) return;
+  if (ses.error) { a.carregando = false; a.erro = dbErrorMessage(ses.error); a.pendente = { reabrir: true }; return renderMain(); }
+  const aberta = [...ses.data].reverse().find(x => !x.encerrada_em);
+  a.resumos = ses.data.filter(x => x.encerrada_em && x.resumo && !x.resumo.manual).map(x => x.resumo).slice(-3);
+
+  if (aberta) {
+    const ms = await sb.from('mensagens').select('*').eq('sessao_id', aberta.id).order('created_at', { ascending: true });
+    if (state.aula !== a) return;
+    if (ms.error) { a.carregando = false; a.erro = dbErrorMessage(ms.error); a.pendente = { reabrir: true }; return renderMain(); }
+    a.sessaoId = aberta.id;
+    a.msgs = ms.data || [];
+    a.duracao = aberta.duracao_seg || 0;
+    const ultTutor = [...a.msgs].reverse().find(m => m.papel === 'tutor');
+    a.lousa = (aberta.lousa && aberta.lousa.length) ? aberta.lousa : (ultTutor?.dados?.lousa || []);
+    a.carregando = false;
+    const ult = a.msgs[a.msgs.length - 1];
+    if (!ult) return turno('iniciar', null);
+    if (ult.papel === 'aluno') {
+      // A última mensagem ficou sem resposta: pede de novo
+      const dd = ult.dados || {};
+      return turno(dd.acao || 'responder', dd, { jaSalva: true });
+    }
+    renderMain(); rolarFim();
+    return;
+  }
+
+  // Aula nova
+  const nova = await sb.from('sessoes').insert({
+    trilha_id: t.id, conceito_id: c.id, tipo: 'aula', modo: t.modo_preferido, duracao_seg: 0
+  }).select().single();
+  if (state.aula !== a) return;
+  if (nova.error) { a.carregando = false; a.erro = dbErrorMessage(nova.error); a.pendente = { reabrir: true }; return renderMain(); }
+  a.sessaoId = nova.data.id;
+  a.carregando = false;
+  if (c.status === 'disponivel') {
+    c.status = 'em_estudo';
+    await sb.from('conceitos').update({ status: 'em_estudo' }).eq('id', c.id);
+  }
+  turno('iniciar', null);
+}
+
+function corpoAula(t, c, acao, mensagem, historico) {
+  const conc = state.conceitos[t.id] || [];
+  const d = t.diagnostico || {};
+  return {
+    acao,
+    modo: t.modo_preferido,
+    trilha: {
+      ...trilhaParaIA(t),
+      diagnostico: [d.resumo, (d.lacunas || []).length ? 'Lacunas: ' + d.lacunas.join('; ') : ''].filter(Boolean).join(' ')
+    },
+    conceito: { titulo: c.titulo, descricao: c.descricao, dominio: c.dominio },
+    plano: conc.map(x => ({ titulo: x.titulo, status: x.status })),
+    resumos: state.aula.resumos,
+    historico: historico.map(m => ({ papel: m.papel, conteudo: m.conteudo, dados: m.dados })),
+    mensagem
+  };
+}
+
+const ROTULOS_RAPIDOS = {
+  exemplo: '💡 Exemplo prático',
+  simplificar: '😊 Simplifique para mim',
+  nao_entendi: '🤔 Não entendi',
+  testar: '🎯 Testar meu conhecimento',
+  encerrar: '⏹ Encerrar aula'
+};
+
+async function turno(acao, mensagem, opts = {}) {
+  const a = state.aula; if (!a || a.esperando) return;
+  const t = state.trilhas.find(x => x.id === a.trilhaId);
+  const c = (state.conceitos[a.trilhaId] || []).find(x => x.id === a.conceitoId);
+  if (!t || !c) return;
+  mensagem = mensagem || {};
+
+  let historico = a.msgs;
+  if (acao !== 'iniciar') {
+    if (opts.jaSalva) {
+      historico = a.msgs.slice(0, -1);
+    } else {
+      contarTempo();
+      const dados = { acao, texto: mensagem.texto || '', opcao: mensagem.opcao ?? null, confianca: mensagem.confianca || '', raciocinio: mensagem.raciocinio || '' };
+      const conteudo = ROTULOS_RAPIDOS[acao] || mensagem.texto || 'Continuar';
+      const ins = await sb.from('mensagens').insert({
+        sessao_id: a.sessaoId, papel: 'aluno', conteudo, raciocinio: mensagem.raciocinio || null, dados
+      }).select().single();
+      if (state.aula !== a) return;
+      if (ins.error) { toast(dbErrorMessage(ins.error), true); return; }
+      a.msgs.push(ins.data);
+      historico = a.msgs.slice(0, -1);
+      a.draft = ''; a.rac = ''; a.conf = ''; a.opcao = null; a.showRac = false;
+    }
+  }
+
+  a.esperando = true; a.erro = ''; a.pendente = { acao, mensagem };
+  renderMain(); rolarFim();
+
+  let r;
+  try {
+    r = await callIA('aula', corpoAula(t, c, acao, mensagem, historico));
+  } catch (e) {
+    if (state.aula !== a) return;
+    a.esperando = false; a.erro = e.message;
+    renderMain(); rolarFim();
+    return;
+  }
+  if (state.aula !== a) return;
+
+  const ins = await sb.from('mensagens').insert({
+    sessao_id: a.sessaoId, papel: 'tutor', conteudo: r.falas.join('\n\n'), dados: r
+  }).select().single();
+  if (state.aula !== a) return;
+  if (ins.error) { a.esperando = false; a.erro = dbErrorMessage(ins.error); renderMain(); return; }
+  a.msgs.push(ins.data);
+  if (r.lousa && r.lousa.length) a.lousa = r.lousa;
+  contarTempo();
+
+  // Progresso do conceito e da sessão
+  if (c.status !== 'dominado') {
+    c.dominio = r.dominio;
+    if (c.status === 'disponivel') c.status = 'em_estudo';
+    await sb.from('conceitos').update({ dominio: c.dominio, status: c.status }).eq('id', c.id);
+  }
+  await sb.from('sessoes').update({ lousa: a.lousa, duracao_seg: a.duracao, modo: t.modo_preferido }).eq('id', a.sessaoId);
+
+  if (r.espera === 'fim') {
+    await finalizarAula(r.resumo, r.concluido);
+  } else {
+    await atualizarTrilha(t);
+  }
+  if (state.aula !== a) return;
+  a.esperando = false; a.pendente = null;
+  render(); rolarFim();
+}
+
+async function atualizarTrilha(t) {
+  const conc = state.conceitos[t.id] || [];
+  if (!conc.length) return;
+  const media = Math.round(conc.reduce((s, c) => s + (c.dominio || 0), 0) / conc.length);
+  const status = conc.every(c => c.status === 'dominado') ? 'concluida' : 'em_curso';
+  if (t.dominio === media && t.status === status) return;
+  t.dominio = media; t.status = status;
+  await sb.from('trilhas').update({ dominio: media, status }).eq('id', t.id);
+}
+
+async function marcarDominado(trilhaId, conceitoId) {
+  const conc = state.conceitos[trilhaId] || [];
+  const c = conc.find(x => x.id === conceitoId); if (!c) return [];
+  c.status = 'dominado'; c.dominio = Math.max(c.dominio || 0, 90);
+  const up = await sb.from('conceitos').update({ status: 'dominado', dominio: c.dominio }).eq('id', c.id);
+  if (up.error) { toast(dbErrorMessage(up.error), true); return []; }
+  const liberados = [];
+  for (const x of conc) {
+    if (x.status !== 'bloqueado') continue;
+    const ok = (x.prerequisitos || []).every(id => (conc.find(y => y.id === id) || {}).status === 'dominado');
+    if (ok) { x.status = 'disponivel'; liberados.push(x); }
+  }
+  if (liberados.length) await sb.from('conceitos').update({ status: 'disponivel' }).in('id', liberados.map(x => x.id));
+  const t = state.trilhas.find(x => x.id === trilhaId);
+  if (t) await atualizarTrilha(t);
+  return liberados;
+}
+
+async function finalizarAula(resumo, concluido, manual = false) {
+  const a = state.aula; if (!a) return;
+  contarTempo();
+  const res = { ...(resumo || { aprendeu: [], pendente: [], proximo_passo: '' }), concluido: !!concluido, manual };
+  await sb.from('sessoes').update({
+    encerrada_em: new Date().toISOString(), duracao_seg: a.duracao, resumo: res, lousa: a.lousa
+  }).eq('id', a.sessaoId);
+  let liberados = [];
+  if (concluido) liberados = await marcarDominado(a.trilhaId, a.conceitoId);
+  else { const t = state.trilhas.find(x => x.id === a.trilhaId); if (t) await atualizarTrilha(t); }
+  a.fim = { ...res, liberados: liberados.map(x => x.titulo) };
+}
+
+async function jaDomino(conceitoId) {
+  const t = currentTrack(); if (!t) return;
+  const c = (state.conceitos[t.id] || []).find(x => x.id === conceitoId); if (!c) return;
+  if (!confirm(`Marcar "${c.titulo}" como dominado? Os conceitos que dependem dele serão liberados.`)) return;
+  const a = state.aula;
+  if (a && a.conceitoId === conceitoId && a.sessaoId && !a.fim) {
+    pararDitado();
+    await finalizarAula({ aprendeu: [], pendente: [], proximo_passo: '' }, true, true);
+  } else {
+    const liberados = await marcarDominado(t.id, conceitoId);
+    toast(liberados.length ? `Conceito dominado. Liberado: ${liberados.map(x => x.titulo).join(', ')}.` : 'Conceito marcado como dominado.');
+  }
+  render();
+}
+
+function enviarAluno() {
+  const a = state.aula; if (!a || a.esperando || a.fim) return;
+  const ultT = [...a.msgs].reverse().find(m => m.papel === 'tutor');
+  const espera = ultT?.dados?.espera || 'continuar';
+  const texto = (a.draft || '').trim();
+  if (espera === 'multipla' && a.opcao === null && !texto) { toast('Escolha uma alternativa ou escreva sua resposta.', true); return; }
+  if (!texto && a.opcao === null) {
+    if (espera === 'continuar') return turno('responder', { texto: 'Continuar', raciocinio: a.rac.trim() });
+    toast('Escreva sua resposta, ou use um dos botões de dúvida rápida.', true); return;
+  }
+  pararDitado();
+  const opcoes = ultT?.dados?.opcoes || [];
+  let msgTexto = texto, opcao = null;
+  if (a.opcao !== null && opcoes[a.opcao] !== undefined) {
+    opcao = a.opcao;
+    msgTexto = `${String.fromCharCode(65 + opcao)}) ${opcoes[opcao]}` + (texto ? `\n${texto}` : '');
+  }
+  turno('responder', { texto: msgTexto, opcao, confianca: a.conf, raciocinio: a.rac.trim() });
+}
+
+function sairAula() {
+  pararDitado();
+  const a = state.aula;
+  if (a && !a.fim) contarTempo();
+  if (a && a.sessaoId && !a.fim) sb.from('sessoes').update({ duracao_seg: a.duracao }).eq('id', a.sessaoId);
+  state.aula = null;
+  render();
+}
+
+const AVAL = { correta: ['Correta', 'i-check'], parcial: ['Parcialmente correta', 'i-target'], incorreta: ['Ainda não', 'i-refresh'] };
+
+function renderMsg(m, isUltima, a) {
+  if (m.papel === 'aluno') {
+    const dd = m.dados || {};
+    return `<div class="msg aluno"><div class="avatar">Eu</div><div class="bubble">
+      ${md(m.conteudo)}
+      ${dd.confianca ? `<span class="cert-tag">Certeza: ${esc(dd.confianca)}</span>` : ''}
+      ${m.raciocinio ? `<div class="rac-note">Como pensei: ${esc(m.raciocinio)}</div>` : ''}
+      <div class="hora">${hora(m.created_at)}</div></div></div>`;
+  }
+  const d = m.dados || {};
+  const av = d.avaliacao && AVAL[d.avaliacao.tipo];
+  const ativa = isUltima && !a.esperando && !a.fim && d.espera === 'multipla';
+  const falas = (d.falas && d.falas.length ? d.falas : [m.conteudo]);
+  // Evita repetir a pergunta se ela já é a última fala
+  const ultimaFala = (falas[falas.length - 1] || '').trim();
+  const mostrarPergunta = d.pergunta && !ultimaFala.endsWith(d.pergunta.trim());
+  return `<div class="msg tutor"><div class="avatar">T</div><div class="bubble">
+    ${av ? `<div class="aval ${d.avaliacao.tipo}">${icon(av[1], 'style="width:16px;height:16px;margin-top:2px"')}<div><b>${av[0]}.</b> <span>${esc(d.avaliacao.comentario || '')}</span></div></div>` : ''}
+    ${falas.map(md).join('')}
+    ${mostrarPergunta || d.pergunta_final ? `<div class="q-box ${d.pergunta_final ? 'final' : ''}"><span class="tag">${d.pergunta_final ? 'Pergunta final' : 'Pergunta'}</span>${esc(d.pergunta)}</div>` : ''}
+    ${d.espera === 'multipla' && (d.opcoes || []).length ? `<div class="opts">${d.opcoes.map((o, j) => `
+      <button class="opt ${ativa && a.opcao === j ? 'sel' : ''}" ${ativa ? `data-aopt="${j}"` : 'disabled'}><span class="letra">${String.fromCharCode(65 + j)}</span><span>${esc(o)}</span></button>`).join('')}</div>` : ''}
+    <div class="hora">${hora(m.created_at)}</div></div></div>`;
+}
+
+function renderAula(t) {
+  const a = state.aula;
+  const conc = state.conceitos[t.id] || [];
+  const c = conc.find(x => x.id === a.conceitoId) || { titulo: '…', descricao: '' };
+  const modoTxt = t.modo_preferido === 'direto' ? 'Modo: Direto & Prático' : 'Modo: Perguntas Socráticas';
+  const temDitado = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+
+  const lousa = a.lousa.length
+    ? a.lousa.map((x, i) => `<div class="info"><div class="k">${i + 1}. ${esc(x.titulo)}</div><div class="v">${esc(x.texto)}</div></div>`).join('')
+    : `<div class="info" style="grid-column:1/-1"><div class="k">Sobre este conceito</div><div class="v">${esc(c.descricao || 'O tutor vai preencher a lousa com os pontos-chave durante a aula.')}</div></div>`;
+
+  const ultT = [...a.msgs].reverse().find(m => m.papel === 'tutor');
+  const ultIdx = ultT ? a.msgs.lastIndexOf(ultT) : -1;
+  const espera = ultT?.dados?.espera || 'continuar';
+  const temPergunta = espera === 'resposta_aberta' || espera === 'multipla';
+
+  let corpoChat = '';
+  if (a.carregando) {
+    corpoChat = `<div class="wait" style="padding:30px"><div class="spinner"></div><p>Abrindo a aula…</p></div>`;
+  } else {
+    corpoChat = a.msgs.map((m, i) => renderMsg(m, i === ultIdx, a)).join('');
+    if (a.esperando) corpoChat += `<div class="msg tutor"><div class="avatar">T</div><div class="bubble"><span class="typing"><i></i><i></i><i></i></span></div></div>`;
+    if (a.erro) corpoChat += `<div class="err-box"><b>Não foi possível continuar a aula.</b><br>${esc(a.erro)}
+        <div class="diag-actions" style="margin-top:12px"><button class="btn btn-primary" data-aula-retry>${icon('i-refresh')}Tentar de novo</button></div></div>`;
+    if (a.fim) {
+      const f = a.fim;
+      const itens = (arr) => (arr || []).map(x => `<li>${esc(x)}</li>`).join('') || '<li>—</li>';
+      const prox = proximoConceito(conc);
+      corpoChat += `<div class="fim-card ${f.concluido ? 'ok' : ''}">
+        <h3>${icon(f.concluido ? 'i-check' : 'i-stop')}${f.concluido ? 'Conceito dominado!' : 'Aula encerrada'}</h3>
+        ${f.liberados && f.liberados.length ? `<div>Liberado para estudar: <b>${f.liberados.map(esc).join(', ')}</b>.</div>` : ''}
+        ${f.manual ? `<div style="color:var(--text-2)">Você marcou este conceito como dominado.</div>` : `
+        <div class="two" style="margin-top:12px">
+          <div class="list-box ok"><div class="k">O que você aprendeu</div><ul>${itens(f.aprendeu)}</ul></div>
+          <div class="list-box gap"><div class="k">Para revisar</div><ul>${itens(f.pendente)}</ul></div>
+        </div>
+        ${f.proximo_passo ? `<div class="prox"><b>Próximo passo:</b> ${esc(f.proximo_passo)}</div>` : ''}`}
+        <div class="diag-actions">
+          <button class="btn" data-aula-sair>${icon('i-back')}Voltar à trilha</button>
+          ${prox && prox.id !== a.conceitoId ? `<span class="grow"></span><button class="btn btn-primary" data-estudar="${prox.id}">${icon('i-play')}Próximo: ${esc(prox.titulo)}</button>` : ''}
+          ${!f.concluido && !f.manual ? `<span class="grow"></span><button class="btn btn-primary" data-estudar="${a.conceitoId}">${icon('i-play')}Nova aula deste conceito</button>` : ''}
+        </div></div>`;
+    }
+  }
+
+  const bloq = a.esperando || a.carregando || !!a.erro;
+  const composer = a.fim || a.carregando ? '' : `
+    <div class="composer">
+      <div class="quick">
+        <span class="lbl">Dúvidas rápidas:</span>
+        ${['exemplo', 'simplificar', 'nao_entendi', 'testar'].map(k => `<button class="chip-btn" data-rapida="${k}" ${bloq ? 'disabled' : ''}>${ROTULOS_RAPIDOS[k]}</button>`).join('')}
+      </div>
+      ${espera === 'multipla' ? `<div class="comp-hint">Escolha uma alternativa acima${a.opcao !== null ? ` (marcada: <b>${String.fromCharCode(65 + a.opcao)}</b>)` : ''} e, se quiser, comente.</div>` : ''}
+      <div class="comp-row">
+        <textarea id="aMsg" rows="1" maxlength="2000" placeholder="${espera === 'continuar' ? 'Faça uma pergunta ou toque em enviar para continuar…' : 'Responda ou faça uma pergunta ao Tutor…'}" ${bloq ? 'disabled' : ''}>${esc(a.draft)}</textarea>
+        <button class="send" data-aula-enviar title="Enviar" ${bloq ? 'disabled' : ''}>${icon('i-send')}</button>
+      </div>
+      <div class="comp-extra">
+        <div class="quick" style="margin-bottom:0">
+          <button class="chip-btn ${a.showRac ? 'on' : ''}" data-aula-rac ${bloq ? 'disabled' : ''}>${icon('i-brain', 'style="width:14px;height:14px;vertical-align:-2px"')} Como eu pensei</button>
+          ${temPergunta ? `<span class="lbl" style="margin-left:6px">Certeza:</span>${CONFIANCAS.map(x => `<button class="chip-btn ${a.conf === x ? 'on' : ''}" data-aconf="${x}" ${bloq ? 'disabled' : ''}>${x}</button>`).join('')}` : ''}
+        </div>
+        ${a.showRac ? `<div class="rac-wrap" style="margin-top:10px"><textarea id="aRac" rows="2" maxlength="1500" style="width:100%;padding:11px 52px 11px 13px;border-radius:12px;border:1px solid var(--line-2);background:var(--bg-2);outline:none;resize:vertical" placeholder="Explique o seu raciocínio ou a sua dúvida.">${esc(a.rac)}</textarea>
+          ${temDitado ? `<button class="mic ${ditado ? 'on' : ''}" data-mic title="Ditar">${icon('i-mic')}</button>` : ''}</div>` : ''}
+      </div>
+    </div>`;
+
+  return `
+    <div class="aula-top">
+      <button class="btn btn-sm" data-aula-sair>${icon('i-back', 'style="width:14px;height:14px"')}Voltar à trilha</button>
+      <span class="grow"></span>
+      ${!a.fim && c.status !== 'dominado' ? `<button class="btn btn-sm" data-jadomino="${a.conceitoId}" ${bloq ? 'disabled' : ''}>${icon('i-check', 'style="width:14px;height:14px"')}Já domino</button>` : ''}
+      ${!a.fim && !a.carregando ? `<button class="btn btn-sm" data-rapida="encerrar" ${bloq || a.msgs.length < 2 ? 'disabled' : ''}>${icon('i-stop', 'style="width:14px;height:14px"')}Encerrar aula</button>` : ''}
+    </div>
+    <div class="card">
+      <div class="lousa-head">
+        <div class="brand-logo">${icon('i-brain')}</div>
+        <div>
+          <div class="lousa-label">LOUSA INTELIGENTE ${a.fim ? '' : '<span class="live">Aula ao vivo</span>'}</div>
+          <div class="lousa-title">${esc(c.titulo)}</div>
+          <div class="lousa-sub">${esc(t.titulo)} · domínio ${c.dominio || 0}%</div>
+        </div>
+        <div class="modes" role="group" aria-label="Modo de ensino">
+          <button class="${t.modo_preferido === 'socratico' ? 'on' : ''}" data-mode="socratico">Método Socrático</button>
+          <button class="${t.modo_preferido === 'direto' ? 'on' : ''}" data-mode="direto">Direto &amp; Prático</button>
+        </div>
+      </div>
+      <div class="lousa-cards">${lousa}</div>
+    </div>
+    <div class="card chat-card">
+      <div class="chat-head"><div class="avatar">T</div><div><div class="n">Tutor</div><div class="m">${modoTxt}</div></div></div>
+      <div class="chat">${corpoChat}</div>
+      ${composer}
+    </div>`;
 }
 
 /* =========================================================
@@ -1366,6 +1907,7 @@ function bindEvents() {
     const del = e.target.closest('[data-del]');
     if (del) { e.stopPropagation(); askDelete(del.dataset.del); return; }
     const card = e.target.closest('.track'); if (!card) return;
+    pararDitado();
     state.selectedId = card.dataset.id; state.tab = 'aula';
     render(); closeSidebar();
   });
@@ -1388,6 +1930,29 @@ function bindEvents() {
       if (confirm('Refazer o diagnóstico? O plano atual desta trilha será substituído por um novo.')) startDiagnostico(state.selectedId);
       return;
     }
+    const est = alvo('[data-estudar]'); if (est) return abrirAula(est.dataset.estudar);
+    const jd = alvo('[data-jadomino]'); if (jd) return jaDomino(jd.dataset.jadomino);
+    const a = state.aula;
+    if (a && a.trilhaId === state.selectedId) {
+      if (alvo('[data-aula-sair]')) return sairAula();
+      if (alvo('[data-aula-retry]')) {
+        const pend = a.pendente; a.erro = '';
+        if (!pend || pend.reabrir) return abrirAula(a.conceitoId);
+        return turno(pend.acao, pend.mensagem, { jaSalva: pend.acao !== 'iniciar' });
+      }
+      const rp = alvo('[data-rapida]');
+      if (rp) {
+        if (rp.dataset.rapida === 'encerrar' && !confirm('Encerrar a aula agora? O tutor fará um resumo do que foi visto.')) return;
+        pararDitado();
+        return turno(rp.dataset.rapida, { texto: '', raciocinio: '' });
+      }
+      const ao = alvo('[data-aopt]'); if (ao) { const j = +ao.dataset.aopt; a.opcao = a.opcao === j ? null : j; return renderMain(); }
+      const ac = alvo('[data-aconf]'); if (ac) { a.conf = a.conf === ac.dataset.aconf ? '' : ac.dataset.aconf; return renderMain(); }
+      if (alvo('[data-aula-rac]')) { a.showRac = !a.showRac; if (!a.showRac) pararDitado(); renderMain(); if (a.showRac) $('#aRac')?.focus(); return; }
+      if (alvo('[data-mic]')) return alternarDitado();
+      if (alvo('[data-aula-enviar]')) return enviarAluno();
+      return;
+    }
     const d = state.diag; if (!d) return;
     if (alvo('[data-diag-cancel]')) { pararDitado(); state.diag = null; return renderMain(); }
     if (alvo('[data-diag-retry]')) {
@@ -1405,9 +1970,16 @@ function bindEvents() {
     if (alvo('[data-diag-next]')) return diagAvancar(false);
   });
   $('#main').addEventListener('input', e => {
+    const a = state.aula;
+    if (a && e.target.id === 'aMsg') { a.draft = e.target.value; return; }
+    if (a && e.target.id === 'aRac') { a.rac = e.target.value; return; }
     const d = state.diag; if (!d || !d.respostas[d.idx]) return;
     if (e.target.id === 'dResp') d.respostas[d.idx].resposta = e.target.value;
     if (e.target.id === 'dRac') d.respostas[d.idx].raciocinio = e.target.value;
+  });
+
+  $('#main').addEventListener('keydown', e => {
+    if (e.target.id === 'aMsg' && e.key === 'Enter' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); enviarAluno(); }
   });
 
   $('#trackForm').addEventListener('submit', createTrack);
