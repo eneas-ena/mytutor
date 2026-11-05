@@ -570,6 +570,70 @@ button { cursor: pointer; }
 .rec .v b { color: var(--text); }
 @media (max-width: 1150px) { .map-grid { grid-template-columns: 1fr; } }
 
+/* Agenda e revisão */
+.tab { position: relative; }
+.tab-badge {
+  min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--amber); color: #1a1200;
+  font-size: 11px; font-weight: 800; display: inline-grid; place-items: center; line-height: 1;
+}
+.tab .tab-badge { margin-left: 2px; }
+@media (max-width: 1100px) { .tab .tab-badge { position: absolute; top: 2px; right: 2px; } }
+.ag-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; align-items: start; }
+.ag-hoje { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.ag-num { font-size: 52px; font-weight: 800; letter-spacing: -.03em; line-height: 1; color: var(--cyan); }
+.ag-num.zero { color: var(--green); }
+.ag-hoje .txt { flex: 1; min-width: 180px; }
+.ag-hoje .txt .t { font-weight: 700; font-size: 17px; }
+.ag-hoje .txt .s { color: var(--text-2); font-size: 14px; margin-top: 2px; }
+.ag-hoje .txt .s b.late { color: var(--amber); }
+.ag-filtros { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.dias { display: flex; flex-direction: column; gap: 8px; }
+.dia { display: grid; grid-template-columns: 110px 1fr 34px; gap: 10px; align-items: center; font-size: 14px; }
+.dia .n { color: var(--text-2); }
+.dia .c { text-align: right; font-family: "JetBrains Mono", monospace; font-weight: 600; }
+.dia .bar { margin: 0; height: 8px; }
+.rec-item { display: flex; gap: 12px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line); }
+.rec-item:first-of-type { border-top: none; }
+.rec-item .txt { flex: 1; min-width: 0; }
+.rec-item .k { font-size: 11px; font-weight: 700; letter-spacing: .06em; color: var(--cyan); text-transform: uppercase; }
+.rec-item .v { font-weight: 700; }
+.lembrete-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+.lembrete-row input[type=time] {
+  padding: 9px 12px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--bg-2); font-weight: 700; font-size: 16px;
+}
+.small-note { font-size: 13px; color: var(--text-3); margin-top: 10px; }
+.rev-wrap { max-width: 760px; margin: 0 auto; }
+.rev-top { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+.rev-top .bar { flex: 1; min-width: 120px; margin: 0; }
+.rev-card { padding: 28px; }
+.rev-origem { font-size: 12px; color: var(--text-3); font-weight: 600; letter-spacing: .02em; }
+.rev-frente { font-size: 22px; font-weight: 700; line-height: 1.4; margin: 10px 0 18px; }
+.rev-verso { border-top: 1px dashed var(--line-2); padding-top: 16px; margin-top: 4px; font-size: 16px; }
+.rev-verso p { margin: 0 0 10px; }
+.rev-minha { font-size: 14px; color: var(--text-2); background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin-bottom: 14px; }
+.notas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+.nota { border-radius: 14px; padding: 12px 8px; border: 1px solid var(--line-2); background: var(--bg-2); color: var(--text); font-weight: 700; }
+.nota small { display: block; font-weight: 500; font-size: 12px; color: var(--text-3); margin-top: 2px; }
+.nota.errei { border-color: rgba(248,113,113,.5); } .nota.errei:hover { background: rgba(248,113,113,.12); }
+.nota.dificil { border-color: rgba(245,158,11,.5); } .nota.dificil:hover { background: rgba(245,158,11,.12); }
+.nota.bom { border-color: rgba(34,211,238,.5); } .nota.bom:hover { background: rgba(34,211,238,.12); }
+.nota.facil { border-color: rgba(52,211,153,.5); } .nota.facil:hover { background: rgba(52,211,153,.12); }
+.kbd { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--text-3); }
+.cards-list { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 12px; }
+.cards-list .hd { display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; }
+.card-row { display: flex; gap: 8px; align-items: flex-start; padding: 8px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.card-row:first-of-type { border-top: none; }
+.card-row .f { flex: 1; min-width: 0; }
+.card-row .q { color: var(--text-3); font-size: 12px; margin-top: 2px; }
+.card-row .icon-btn { width: 30px; height: 30px; border-radius: 8px; flex: none; }
+.card-row .icon-btn .ic { width: 14px; height: 14px; }
+.cards-note { font-size: 13px; margin-top: 10px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.cards-note.ok { color: var(--green); }
+.cards-note.err { color: var(--red); }
+.cards-note .spinner { width: 16px; height: 16px; border-width: 2px; margin: 0; }
+@media (max-width: 1000px) { .ag-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .notas { grid-template-columns: repeat(2, 1fr); } .rev-frente { font-size: 19px; } .rev-card { padding: 20px; } }
+
 /* Editor do plano */
 .ed-note { font-size: 14px; color: var(--text-2); margin: 0 0 14px; }
 .ed-item { border: 1px solid var(--line); border-radius: 14px; padding: 14px; background: var(--bg-2); margin-bottom: 12px; }
@@ -722,7 +786,7 @@ button { cursor: pointer; }
       <button class="tab active" data-tab="aula"><svg class="ic"><use href="#i-book"/></svg><span class="tab-text">Sala de Aula</span></button>
       <button class="tab" data-tab="progresso"><svg class="ic"><use href="#i-grid"/></svg><span class="tab-text">Progresso</span></button>
       <button class="tab" data-tab="mapa"><svg class="ic"><use href="#i-graph"/></svg><span class="tab-text">Mapa de Conhecimento</span></button>
-      <button class="tab" data-tab="agenda"><svg class="ic"><use href="#i-cal"/></svg><span class="tab-text">Agenda</span></button>
+      <button class="tab" data-tab="agenda"><svg class="ic"><use href="#i-cal"/></svg><span class="tab-text">Agenda</span><span class="tab-badge hidden" id="agBadge"></span></button>
       <button class="tab" data-tab="metas"><svg class="ic"><use href="#i-target"/></svg><span class="tab-text">Metas &amp; XP</span></button>
     </nav>
     <div class="top-actions">
@@ -787,6 +851,20 @@ button { cursor: pointer; }
   </form>
 </div>
 
+<!-- Modal cartão -->
+<div class="overlay hidden" id="cardModal">
+  <form class="modal" id="cardForm" autocomplete="off">
+    <h3 id="cardModalTitle">Novo cartão</h3>
+    <p class="sub" id="cardModalSub"></p>
+    <div class="field"><label for="cFrente">Frente (pergunta)</label><textarea id="cFrente" rows="3" maxlength="300" required placeholder="Ex.: Por que uma rede sem função de ativação continua linear?"></textarea></div>
+    <div class="field"><label for="cVerso">Verso (resposta)</label><textarea id="cVerso" rows="4" maxlength="900" required placeholder="A resposta, em 1 a 3 frases."></textarea></div>
+    <div class="modal-actions">
+      <button type="button" class="btn" data-close>Cancelar</button>
+      <button type="submit" class="btn btn-primary" id="saveCardBtn">Salvar cartão</button>
+    </div>
+  </form>
+</div>
+
 <!-- Modal confirmar exclusão -->
 <div class="overlay hidden" id="delModal">
   <div class="modal">
@@ -811,7 +889,7 @@ button { cursor: pointer; }
 /* =========================================================
    CONFIGURAÇÃO
    ========================================================= */
-const APP_VERSION = '1.3.0';
+const APP_VERSION = '1.4.0';
 const SUPABASE_URL = 'https://ghjbljypxksubmcsvaig.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_qXCYqg1WdmelY9D1mptZXg_U8NdoKby';
 const DB_SCHEMA = 'mytutor';
@@ -839,7 +917,12 @@ const state = {
   aula: null,         // aula em andamento
   editor: null,       // edição do plano
   mapaSel: null,      // conceito selecionado no mapa
-  detCache: {}        // estatísticas por conceito
+  detCache: {},       // estatísticas por conceito
+  cartoes: [],        // todos os cartões de revisão
+  revisao: null,      // revisão em andamento
+  agFiltro: null,     // filtro de trilha na Agenda
+  cardEdit: null,     // cartão sendo criado/editado
+  gerando: {}         // conceitos com cartões sendo gerados
 };
 
 const $ = (s) => document.querySelector(s);
@@ -1015,6 +1098,10 @@ async function loadData() {
   const s = await sb.from('sessoes').select('duracao_seg');
   state.totalSeg = (!s.error && s.data) ? s.data.reduce((a, r) => a + (r.duracao_seg || 0), 0) : 0;
 
+  const cr = await sb.from('cartoes').select('*').order('proxima_revisao', { ascending: true });
+  if (cr.error) toast(dbErrorMessage(cr.error), true);
+  else state.cartoes = cr.data || [];
+
   render();
 }
 
@@ -1058,6 +1145,8 @@ async function confirmDelete() {
   btn.disabled = false;
   if (error) { toast(dbErrorMessage(error), true); return; }
   state.trilhas = state.trilhas.filter(t => t.id !== id);
+  state.cartoes = state.cartoes.filter(c => c.trilha_id !== id);
+  if (state.revisao) state.revisao.fila = state.revisao.fila.filter(cid => state.cartoes.some(c => c.id === cid));
   delete state.conceitos[id];
   if (state.aula && state.aula.trilhaId === id) { pararDitado(); state.aula = null; }
   if (state.editor && state.editor.trilhaId === id) state.editor = null;
@@ -1111,12 +1200,14 @@ function renderSidebar() {
     return;
   }
   $('#trackList').innerHTML = list.map(t => {
-    const st = STATUS[t.status] || STATUS.nova;
+    const atras = state.cartoes.some(c => c.trilha_id === t.id && atrasado(c));
+    const stKey = atras ? 'revisao' : t.status;
+    const st = STATUS[stKey] || STATUS.nova;
     return `
       <div class="track ${t.id === state.selectedId ? 'selected' : ''}" data-id="${t.id}" role="button" tabindex="0">
         <div class="track-top">
           <span class="track-area">${esc(t.area || 'Geral')}</span>
-          <span class="status st-${t.status}">${icon(st.ic, 'style="width:12px;height:12px"')}${st.label}</span>
+          <span class="status st-${stKey}">${icon(st.ic, 'style="width:12px;height:12px"')}${st.label}</span>
         </div>
         <div class="track-title">${esc(t.titulo)}</div>
         <div class="track-meta"><span>Domínio</span><span>${t.dominio}%</span></div>
@@ -1128,6 +1219,9 @@ function renderSidebar() {
 
 function renderTabs() {
   $$('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === state.tab));
+  const n = state.cartoes.filter(vence).length;
+  const bd = $('#agBadge');
+  if (bd) { bd.textContent = n > 99 ? '99+' : String(n); bd.classList.toggle('hidden', !n); bd.title = `${n} revisões para hoje`; }
 }
 
 const FUTURE = {
@@ -1139,15 +1233,6 @@ const FUTURE = {
       ['i-target', 'Conceitos dominados', 'Quantos conceitos de cada trilha já estão firmes.', 'Etapa 6'],
       ['i-flame', 'Sequência de estudos', 'Dias seguidos estudando e seu recorde.', 'Etapa 6'],
       ['i-trend', 'Revisões em dia', 'Quantos cartões estão em dia ou atrasados.', 'Etapa 6']
-    ]
-  },
-  agenda: {
-    ic: 'i-cal', title: 'Agenda & Ciclo de Revisão',
-    sub: 'Revisões programadas no momento certo para não esquecer.',
-    items: [
-      ['i-cards', 'Cartões de revisão', 'Gerados pela IA ao fim de cada aula.', 'Etapa 5'],
-      ['i-clock', 'Revisões do dia', 'O que precisa ser revisado hoje e o que está atrasado.', 'Etapa 5'],
-      ['i-cal', 'Próximas sessões', 'Calendário das revisões e aulas recomendadas.', 'Etapa 5']
     ]
   },
   metas: {
@@ -1165,6 +1250,7 @@ function renderMain() {
   const tSel = currentTrack();
   if (state.editor && tSel && state.editor.trilhaId === tSel.id) { main.innerHTML = renderEditor(tSel); return; }
   if (state.tab === 'mapa') { main.innerHTML = renderMapa(); return; }
+  if (state.tab === 'agenda') { main.innerHTML = state.revisao ? renderRevisao() : renderAgenda(); return; }
   if (state.tab !== 'aula') {
     const f = FUTURE[state.tab];
     main.innerHTML = `
@@ -1800,6 +1886,13 @@ async function finalizarAula(resumo, concluido, manual = false) {
   if (concluido) liberados = await marcarDominado(a.trilhaId, a.conceitoId);
   else { const t = state.trilhas.find(x => x.id === a.trilhaId); if (t) await atualizarTrilha(t); }
   a.fim = { ...res, liberados: liberados.map(x => x.titulo) };
+  if (!manual && a.msgs.length >= 4) {
+    a.fim.cartoes = 'gerando';
+    gerarCartoes({ trilhaId: a.trilhaId, conceitoId: a.conceitoId, sessaoId: a.sessaoId, msgs: a.msgs, resumo: res })
+      .then(n => { a.fim.cartoes = n; })
+      .catch(e => { a.fim.cartoes = 'erro'; a.fim.cartoesErro = e.message; })
+      .finally(() => { if (state.aula === a) renderMain(); renderTabs(); renderSidebar(); });
+  }
 }
 
 async function jaDomino(conceitoId) {
@@ -1910,6 +2003,9 @@ function renderAula(t) {
           <div class="list-box gap"><div class="k">Para revisar</div><ul>${itens(f.pendente)}</ul></div>
         </div>
         ${f.proximo_passo ? `<div class="prox"><b>Próximo passo:</b> ${esc(f.proximo_passo)}</div>` : ''}`}
+        ${f.cartoes === 'gerando' ? `<div class="cards-note"><div class="spinner"></div>Criando cartões de revisão…</div>`
+          : f.cartoes === 'erro' ? `<div class="cards-note err">Não foi possível criar os cartões de revisão: ${esc(f.cartoesErro || '')} <button class="btn btn-sm" data-gerar-cartoes="${a.conceitoId}">${icon('i-refresh', 'style="width:14px;height:14px"')}Tentar de novo</button></div>`
+          : typeof f.cartoes === 'number' ? `<div class="cards-note ok">${icon('i-cards', 'style="width:16px;height:16px"')}${f.cartoes === 1 ? '1 cartão de revisão criado' : f.cartoes + ' cartões de revisão criados'}. <button class="btn btn-sm" data-ir-agenda>Ver na Agenda</button></div>` : ''}
         <div class="diag-actions">
           <button class="btn" data-aula-sair>${icon('i-back')}Voltar à trilha</button>
           ${prox && prox.id !== a.conceitoId ? `<span class="grow"></span><button class="btn btn-primary" data-estudar="${prox.id}">${icon('i-play')}Próximo: ${esc(prox.titulo)}</button>` : ''}
@@ -1944,6 +2040,7 @@ function renderAula(t) {
     <div class="aula-top">
       <button class="btn btn-sm" data-aula-sair>${icon('i-back', 'style="width:14px;height:14px"')}Voltar à trilha</button>
       <span class="grow"></span>
+      ${!a.fim && !a.carregando && a.msgs.length >= 2 ? `<button class="btn btn-sm" data-gerar-cartoes="${a.conceitoId}" ${bloq || state.gerando[a.conceitoId] ? 'disabled' : ''}>${icon('i-cards', 'style="width:14px;height:14px"')}${state.gerando[a.conceitoId] ? 'Gerando…' : 'Gerar flashcards'}</button>` : ''}
       ${!a.fim && c.status !== 'dominado' ? `<button class="btn btn-sm" data-jadomino="${a.conceitoId}" ${bloq ? 'disabled' : ''}>${icon('i-check', 'style="width:14px;height:14px"')}Já domino</button>` : ''}
       ${!a.fim && !a.carregando ? `<button class="btn btn-sm" data-rapida="encerrar" ${bloq || a.msgs.length < 2 ? 'disabled' : ''}>${icon('i-stop', 'style="width:14px;height:14px"')}Encerrar aula</button>` : ''}
     </div>
@@ -2124,6 +2221,7 @@ function renderDetalhe(conc, c) {
         : `<button class="btn btn-sm ${c.status === 'dominado' ? '' : 'btn-primary'}" data-estudar="${c.id}">${icon(c.status === 'dominado' ? 'i-refresh' : 'i-play', 'style="width:14px;height:14px"')}${c.status === 'dominado' ? 'Rever' : (c.status === 'em_estudo' || (d && d.aberta)) ? 'Continuar' : 'Estudar'}</button>
            ${c.status !== 'dominado' ? `<button class="btn btn-sm" data-jadomino="${c.id}">${icon('i-check', 'style="width:14px;height:14px"')}Já domino</button>` : ''}`}
     </div>
+    ${renderCartoesConceito(c)}
   </div>`;
 }
 
@@ -2165,6 +2263,391 @@ function renderMapa() {
       ${renderDetalhe(conc, sel)}
     </div>
     ${recHtml}`;
+}
+
+/* =========================================================
+   CARTÕES DE REVISÃO (repetição espaçada)
+   ========================================================= */
+const DIA = 24 * 3600 * 1000;
+function inicioDia(d = new Date()) { const x = new Date(d); x.setHours(0, 0, 0, 0); return x; }
+const fimHoje = () => new Date(inicioDia().getTime() + DIA);
+const vence = (c) => new Date(c.proxima_revisao) < fimHoje();
+const atrasado = (c) => new Date(c.proxima_revisao) < inicioDia();
+function dataEm(dias) { const d = inicioDia(); d.setDate(d.getDate() + dias); d.setHours(4, 0, 0, 0); return d.toISOString(); }
+
+const NOTAS = [
+  { k: 'errei', rot: 'Errei', tecla: '1' },
+  { k: 'dificil', rot: 'Difícil', tecla: '2' },
+  { k: 'bom', rot: 'Bom', tecla: '3' },
+  { k: 'facil', rot: 'Fácil', tecla: '4' }
+];
+
+function calcularRevisao(c, nota) {
+  let i = Number(c.intervalo_dias) || 0, f = Number(c.facilidade) || 2.5, n = c.repeticoes || 0;
+  if (nota === 'errei') { n = 0; i = 1; f = Math.max(1.3, f - 0.2); }
+  else {
+    n += 1;
+    if (n === 1) i = { dificil: 1, bom: 2, facil: 4 }[nota];
+    else if (nota === 'dificil') i = Math.max(i + 1, Math.round(i * 1.2));
+    else if (nota === 'bom') i = Math.max(i + 1, Math.round(i * f));
+    else i = Math.max(i + 2, Math.round(i * f * 1.3));
+    f = Math.min(3, Math.max(1.3, f + { dificil: -0.15, bom: 0, facil: 0.15 }[nota]));
+  }
+  i = Math.min(i, 365);
+  return { intervalo_dias: i, facilidade: Math.round(f * 100) / 100, repeticoes: n, proxima_revisao: dataEm(i), ultima_revisao: new Date().toISOString(), ultima_nota: nota };
+}
+
+function rotuloIntervalo(dias) {
+  if (dias <= 1) return 'amanhã';
+  if (dias < 7) return `em ${dias} dias`;
+  if (dias < 30) { const s = Math.round(dias / 7); return `em ${s} semana${s > 1 ? 's' : ''}`; }
+  const m = Math.round(dias / 30); return `em ${m} ${m > 1 ? 'meses' : 'mês'}`;
+}
+
+function rotuloData(iso) {
+  const d = inicioDia(new Date(iso)), h = inicioDia();
+  const dif = Math.round((d - h) / DIA);
+  if (dif < 0) return 'atrasado';
+  if (dif === 0) return 'hoje';
+  if (dif === 1) return 'amanhã';
+  return d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
+}
+
+async function gerarCartoes({ trilhaId, conceitoId, sessaoId, msgs, resumo }) {
+  const t = state.trilhas.find(x => x.id === trilhaId);
+  const c = (state.conceitos[trilhaId] || []).find(x => x.id === conceitoId);
+  if (!t || !c) throw new Error('Conceito não encontrado.');
+  if (state.gerando[conceitoId]) throw new Error('Já estou gerando os cartões deste conceito.');
+  state.gerando[conceitoId] = true;
+  try {
+    const existentes = state.cartoes.filter(x => x.conceito_id === conceitoId).map(x => x.frente);
+    const r = await callIA('cartoes', {
+      trilha: trilhaParaIA(t),
+      conceito: { titulo: c.titulo, descricao: c.descricao, dominio: c.dominio },
+      historico: (msgs || []).map(m => ({ papel: m.papel, conteudo: m.conteudo, dados: m.dados })),
+      resumo: resumo || null, existentes, quantidade: 5
+    });
+    const linhas = r.cartoes.map(x => ({ trilha_id: trilhaId, conceito_id: conceitoId, sessao_id: sessaoId || null, frente: x.frente, verso: x.verso, origem: 'ia' }));
+    const ins = await sb.from('cartoes').insert(linhas).select();
+    if (ins.error) throw new Error(dbErrorMessage(ins.error));
+    state.cartoes.push(...(ins.data || []));
+    return (ins.data || []).length;
+  } finally {
+    delete state.gerando[conceitoId];
+  }
+}
+
+// Gera a partir da aula atual ou, no mapa, da última aula do conceito
+async function gerarCartoesDe(conceitoId) {
+  const t = currentTrack(); if (!t) return;
+  const a = state.aula;
+  let msgs = [], sessaoId = null, resumo = null;
+  if (a && a.conceitoId === conceitoId && a.msgs.length) {
+    msgs = a.msgs; sessaoId = a.sessaoId; resumo = a.fim ? a.fim : null;
+  } else {
+    const ses = await sb.from('sessoes').select('id, resumo').eq('conceito_id', conceitoId).eq('tipo', 'aula').order('iniciada_em', { ascending: false });
+    const ult = ses.error ? null : (ses.data || [])[0];
+    if (ult) {
+      const ms = await sb.from('mensagens').select('*').eq('sessao_id', ult.id).order('created_at', { ascending: true });
+      msgs = ms.error ? [] : (ms.data || []);
+      sessaoId = ult.id; resumo = ult.resumo && !ult.resumo.manual ? ult.resumo : null;
+    }
+  }
+  if (a && a.fim && a.conceitoId === conceitoId) a.fim.cartoes = 'gerando';
+  renderMain();
+  const p = gerarCartoes({ trilhaId: t.id, conceitoId, sessaoId, msgs, resumo });
+  renderMain();
+  try {
+    const n = await p;
+    if (a && a.fim && a.conceitoId === conceitoId) a.fim.cartoes = n;
+    toast(n === 1 ? '1 cartão de revisão criado.' : `${n} cartões de revisão criados.`);
+  } catch (e) {
+    if (a && a.fim && a.conceitoId === conceitoId) { a.fim.cartoes = 'erro'; a.fim.cartoesErro = e.message; }
+    toast('Não foi possível criar os cartões: ' + e.message, true);
+  }
+  render();
+}
+
+function renderCartoesConceito(c) {
+  const lista = state.cartoes.filter(x => x.conceito_id === c.id);
+  const gerando = state.gerando[c.id];
+  return `<div class="cards-list">
+    <div class="hd">${icon('i-cards', 'style="width:16px;height:16px;color:var(--cyan)"')}Cartões de revisão (${lista.length})</div>
+    ${lista.map(x => `<div class="card-row">
+        <div class="f">${esc(x.frente)}<div class="q">Próxima revisão: ${rotuloData(x.proxima_revisao)}${x.origem === 'manual' ? ' · criado por você' : ''}</div></div>
+        <button class="icon-btn" data-card-edit="${x.id}" title="Editar">${icon('i-edit')}</button>
+        <button class="icon-btn" data-card-del="${x.id}" title="Excluir">${icon('i-trash')}</button>
+      </div>`).join('') || '<div class="small-note" style="margin-top:0">Nenhum cartão ainda. Eles são criados ao fim de cada aula.</div>'}
+    <div class="acts">
+      <button class="btn btn-sm" data-gerar-cartoes="${c.id}" ${gerando ? 'disabled' : ''}>${gerando ? '<span class="spinner" style="width:14px;height:14px;border-width:2px;margin:0"></span>Gerando…' : `${icon('i-spark', 'style="width:14px;height:14px"')}Gerar com IA`}</button>
+      <button class="btn btn-sm" data-card-new="${c.id}">${icon('i-plus', 'style="width:14px;height:14px"')}Criar cartão</button>
+    </div>
+  </div>`;
+}
+
+function abrirCartao(id, conceitoId) {
+  const x = id ? state.cartoes.find(c => c.id === id) : null;
+  const t = currentTrack();
+  const cid = x ? x.conceito_id : conceitoId;
+  const c = t && (state.conceitos[t.id] || []).find(k => k.id === cid);
+  state.cardEdit = { id: x ? x.id : null, trilhaId: x ? x.trilha_id : t.id, conceitoId: cid };
+  $('#cardModalTitle').textContent = x ? 'Editar cartão' : 'Novo cartão';
+  $('#cardModalSub').textContent = c ? `Conceito: ${c.titulo}` : '';
+  $('#cFrente').value = x ? x.frente : '';
+  $('#cVerso').value = x ? x.verso : '';
+  openModal('#cardModal');
+  $('#cFrente').focus();
+}
+
+async function salvarCartao(e) {
+  e.preventDefault();
+  const ce = state.cardEdit; if (!ce) return;
+  const frente = $('#cFrente').value.trim(), verso = $('#cVerso').value.trim();
+  if (!frente || !verso) return;
+  const btn = $('#saveCardBtn'); btn.disabled = true;
+  let r;
+  if (ce.id) r = await sb.from('cartoes').update({ frente, verso }).eq('id', ce.id).select().single();
+  else r = await sb.from('cartoes').insert({ trilha_id: ce.trilhaId, conceito_id: ce.conceitoId, frente, verso, origem: 'manual' }).select().single();
+  btn.disabled = false;
+  if (r.error) { toast(dbErrorMessage(r.error), true); return; }
+  if (ce.id) Object.assign(state.cartoes.find(c => c.id === ce.id), r.data);
+  else state.cartoes.push(r.data);
+  state.cardEdit = null;
+  closeModal('#cardModal');
+  toast(ce.id ? 'Cartão atualizado.' : 'Cartão criado. Ele já entra na revisão de hoje.');
+  render();
+}
+
+async function excluirCartao(id) {
+  const x = state.cartoes.find(c => c.id === id); if (!x) return;
+  if (!confirm(`Excluir o cartão "${x.frente}"?`)) return;
+  const r = await sb.from('cartoes').delete().eq('id', id);
+  if (r.error) { toast(dbErrorMessage(r.error), true); return; }
+  state.cartoes = state.cartoes.filter(c => c.id !== id);
+  render();
+}
+
+/* ---------- Agenda ---------- */
+let carregouTodosConceitos = false;
+async function loadTodosConceitos() {
+  if (carregouTodosConceitos) return;
+  carregouTodosConceitos = true;
+  const { data, error } = await sb.from('conceitos').select('*').order('ordem');
+  if (error) { carregouTodosConceitos = false; return; }
+  const porTrilha = {};
+  (data || []).forEach(c => { (porTrilha[c.trilha_id] = porTrilha[c.trilha_id] || []).push(c); });
+  state.trilhas.forEach(t => { if (!state.conceitos[t.id]) state.conceitos[t.id] = porTrilha[t.id] || []; });
+  if (state.tab === 'agenda') renderMain();
+}
+
+function lerHoraLembrete() { try { return localStorage.getItem('mytutor-lembrete') || '07:00'; } catch { return '07:00'; } }
+
+function baixarLembrete(hhmm) {
+  if (!/^\d{2}:\d{2}$/.test(hhmm)) { toast('Escolha um horário.', true); return; }
+  try { localStorage.setItem('mytutor-lembrete', hhmm); } catch {}
+  const [h, m] = hhmm.split(':').map(Number);
+  const ini = new Date(); ini.setHours(h, m, 0, 0);
+  if (ini <= new Date()) ini.setDate(ini.getDate() + 1);
+  const p2 = (n) => String(n).padStart(2, '0');
+  const local = `${ini.getFullYear()}${p2(ini.getMonth() + 1)}${p2(ini.getDate())}T${p2(h)}${p2(m)}00`;
+  const agora = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
+  const url = location.origin + location.pathname;
+  const ics = [
+    'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//MyTutor//PT-BR', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    `UID:mytutor-lembrete-${Date.now()}@eneas-ena.github.io`,
+    `DTSTAMP:${agora}`,
+    `DTSTART:${local}`,
+    'DURATION:PT15M',
+    'RRULE:FREQ=DAILY',
+    'SUMMARY:Revisar MyTutor',
+    `DESCRIPTION:Hora de revisar seus cartões no MyTutor.\\n${url}`,
+    `URL:${url}`,
+    'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:Revisar MyTutor', 'TRIGGER:-PT0M', 'END:VALARM',
+    'END:VEVENT', 'END:VCALENDAR'
+  ].join('\r\n');
+  const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'lembrete-mytutor.ics';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 60000);
+  toast('Abra o arquivo e toque em "Adicionar" para criar o lembrete diário.');
+}
+
+function renderAgenda() {
+  loadTodosConceitos();
+  const nomeT = Object.fromEntries(state.trilhas.map(t => [t.id, t.titulo]));
+  const hoje = state.cartoes.filter(vence);
+  const filtro = state.agFiltro && nomeT[state.agFiltro] ? state.agFiltro : null;
+  const lista = filtro ? hoje.filter(c => c.trilha_id === filtro) : hoje;
+  const atras = lista.filter(atrasado).length;
+  const porTrilha = {};
+  hoje.forEach(c => { porTrilha[c.trilha_id] = (porTrilha[c.trilha_id] || 0) + 1; });
+  const total = state.cartoes.length;
+  const prox = state.cartoes.filter(c => !vence(c)).sort((a, b) => new Date(a.proxima_revisao) - new Date(b.proxima_revisao))[0];
+
+  // Próximos 7 dias
+  const dias = [];
+  for (let k = 1; k <= 7; k++) {
+    const ini = new Date(inicioDia().getTime() + k * DIA), fim = new Date(ini.getTime() + DIA);
+    const n = state.cartoes.filter(c => { const d = new Date(c.proxima_revisao); return d >= ini && d < fim; }).length;
+    const nome = k === 1 ? 'Amanhã' : ini.toLocaleDateString('pt-BR', { weekday: 'short', day: '2-digit', month: '2-digit' }).replace('.', '');
+    dias.push({ nome, n });
+  }
+  const maxDia = Math.max(1, ...dias.map(d => d.n));
+
+  // Aulas recomendadas
+  const recs = state.trilhas.map(t => {
+    const conc = state.conceitos[t.id];
+    if (!conc || !conc.length) return null;
+    const r = recomendacao(conc);
+    return r && r.c ? { t, r } : null;
+  }).filter(Boolean);
+
+  const hojeHtml = !total
+    ? `<div class="ag-hoje"><div class="ag-num zero">0</div><div class="txt"><div class="t">Nenhum cartão ainda</div><div class="s">Os cartões de revisão são criados automaticamente ao fim de cada aula.</div></div></div>`
+    : `<div class="ag-hoje">
+        <div class="ag-num ${lista.length ? '' : 'zero'}">${lista.length}</div>
+        <div class="txt">
+          <div class="t">${lista.length ? (lista.length === 1 ? 'cartão para revisar hoje' : 'cartões para revisar hoje') : 'Tudo em dia!'}</div>
+          <div class="s">${lista.length ? (atras ? `<b class="late">${atras} atrasado${atras === 1 ? '' : 's'}</b> · ` : '') + 'cerca de ' + Math.max(1, Math.round(lista.length * 0.4)) + ' min' : prox ? `Próxima revisão: ${rotuloData(prox.proxima_revisao)}.` : ''}</div>
+        </div>
+        ${lista.length ? `<button class="btn btn-primary" data-rev-start>${icon('i-play')}Começar revisão</button>` : ''}
+      </div>
+      ${Object.keys(porTrilha).length > 1 ? `<div class="ag-filtros">
+        <button class="chip-btn ${!filtro ? 'on' : ''}" data-ag-filtro="">Todas (${hoje.length})</button>
+        ${Object.entries(porTrilha).map(([id, n]) => `<button class="chip-btn ${filtro === id ? 'on' : ''}" data-ag-filtro="${id}">${esc(nomeT[id] || 'Trilha')} (${n})</button>`).join('')}
+      </div>` : ''}`;
+
+  return `
+    <div class="page-head"><h2>${icon('i-cal')}Agenda &amp; Revisão</h2><p>Revise no momento certo para não esquecer. Quem acerta vê o cartão cada vez mais espaçado; quem erra vê de novo amanhã.</p></div>
+    <div class="ag-grid">
+      <div class="stack">
+        <div class="card"><div class="sec-title">${icon('i-cards')}Revisões de hoje</div>${hojeHtml}</div>
+        <div class="card">
+          <div class="sec-title">${icon('i-book')}Aulas recomendadas</div>
+          ${recs.length ? recs.map(({ t, r }) => `<div class="rec-item">
+              <div class="txt"><div class="k">${esc(t.titulo)}</div><div class="v">${esc(r.c.titulo)}</div></div>
+              <button class="btn btn-sm btn-primary" data-ag-aula="${t.id}:${r.c.id}">${icon('i-play', 'style="width:14px;height:14px"')}${r.tipo === 'continuar' ? 'Continuar' : 'Estudar'}</button>
+            </div>`).join('') : `<div class="small-note" style="margin-top:0">${state.trilhas.length ? 'Nenhuma aula pendente nas suas trilhas.' : 'Crie uma trilha para começar.'}</div>`}
+        </div>
+      </div>
+      <div class="stack">
+        <div class="card">
+          <div class="sec-title">${icon('i-trend')}Próximos 7 dias</div>
+          <div class="dias">${dias.map(d => `<div class="dia"><span class="n">${esc(d.nome)}</span><div class="bar"><span style="width:${Math.round(d.n / maxDia * 100)}%"></span></div><span class="c">${d.n}</span></div>`).join('')}</div>
+        </div>
+        <div class="card">
+          <div class="sec-title">${icon('i-clock')}Lembrete diário</div>
+          <div style="font-size:14px;color:var(--text-2)">Crie na agenda do seu iPad, iPhone ou Mac um lembrete que se repete todos os dias para revisar.</div>
+          <div class="lembrete-row">
+            <input type="time" id="lembHora" value="${lerHoraLembrete()}" aria-label="Horário do lembrete">
+            <button class="btn btn-primary" data-lembrete>${icon('i-cal')}Adicionar à minha agenda</button>
+          </div>
+          <div class="small-note">No iPad, se nada acontecer com o app instalado na tela de início, abra o MyTutor pelo Safari e toque de novo.</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+/* ---------- Revisão ---------- */
+function iniciarRevisao() {
+  const filtro = state.agFiltro;
+  const fila = state.cartoes.filter(vence).filter(c => !filtro || c.trilha_id === filtro)
+    .sort((a, b) => new Date(a.proxima_revisao) - new Date(b.proxima_revisao)).map(c => c.id);
+  if (!fila.length) return;
+  state.revisao = { fila, idx: 0, mostrando: false, resposta: '', feitos: 0, acertos: 0, repetidos: new Set(), sessoes: {}, seg: {}, ultimoEvento: Date.now(), fim: false, salvando: false };
+  renderMain(); $('#main').scrollTop = 0;
+}
+
+function tempoRevisao(trilhaId) {
+  const r = state.revisao; const agora = Date.now();
+  const seg = Math.round(Math.min(agora - r.ultimoEvento, MAX_PAUSA) / 1000);
+  r.ultimoEvento = agora;
+  r.seg[trilhaId] = (r.seg[trilhaId] || 0) + seg;
+  state.totalSeg += seg;
+  renderSidebarTempo();
+}
+
+async function salvarTempoRevisao(trilhaId, encerrar = false) {
+  const r = state.revisao; if (!r || r.seg[trilhaId] === undefined) return;
+  const dados = { duracao_seg: r.seg[trilhaId], ...(encerrar ? { encerrada_em: new Date().toISOString() } : {}) };
+  if (!r.sessoes[trilhaId]) {
+    const ins = await sb.from('sessoes').insert({ trilha_id: trilhaId, tipo: 'revisao', iniciada_em: new Date(Date.now() - r.seg[trilhaId] * 1000).toISOString(), ...dados }).select().single();
+    if (!ins.error) r.sessoes[trilhaId] = ins.data.id;
+  } else {
+    await sb.from('sessoes').update(dados).eq('id', r.sessoes[trilhaId]);
+  }
+}
+
+async function avaliarCartao(nota) {
+  const r = state.revisao; if (!r || !r.mostrando || r.salvando) return;
+  const c = state.cartoes.find(x => x.id === r.fila[r.idx]); if (!c) return;
+  r.salvando = true;
+  tempoRevisao(c.trilha_id);
+  const novo = calcularRevisao(c, nota);
+  const up = await sb.from('cartoes').update(novo).eq('id', c.id);
+  r.salvando = false;
+  if (up.error) { toast(dbErrorMessage(up.error), true); return; }
+  Object.assign(c, novo);
+  r.feitos++;
+  if (nota !== 'errei') r.acertos++;
+  else if (!r.repetidos.has(c.id)) { r.repetidos.add(c.id); r.fila.push(c.id); }
+  salvarTempoRevisao(c.trilha_id);
+  r.idx++; r.mostrando = false; r.resposta = '';
+  if (r.idx >= r.fila.length) await encerrarRevisao(false);
+  render(); $('#main').scrollTop = 0;
+}
+
+async function encerrarRevisao(sair = true) {
+  const r = state.revisao; if (!r) return;
+  r.fim = true;
+  await Promise.all(Object.keys(r.seg).map(id => salvarTempoRevisao(id, true)));
+  if (sair) state.revisao = null;
+  render();
+}
+
+function renderRevisao() {
+  const r = state.revisao;
+  const nomeT = Object.fromEntries(state.trilhas.map(t => [t.id, t.titulo]));
+  if (r.fim) {
+    const amanha = state.cartoes.filter(c => { const d = new Date(c.proxima_revisao); return d >= fimHoje() && d < new Date(fimHoje().getTime() + DIA); }).length;
+    const pct = r.feitos ? Math.round(r.acertos / r.feitos * 100) : 0;
+    return `<div class="rev-wrap"><div class="card fim-card ok" style="padding:28px">
+      <h3>${icon('i-check')}Revisão concluída!</h3>
+      <div class="two" style="margin-top:14px">
+        <div class="info"><div class="k">Cartões revisados</div><div class="v" style="font-size:22px;font-weight:800">${r.feitos}</div></div>
+        <div class="info"><div class="k">Acertos</div><div class="v" style="font-size:22px;font-weight:800">${pct}%</div></div>
+      </div>
+      <div class="prox">${amanha ? `Amanhã há <b>${amanha}</b> ${amanha === 1 ? 'cartão' : 'cartões'} para revisar.` : 'Nenhum cartão para amanhã.'}</div>
+      <div class="diag-actions"><span class="grow"></span><button class="btn btn-primary" data-rev-sair>${icon('i-back')}Voltar à Agenda</button></div>
+    </div></div>`;
+  }
+  const c = state.cartoes.find(x => x.id === r.fila[r.idx]);
+  if (!c) { r.idx++; if (r.idx >= r.fila.length) { encerrarRevisao(false); return ''; } return renderRevisao(); }
+  const conc = state.conceitos[c.trilha_id] || [];
+  const nomeC = (conc.find(x => x.id === c.conceito_id) || {}).titulo;
+  const pct = Math.round(r.idx / r.fila.length * 100);
+  return `<div class="rev-wrap">
+    <div class="rev-top">
+      <button class="btn btn-sm" data-rev-sair>${icon('i-back', 'style="width:14px;height:14px"')}Sair</button>
+      <div class="bar"><span style="width:${pct}%"></span></div>
+      <span class="mono" style="font-size:13px;color:var(--text-2)">${r.idx + 1} de ${r.fila.length}</span>
+    </div>
+    <div class="card rev-card">
+      <div class="rev-origem">${esc(nomeT[c.trilha_id] || '')}${nomeC ? ' · ' + esc(nomeC) : ''}${r.repetidos.has(c.id) && r.fila.indexOf(c.id) !== r.idx ? '' : ''}</div>
+      <div class="rev-frente">${esc(c.frente)}</div>
+      ${!r.mostrando ? `
+        <div class="field"><label for="rResp">Sua resposta (opcional)</label><textarea id="rResp" rows="2" maxlength="1000" placeholder="Pense ou escreva antes de ver a resposta.">${esc(r.resposta)}</textarea></div>
+        <div class="diag-actions"><span class="grow"></span><button class="btn btn-primary" data-rev-mostrar>Mostrar resposta <span class="kbd" style="color:rgba(255,255,255,.7)">espaço</span></button></div>`
+      : `
+        ${r.resposta.trim() ? `<div class="rev-minha"><b>Sua resposta:</b> ${esc(r.resposta)}</div>` : ''}
+        <div class="rev-verso">${md(c.verso)}</div>
+        <div style="margin-top:14px;font-size:14px;color:var(--text-2)">Como foi?</div>
+        <div class="notas">${NOTAS.map(n => `<button class="nota ${n.k}" data-nota="${n.k}" ${r.salvando ? 'disabled' : ''}>${n.rot}<small>${rotuloIntervalo(calcularRevisao(c, n.k).intervalo_dias)} · <span class="kbd">${n.tecla}</span></small></button>`).join('')}</div>`}
+    </div>
+  </div>`;
 }
 
 /* =========================================================
@@ -2282,6 +2765,7 @@ async function salvarEditor() {
 
   state.conceitos[t.id] = (up.data || []).sort((a, b) => a.ordem - b.ordem);
   ids.forEach(id => delete state.detCache[id]);
+  state.cartoes.forEach(c => { if (ids.includes(c.conceito_id)) c.conceito_id = null; });
   if (state.aula && state.aula.trilhaId === t.id && !state.conceitos[t.id].find(c => c.id === state.aula.conceitoId)) { pararDitado(); state.aula = null; }
   await atualizarTrilha(t);
   state.tab = e.voltarPara === 'mapa' ? 'mapa' : 'aula';
@@ -2308,7 +2792,9 @@ function bindEvents() {
 
   $('#tabs').addEventListener('click', e => {
     const b = e.target.closest('.tab'); if (!b) return;
-    pararDitado(); state.tab = b.dataset.tab; if (state.tab === 'mapa') state.detCache = {}; renderTabs(); renderMain();
+    pararDitado();
+    if (state.revisao && b.dataset.tab !== 'agenda') { encerrarRevisao(true); }
+    state.tab = b.dataset.tab; if (state.tab === 'mapa') state.detCache = {}; renderTabs(); renderMain();
   });
 
   $('#trackList').addEventListener('click', e => {
@@ -2371,6 +2857,25 @@ function bindEvents() {
       return;
     }
     if (alvo('[data-editar]')) return abrirEditor();
+    // Cartões e Agenda
+    const gc = alvo('[data-gerar-cartoes]'); if (gc) return gerarCartoesDe(gc.dataset.gerarCartoes);
+    const ce = alvo('[data-card-edit]'); if (ce) return abrirCartao(ce.dataset.cardEdit);
+    const cn = alvo('[data-card-new]'); if (cn) return abrirCartao(null, cn.dataset.cardNew);
+    const cd = alvo('[data-card-del]'); if (cd) return excluirCartao(cd.dataset.cardDel);
+    if (alvo('[data-ir-agenda]')) { pararDitado(); state.aula = null; state.tab = 'agenda'; return render(); }
+    const af = alvo('[data-ag-filtro]'); if (af) { state.agFiltro = af.dataset.agFiltro || null; return renderMain(); }
+    if (alvo('[data-rev-start]')) return iniciarRevisao();
+    if (alvo('[data-rev-sair]')) return encerrarRevisao(true);
+    if (alvo('[data-rev-mostrar]')) { state.revisao.mostrando = true; return renderMain(); }
+    const nt = alvo('[data-nota]'); if (nt) return avaliarCartao(nt.dataset.nota);
+    if (alvo('[data-lembrete]')) return baixarLembrete(($('#lembHora') || {}).value || '');
+    const aa = alvo('[data-ag-aula]');
+    if (aa) {
+      const [tid, cid] = aa.dataset.agAula.split(':');
+      pararDitado(); state.selectedId = tid; state.tab = 'aula'; state.mapaSel = null;
+      render();
+      return abrirAula(cid);
+    }
     const nd = alvo('[data-node]');
     if (nd) { state.mapaSel = state.mapaSel === nd.dataset.node ? null : nd.dataset.node; return renderMain(); }
     const est = alvo('[data-estudar]');
@@ -2418,6 +2923,7 @@ function bindEvents() {
     if (e.target.matches('[data-ed-dom]') && state.editor) { state.editor.itens[+e.target.dataset.edDom].dominado = e.target.checked; renderMain(); }
   });
   $('#main').addEventListener('input', e => {
+    if (e.target.id === 'rResp' && state.revisao) { state.revisao.resposta = e.target.value; return; }
     const ed = state.editor;
     if (ed && e.target.dataset.edTitulo !== undefined) { ed.itens[+e.target.dataset.edTitulo].titulo = e.target.value; return; }
     if (ed && e.target.dataset.edDesc !== undefined) { ed.itens[+e.target.dataset.edDesc].descricao = e.target.value; return; }
@@ -2436,6 +2942,15 @@ function bindEvents() {
   });
 
   $('#trackForm').addEventListener('submit', createTrack);
+  $('#cardForm').addEventListener('submit', salvarCartao);
+  // Atalhos da revisão: espaço mostra a resposta; 1 a 4 avaliam
+  document.addEventListener('keydown', e => {
+    const r = state.revisao;
+    if (!r || r.fim || state.tab !== 'agenda') return;
+    if (e.target.matches('input, textarea, select') || !$('#cardModal').classList.contains('hidden')) return;
+    if (!r.mostrando && (e.key === ' ' || e.key === 'Enter')) { e.preventDefault(); r.mostrando = true; renderMain(); return; }
+    if (r.mostrando) { const n = NOTAS.find(x => x.tecla === e.key); if (n) { e.preventDefault(); avaliarCartao(n.k); } }
+  });
   $('#confirmDelBtn').addEventListener('click', confirmDelete);
   $$('[data-close]').forEach(b => b.addEventListener('click', () => b.closest('.overlay').classList.add('hidden')));
   $$('.overlay').forEach(o => o.addEventListener('click', e => { if (e.target === o) o.classList.add('hidden'); }));
