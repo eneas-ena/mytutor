@@ -634,6 +634,68 @@ button { cursor: pointer; }
 @media (max-width: 1000px) { .ag-grid { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .notas { grid-template-columns: repeat(2, 1fr); } .rev-frente { font-size: 19px; } .rev-card { padding: 20px; } }
 
+/* Progresso */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 16px; }
+.kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
+.kpi .top { display: flex; justify-content: space-between; align-items: center; color: var(--text-2); font-size: 14px; font-weight: 600; }
+.kpi .top .ic { color: var(--cyan); width: 20px; height: 20px; }
+.kpi .val { font-size: 34px; font-weight: 800; letter-spacing: -.02em; margin: 8px 0 2px; line-height: 1.1; }
+.kpi .sub { font-size: 13px; color: var(--text-2); }
+.kpi .sub b { color: var(--text); }
+.kpi .sub .ok { color: var(--green); font-weight: 700; }
+.kpi .sub .warn { color: var(--amber); font-weight: 700; }
+.kpi .bar { margin-top: 10px; }
+.pg-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; align-items: start; margin-bottom: 16px; }
+.ch-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+.ch-head .sec-title { margin: 0; flex: 1; }
+.seg { display: inline-flex; background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; padding: 3px; }
+.seg button { border: none; background: transparent; color: var(--text-2); padding: 5px 10px; border-radius: 8px; font-weight: 600; font-size: 13px; }
+.seg button.on { background: var(--blue-2); color: #fff; }
+.readout { font-size: 13px; color: var(--text-2); min-height: 20px; margin: 4px 0 8px; }
+.readout b { color: var(--text); }
+.chart .plot svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart .gl { stroke: var(--line); stroke-width: 1; }
+.chart .ax { fill: var(--text-3); font: 500 11px Inter, sans-serif; }
+.chart .bar-r { fill: var(--cyan); }
+.chart .bar-r.hit { fill: var(--cyan); }
+.chart .bar-r.low { fill: var(--blue); }
+.chart .bar-r.on { fill: var(--text); }
+.chart .meta-l { stroke: var(--amber); stroke-width: 2; stroke-dasharray: 6 5; }
+.chart .meta-t { fill: var(--amber); font: 700 11px Inter, sans-serif; }
+.chart .hitbox { fill: transparent; cursor: pointer; }
+.heat { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 1fr); gap: 4px; }
+.heat .cel { width: 100%; aspect-ratio: 1; border-radius: 4px; background: var(--bg-2); border: 1px solid var(--line); cursor: pointer; }
+.heat .cel.l1 { background: rgba(34,211,238,.25); border-color: transparent; }
+.heat .cel.l2 { background: rgba(34,211,238,.5); border-color: transparent; }
+.heat .cel.l3 { background: rgba(34,211,238,.78); border-color: transparent; }
+.heat .cel.l4 { background: var(--cyan); border-color: transparent; }
+.heat .cel.fut { visibility: hidden; }
+.heat .cel.hoje { outline: 2px solid var(--text); outline-offset: 1px; }
+.heat-wrap { display: grid; grid-template-columns: 26px 1fr; gap: 6px; max-width: 440px; }
+.heat-dias { display: grid; grid-template-rows: repeat(7, 1fr); gap: 4px; font-size: 10px; color: var(--text-3); }
+.heat-dias span { display: flex; align-items: center; }
+.heat-leg { display: flex; gap: 6px; align-items: center; justify-content: flex-end; font-size: 11px; color: var(--text-3); margin-top: 10px; }
+.heat-leg .cel { display: inline-block; width: 12px; height: 12px; aspect-ratio: auto; cursor: default; }
+.meta-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: 14px; color: var(--text-2); margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+.tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
+.tbl th { text-align: left; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); font-weight: 700; padding: 0 10px 8px 0; }
+.tbl td { padding: 10px 10px 10px 0; border-top: 1px solid var(--line); vertical-align: middle; }
+.tbl td.n { font-family: "JetBrains Mono", monospace; white-space: nowrap; }
+.tbl .tt { font-weight: 700; }
+.tbl .ar { font-size: 11px; color: var(--cyan); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.tbl .bar { width: 90px; display: inline-block; vertical-align: middle; margin: 0 6px 0 0; }
+.tbl-wrap { overflow-x: auto; }
+.atv { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-top: 1px solid var(--line); }
+.atv:first-of-type { border-top: none; }
+.atv .ico { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--bg-2); border: 1px solid var(--line); color: var(--cyan); flex: none; }
+.atv .ico .ic { width: 16px; height: 16px; }
+.atv .txt { flex: 1; min-width: 0; }
+.atv .t { font-weight: 700; }
+.atv .s { font-size: 13px; color: var(--text-2); }
+.atv .tag { font-size: 11px; font-weight: 700; color: var(--green); }
+@media (max-width: 1150px) { .kpis { grid-template-columns: repeat(2, 1fr); } .pg-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .kpis { grid-template-columns: 1fr; } }
+
 /* Editor do plano */
 .ed-note { font-size: 14px; color: var(--text-2); margin: 0 0 14px; }
 .ed-item { border: 1px solid var(--line); border-radius: 14px; padding: 14px; background: var(--bg-2); margin-bottom: 12px; }
@@ -889,7 +951,7 @@ button { cursor: pointer; }
 /* =========================================================
    CONFIGURAÇÃO
    ========================================================= */
-const APP_VERSION = '1.4.0';
+const APP_VERSION = '1.5.0';
 const SUPABASE_URL = 'https://ghjbljypxksubmcsvaig.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_qXCYqg1WdmelY9D1mptZXg_U8NdoKby';
 const DB_SCHEMA = 'mytutor';
@@ -922,7 +984,8 @@ const state = {
   revisao: null,      // revisão em andamento
   agFiltro: null,     // filtro de trilha na Agenda
   cardEdit: null,     // cartão sendo criado/editado
-  gerando: {}         // conceitos com cartões sendo gerados
+  gerando: {},        // conceitos com cartões sendo gerados
+  prog: null          // dados do painel de Progresso
 };
 
 const $ = (s) => document.querySelector(s);
@@ -1173,6 +1236,12 @@ async function setMode(modo) {
    ========================================================= */
 function currentTrack() { return state.trilhas.find(t => t.id === state.selectedId) || null; }
 
+// Data local no formato AAAA-MM-DD
+function diaKey(d = new Date()) {
+  const x = new Date(d);
+  return `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, '0')}-${String(x.getDate()).padStart(2, '0')}`;
+}
+
 function fmtTime(seg) {
   const h = Math.floor(seg / 3600), m = Math.floor((seg % 3600) / 60);
   return `${h}h ${String(m).padStart(2, '0')}m`;
@@ -1225,16 +1294,6 @@ function renderTabs() {
 }
 
 const FUTURE = {
-  progresso: {
-    ic: 'i-grid', title: 'Painel de Progresso',
-    sub: 'Métricas reais calculadas a partir das suas sessões e revisões.',
-    items: [
-      ['i-clock', 'Tempo de estudo', 'Horas por dia e por trilha, somadas das sessões.', 'Etapa 6'],
-      ['i-target', 'Conceitos dominados', 'Quantos conceitos de cada trilha já estão firmes.', 'Etapa 6'],
-      ['i-flame', 'Sequência de estudos', 'Dias seguidos estudando e seu recorde.', 'Etapa 6'],
-      ['i-trend', 'Revisões em dia', 'Quantos cartões estão em dia ou atrasados.', 'Etapa 6']
-    ]
-  },
   metas: {
     ic: 'i-target', title: 'Metas & XP',
     sub: 'Metas diárias e conquistas (opcional).',
@@ -1250,6 +1309,7 @@ function renderMain() {
   const tSel = currentTrack();
   if (state.editor && tSel && state.editor.trilhaId === tSel.id) { main.innerHTML = renderEditor(tSel); return; }
   if (state.tab === 'mapa') { main.innerHTML = renderMapa(); return; }
+  if (state.tab === 'progresso') { main.innerHTML = renderProgresso(); return; }
   if (state.tab === 'agenda') { main.innerHTML = state.revisao ? renderRevisao() : renderAgenda(); return; }
   if (state.tab !== 'aula') {
     const f = FUTURE[state.tab];
@@ -1566,7 +1626,8 @@ async function salvarPlano() {
     const dur = Math.max(1, Math.round(((d.fim || Date.now()) - d.inicio) / 1000));
     const ses = await sb.from('sessoes').insert({
       trilha_id: t.id, tipo: 'diagnostico', modo: t.modo_preferido,
-      iniciada_em: new Date(d.inicio).toISOString(), encerrada_em: new Date(d.fim || Date.now()).toISOString(), duracao_seg: dur
+      iniciada_em: new Date(d.inicio).toISOString(), encerrada_em: new Date(d.fim || Date.now()).toISOString(), duracao_seg: dur,
+      tempo_dia: { [diaKey(new Date(d.inicio))]: dur }
     }).select().single();
     if (ses.error) return falhou(ses.error);
     const msgs = [];
@@ -1686,6 +1747,7 @@ function contarTempo() {
   a.ultimoEvento = agora;
   const seg = Math.round(gap / 1000);
   a.duracao += seg;
+  const k = diaKey(); a.tempoDia[k] = (a.tempoDia[k] || 0) + seg;
   state.totalSeg += seg;
   renderSidebarTempo();
 }
@@ -1706,7 +1768,7 @@ async function abrirAula(conceitoId) {
     trilhaId: t.id, conceitoId: c.id, sessaoId: null, msgs: [], lousa: [], resumos: [],
     carregando: true, esperando: false, erro: '', pendente: null,
     draft: '', rac: '', conf: '', opcao: null, showRac: false,
-    ultimoEvento: Date.now(), duracao: 0, fim: null
+    ultimoEvento: Date.now(), duracao: 0, tempoDia: {}, fim: null
   };
   const a = state.aula;
   renderMain();
@@ -1725,6 +1787,8 @@ async function abrirAula(conceitoId) {
     a.sessaoId = aberta.id;
     a.msgs = ms.data || [];
     a.duracao = aberta.duracao_seg || 0;
+    a.tempoDia = (aberta.tempo_dia && Object.keys(aberta.tempo_dia).length) ? { ...aberta.tempo_dia }
+      : (a.duracao ? { [diaKey(aberta.iniciada_em)]: a.duracao } : {});
     const ultTutor = [...a.msgs].reverse().find(m => m.papel === 'tutor');
     a.lousa = (aberta.lousa && aberta.lousa.length) ? aberta.lousa : (ultTutor?.dados?.lousa || []);
     a.carregando = false;
@@ -1835,7 +1899,7 @@ async function turno(acao, mensagem, opts = {}) {
     if (c.status === 'disponivel') c.status = 'em_estudo';
     await sb.from('conceitos').update({ dominio: c.dominio, status: c.status }).eq('id', c.id);
   }
-  await sb.from('sessoes').update({ lousa: a.lousa, duracao_seg: a.duracao, modo: t.modo_preferido }).eq('id', a.sessaoId);
+  await sb.from('sessoes').update({ lousa: a.lousa, duracao_seg: a.duracao, tempo_dia: a.tempoDia, modo: t.modo_preferido }).eq('id', a.sessaoId);
 
   if (r.espera === 'fim') {
     await finalizarAula(r.resumo, r.concluido);
@@ -1880,7 +1944,7 @@ async function finalizarAula(resumo, concluido, manual = false) {
   contarTempo();
   const res = { ...(resumo || { aprendeu: [], pendente: [], proximo_passo: '' }), concluido: !!concluido, manual };
   await sb.from('sessoes').update({
-    encerrada_em: new Date().toISOString(), duracao_seg: a.duracao, resumo: res, lousa: a.lousa
+    encerrada_em: new Date().toISOString(), duracao_seg: a.duracao, tempo_dia: a.tempoDia, resumo: res, lousa: a.lousa
   }).eq('id', a.sessaoId);
   let liberados = [];
   if (concluido) liberados = await marcarDominado(a.trilhaId, a.conceitoId);
@@ -1934,7 +1998,7 @@ function sairAula() {
   pararDitado();
   const a = state.aula;
   if (a && !a.fim) contarTempo();
-  if (a && a.sessaoId && !a.fim) sb.from('sessoes').update({ duracao_seg: a.duracao }).eq('id', a.sessaoId);
+  if (a && a.sessaoId && !a.fim) sb.from('sessoes').update({ duracao_seg: a.duracao, tempo_dia: a.tempoDia }).eq('id', a.sessaoId);
   state.aula = null;
   render();
 }
@@ -2557,7 +2621,7 @@ function iniciarRevisao() {
   const fila = state.cartoes.filter(vence).filter(c => !filtro || c.trilha_id === filtro)
     .sort((a, b) => new Date(a.proxima_revisao) - new Date(b.proxima_revisao)).map(c => c.id);
   if (!fila.length) return;
-  state.revisao = { fila, idx: 0, mostrando: false, resposta: '', feitos: 0, acertos: 0, repetidos: new Set(), sessoes: {}, seg: {}, ultimoEvento: Date.now(), fim: false, salvando: false };
+  state.revisao = { fila, idx: 0, mostrando: false, resposta: '', feitos: 0, acertos: 0, repetidos: new Set(), sessoes: {}, seg: {}, dia: {}, ultimoEvento: Date.now(), fim: false, salvando: false };
   renderMain(); $('#main').scrollTop = 0;
 }
 
@@ -2566,13 +2630,14 @@ function tempoRevisao(trilhaId) {
   const seg = Math.round(Math.min(agora - r.ultimoEvento, MAX_PAUSA) / 1000);
   r.ultimoEvento = agora;
   r.seg[trilhaId] = (r.seg[trilhaId] || 0) + seg;
+  const dd = (r.dia[trilhaId] = r.dia[trilhaId] || {}); const k = diaKey(); dd[k] = (dd[k] || 0) + seg;
   state.totalSeg += seg;
   renderSidebarTempo();
 }
 
 async function salvarTempoRevisao(trilhaId, encerrar = false) {
   const r = state.revisao; if (!r || r.seg[trilhaId] === undefined) return;
-  const dados = { duracao_seg: r.seg[trilhaId], ...(encerrar ? { encerrada_em: new Date().toISOString() } : {}) };
+  const dados = { duracao_seg: r.seg[trilhaId], tempo_dia: r.dia[trilhaId] || {}, ...(encerrar ? { encerrada_em: new Date().toISOString() } : {}) };
   if (!r.sessoes[trilhaId]) {
     const ins = await sb.from('sessoes').insert({ trilha_id: trilhaId, tipo: 'revisao', iniciada_em: new Date(Date.now() - r.seg[trilhaId] * 1000).toISOString(), ...dados }).select().single();
     if (!ins.error) r.sessoes[trilhaId] = ins.data.id;
@@ -2648,6 +2713,240 @@ function renderRevisao() {
         <div class="notas">${NOTAS.map(n => `<button class="nota ${n.k}" data-nota="${n.k}" ${r.salvando ? 'disabled' : ''}>${n.rot}<small>${rotuloIntervalo(calcularRevisao(c, n.k).intervalo_dias)} · <span class="kbd">${n.tecla}</span></small></button>`).join('')}</div>`}
     </div>
   </div>`;
+}
+
+/* =========================================================
+   PROGRESSO
+   ========================================================= */
+const metaMin = () => {
+  const v = Number(state.user?.user_metadata?.mytutor_meta_min);
+  return Number.isFinite(v) && v >= 5 ? v : 30;
+};
+
+async function salvarMeta(v) {
+  v = Math.max(5, Math.min(240, Math.round(Number(v) || 30)));
+  const { data, error } = await sb.auth.updateUser({ data: { mytutor_meta_min: v } });
+  if (error) { toast('Não foi possível salvar a meta: ' + error.message, true); return; }
+  if (data?.user) state.user = data.user;
+  else state.user = { ...state.user, user_metadata: { ...(state.user.user_metadata || {}), mytutor_meta_min: v } };
+  toast(`Meta diária: ${v} minutos.`);
+  renderMain();
+}
+
+async function carregarProgresso() {
+  state.prog = { carregando: true, periodo: state.prog?.periodo || 7 };
+  const r = await sb.from('sessoes').select('id, trilha_id, conceito_id, tipo, iniciada_em, encerrada_em, duracao_seg, tempo_dia, resumo').order('iniciada_em', { ascending: false });
+  if (r.error) { state.prog = { erro: dbErrorMessage(r.error), periodo: 7 }; if (state.tab === 'progresso') renderMain(); return; }
+  state.prog = { sessoes: r.data || [], periodo: state.prog.periodo, sel: null };
+  loadTodosConceitos();
+  if (state.tab === 'progresso') renderMain();
+}
+
+// Segundos de estudo por dia (AAAA-MM-DD)
+function segundosPorDia(sessoes) {
+  const m = {};
+  sessoes.forEach(x => {
+    const td = x.tempo_dia && typeof x.tempo_dia === 'object' ? x.tempo_dia : {};
+    const chaves = Object.keys(td);
+    if (chaves.length) chaves.forEach(k => { m[k] = (m[k] || 0) + (Number(td[k]) || 0); });
+    else if (x.duracao_seg) { const k = diaKey(x.iniciada_em); m[k] = (m[k] || 0) + x.duracao_seg; }
+  });
+  return m;
+}
+
+function diaMenos(n) { const d = inicioDia(); d.setDate(d.getDate() - n); return d; }
+
+function sequencias(porDia, metaSeg) {
+  const ok = (k) => (porDia[k] || 0) >= metaSeg;
+  // Sequência atual: conta até hoje; se hoje ainda não bateu a meta, a sequência de ontem continua viva
+  let atual = 0, i = ok(diaKey()) ? 0 : 1;
+  while (ok(diaKey(diaMenos(i)))) { atual++; i++; }
+  // Recorde
+  const dias = Object.keys(porDia).filter(ok).sort();
+  let rec = 0, run = 0, ant = null;
+  dias.forEach(k => {
+    const d = new Date(k + 'T12:00:00');
+    run = ant && Math.round((d - ant) / DIA) === 1 ? run + 1 : 1;
+    rec = Math.max(rec, run); ant = d;
+  });
+  return { atual, recorde: Math.max(rec, atual), hojeOk: ok(diaKey()) };
+}
+
+const fmtMin = (seg) => {
+  const m = Math.round(seg / 60);
+  if (m < 60) return `${m} min`;
+  const h = Math.floor(m / 60), r = m % 60;
+  return r ? `${h}h ${String(r).padStart(2, '0')}min` : `${h}h`;
+};
+
+function nomeDia(d, curto = false) {
+  const hoje = inicioDia(), x = inicioDia(d);
+  const dif = Math.round((hoje - x) / DIA);
+  if (dif === 0) return 'Hoje';
+  if (dif === 1) return 'Ontem';
+  return x.toLocaleDateString('pt-BR', curto ? { day: '2-digit', month: '2-digit' } : { weekday: 'short', day: '2-digit', month: '2-digit' }).replace('.', '');
+}
+
+function graficoBarras(porDia, n, metaSeg, selK) {
+  const W = 640, H = 220, L = 34, R = 10, T = 14, B = 26;
+  const dias = [];
+  for (let i = n - 1; i >= 0; i--) { const d = diaMenos(i); dias.push({ k: diaKey(d), d, seg: porDia[diaKey(d)] || 0 }); }
+  const maxMin = Math.max(metaSeg / 60 * 1.25, ...dias.map(x => x.seg / 60), 10);
+  const passo = maxMin > 120 ? 60 : maxMin > 60 ? 30 : maxMin > 30 ? 15 : 10;
+  const topo = Math.ceil(maxMin / passo) * passo;
+  const y = (min) => T + (H - T - B) * (1 - min / topo);
+  const slot = (W - L - R) / n, bw = Math.max(3, Math.min(36, slot - (n > 14 ? 3 : 10)));
+  let g = '';
+  for (let v = 0; v <= topo; v += passo) g += `<line class="gl" x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}"/><text class="ax" x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${v >= 60 && v % 60 === 0 ? v / 60 + 'h' : v}</text>`;
+  const bars = dias.map((x, i) => {
+    const min = x.seg / 60, cx = L + slot * i + slot / 2;
+    const h = min > 0 ? Math.max(3, y(0) - y(min)) : 0;
+    const top = y(0) - h, r = Math.min(4, bw / 2, h);
+    const cls = x.k === selK ? 'on' : x.seg >= metaSeg ? 'hit' : 'low';
+    const path = h ? `<path class="bar-r ${cls}" d="M${cx - bw / 2},${y(0)} V${top + r} Q${cx - bw / 2},${top} ${cx - bw / 2 + r},${top} H${cx + bw / 2 - r} Q${cx + bw / 2},${top} ${cx + bw / 2},${top + r} V${y(0)} Z"/>` : '';
+    const mostrarRot = n <= 7 || i % 5 === (n - 1) % 5;
+    const curto = i === n - 1 ? 'Hoje' : n <= 7 ? x.d.toLocaleDateString('pt-BR', { weekday: 'short' }).replace('.', '') : x.d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
+    const rot = mostrarRot ? `<text class="ax" x="${cx}" y="${H - 8}" text-anchor="middle">${curto}</text>` : '';
+    return `${path}<rect class="hitbox" data-dia="${x.k}" x="${L + slot * i}" y="${T}" width="${slot}" height="${H - T - B}"><title>${nomeDia(x.d)}: ${fmtMin(x.seg)}</title></rect>${rot}`;
+  }).join('');
+  const ym = y(metaSeg / 60);
+  const meta = `<line class="meta-l" x1="${L}" x2="${W - R}" y1="${ym}" y2="${ym}"/><text class="meta-t" x="${W - R}" y="${ym - 6}" text-anchor="end">meta ${Math.round(metaSeg / 60)} min</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Minutos estudados por dia nos últimos ${n} dias">${g}${bars}${meta}<line class="gl" x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" style="stroke:var(--line-2)"/></svg>`;
+}
+
+function calendarioConstancia(porDia, metaSeg, selK) {
+  // 12 semanas, colunas = semanas (domingo a sábado)
+  const hoje = inicioDia();
+  const fim = new Date(hoje); fim.setDate(fim.getDate() + (6 - fim.getDay()));
+  const ini = new Date(fim); ini.setDate(ini.getDate() - 7 * 12 + 1);
+  const cels = [];
+  for (let d = new Date(ini); d <= fim; d.setDate(d.getDate() + 1)) {
+    const k = diaKey(d), seg = porDia[k] || 0;
+    const futuro = d > hoje;
+    const nivel = !seg ? 0 : seg < metaSeg / 2 ? 1 : seg < metaSeg ? 2 : seg < metaSeg * 2 ? 3 : 4;
+    cels.push(`<div class="cel l${nivel} ${futuro ? 'fut' : ''} ${k === diaKey(hoje) ? 'hoje' : ''}" ${futuro ? '' : `data-dia="${k}"`} title="${nomeDia(d)}: ${fmtMin(seg)}" ${k === selK ? 'style="outline:2px solid var(--cyan);outline-offset:1px"' : ''}></div>`);
+  }
+  return `<div class="heat-wrap">
+      <div class="heat-dias"><span>dom</span><span></span><span>ter</span><span></span><span>qui</span><span></span><span>sáb</span></div>
+      <div class="heat">${cels.join('')}</div>
+    </div>
+    <div class="heat-leg">Menos <span class="cel"></span><span class="cel l1"></span><span class="cel l2"></span><span class="cel l3"></span><span class="cel l4"></span> Mais · a 3ª cor já é a meta</div>`;
+}
+
+function renderProgresso() {
+  if (!state.prog) carregarProgresso();
+  const P = state.prog || { carregando: true };
+  const head = `<div class="page-head"><h2>${icon('i-grid')}Painel de Progresso</h2><p>Números reais, calculados a partir das suas aulas, revisões e diagnósticos.</p></div>`;
+  if (P.carregando) return head + `<div class="card"><div class="wait"><div class="spinner"></div><p>Calculando o seu progresso…</p></div></div>`;
+  if (P.erro) return head + `<div class="card"><div class="err-box">${esc(P.erro)}</div></div>`;
+
+  const meta = metaMin(), metaSeg = meta * 60;
+  const porDia = segundosPorDia(P.sessoes);
+  const totalSeg = Object.values(porDia).reduce((a, b) => a + b, 0);
+  let sem = 0; for (let i = 0; i < 7; i++) sem += porDia[diaKey(diaMenos(i))] || 0;
+  const hojeSeg = porDia[diaKey()] || 0;
+  const seq = sequencias(porDia, metaSeg);
+
+  const todos = state.trilhas.flatMap(t => state.conceitos[t.id] || []);
+  const dom = todos.filter(c => c.status === 'dominado').length;
+  const cartoes = state.cartoes;
+  const atras = cartoes.filter(atrasado).length;
+  const pctDia = cartoes.length ? Math.round((cartoes.length - atras) / cartoes.length * 100) : null;
+  const avaliados = cartoes.filter(c => c.ultima_nota);
+  const pctAcerto = avaliados.length ? Math.round(avaliados.filter(c => c.ultima_nota !== 'errei').length / avaliados.length * 100) : null;
+
+  // Leitura do dia selecionado no gráfico/calendário
+  const selK = P.sel || diaKey();
+  const selD = new Date(selK + 'T12:00:00');
+  const selSes = P.sessoes.filter(x => (x.tempo_dia && x.tempo_dia[selK]) || (!Object.keys(x.tempo_dia || {}).length && diaKey(x.iniciada_em) === selK));
+  const readout = `<b>${nomeDia(selD)}</b>: ${fmtMin(porDia[selK] || 0)} · ${selSes.length} ${selSes.length === 1 ? 'sessão' : 'sessões'} · ${(porDia[selK] || 0) >= metaSeg ? '<span style="color:var(--green);font-weight:700">meta atingida</span>' : `faltaram ${fmtMin(Math.max(0, metaSeg - (porDia[selK] || 0)))}`}`;
+
+  const kpis = `<div class="kpis">
+    <div class="kpi"><div class="top">Hoje ${icon('i-clock')}</div>
+      <div class="val">${fmtMin(hojeSeg)}</div>
+      <div class="sub">${hojeSeg >= metaSeg ? '<span class="ok">Meta de hoje atingida</span>' : `Faltam <b>${fmtMin(metaSeg - hojeSeg)}</b> para a meta de ${meta} min`}</div>
+      <div class="bar ${hojeSeg >= metaSeg ? 'done' : ''}"><span style="width:${Math.min(100, Math.round(hojeSeg / metaSeg * 100))}%"></span></div></div>
+    <div class="kpi"><div class="top">Sequência de estudos ${icon('i-flame')}</div>
+      <div class="val">${seq.atual} ${seq.atual === 1 ? 'dia' : 'dias'}</div>
+      <div class="sub">Recorde: <b>${seq.recorde} ${seq.recorde === 1 ? 'dia' : 'dias'}</b>${!seq.hojeOk && seq.atual ? ' · estude hoje para manter' : ''}</div></div>
+    <div class="kpi"><div class="top">Conceitos dominados ${icon('i-target')}</div>
+      <div class="val">${dom} / ${todos.length}</div>
+      <div class="sub">${todos.length ? `${Math.round(dom / todos.length * 100)}% de todas as trilhas` : 'Nenhum conceito ainda'}</div></div>
+    <div class="kpi"><div class="top">Revisões em dia ${icon('i-cards')}</div>
+      <div class="val">${pctDia === null ? '—' : pctDia + '%'}</div>
+      <div class="sub">${pctDia === null ? 'Os cartões aparecem após as aulas' : `${atras ? `<span class="warn">${atras} atrasado${atras === 1 ? '' : 's'}</span>` : 'Nenhum atraso'}${pctAcerto !== null ? ` · acerto na última revisão: <b>${pctAcerto}%</b>` : ''}`}</div></div>
+  </div>`;
+
+  const grafico = `<div class="card chart">
+      <div class="ch-head">
+        <div class="sec-title">${icon('i-trend')}Tempo estudado por dia</div>
+        <div class="seg" role="group" aria-label="Período">
+          <button class="${P.periodo === 7 ? 'on' : ''}" data-periodo="7">7 dias</button>
+          <button class="${P.periodo === 30 ? 'on' : ''}" data-periodo="30">30 dias</button>
+        </div>
+      </div>
+      <div class="readout">${readout}</div>
+      <div class="plot">${graficoBarras(porDia, P.periodo, metaSeg, selK)}</div>
+      <div class="heat-leg" style="justify-content:flex-start;margin-top:4px"><span class="cel" style="background:var(--cyan);border:none"></span> meta atingida <span class="cel" style="background:var(--blue);border:none;margin-left:10px"></span> abaixo da meta <span style="display:inline-block;width:16px;border-top:2px dashed var(--amber);margin:0 4px 0 10px"></span> meta diária</div>
+      <div class="small-note" style="margin-top:6px">Total desde o início: <b style="color:var(--text)">${fmtMin(totalSeg)}</b> · média dos últimos 7 dias: <b style="color:var(--text)">${fmtMin(sem / 7)}</b> por dia</div>
+    </div>`;
+
+  const constancia = `<div class="card">
+      <div class="sec-title">${icon('i-cal')}Constância — últimas 12 semanas</div>
+      ${calendarioConstancia(porDia, metaSeg, selK)}
+      <div class="meta-row">
+        <span>Meta diária:</span>
+        <select class="sel" data-meta aria-label="Meta diária em minutos">
+          ${[10, 15, 20, 30, 45, 60, 90, 120].concat([meta]).filter((v, i, a) => a.indexOf(v) === i).sort((a, b) => a - b).map(v => `<option value="${v}" ${v === meta ? 'selected' : ''}>${v} minutos</option>`).join('')}
+        </select>
+        <span style="font-size:13px">Um dia entra na sequência quando a meta é atingida, somando todas as sessões do dia.</span>
+      </div>
+    </div>`;
+
+  // Por trilha
+  const linhas = state.trilhas.map(t => {
+    const conc = state.conceitos[t.id] || [];
+    const ses = P.sessoes.filter(x => x.trilha_id === t.id);
+    const seg = ses.reduce((a, x) => a + (x.duracao_seg || 0), 0);
+    const datas = ses.map(x => new Date(x.iniciada_em)).filter(d => !isNaN(d));
+    const ult = datas.length ? new Date(Math.max(...datas)) : new Date(t.updated_at || t.created_at);
+    const pend = cartoes.filter(c => c.trilha_id === t.id && vence(c)).length;
+    return `<tr>
+      <td><div class="ar">${esc(t.area || 'Geral')}</div><div class="tt">${esc(t.titulo)}</div></td>
+      <td class="n"><span class="bar ${t.dominio >= 100 ? 'done' : ''}"><span style="width:${t.dominio}%"></span></span>${t.dominio}%</td>
+      <td class="n">${conc.filter(c => c.status === 'dominado').length} / ${conc.length}</td>
+      <td class="n">${fmtMin(seg)}</td>
+      <td class="n">${pend ? `<span style="color:var(--amber);font-weight:700">${pend}</span>` : '0'}</td>
+      <td class="n">${isNaN(ult) ? '—' : nomeDia(ult, true)}</td>
+      <td><button class="btn btn-sm" data-abrir-trilha="${t.id}">Abrir</button></td>
+    </tr>`;
+  }).join('');
+  const porTrilha = `<div class="card" style="margin-bottom:16px">
+      <div class="sec-title">${icon('i-layers')}Por trilha</div>
+      ${state.trilhas.length ? `<div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Trilha</th><th>Domínio</th><th>Conceitos</th><th>Tempo</th><th>Revisões hoje</th><th>Última atividade</th><th></th></tr></thead>
+        <tbody>${linhas}</tbody></table></div>` : '<div class="small-note" style="margin-top:0">Nenhuma trilha ainda.</div>'}
+    </div>`;
+
+  // Atividade recente
+  const nomeT = Object.fromEntries(state.trilhas.map(t => [t.id, t.titulo]));
+  const nomeC = Object.fromEntries(todos.map(c => [c.id, c.titulo]));
+  const TIPO = { aula: ['i-book', 'Aula'], revisao: ['i-cards', 'Revisão'], diagnostico: ['i-target', 'Diagnóstico'], pratica: ['i-spark', 'Prática'] };
+  const recentes = P.sessoes.slice(0, 8).map(x => {
+    const [ic, nome] = TIPO[x.tipo] || ['i-book', x.tipo];
+    const titulo = x.tipo === 'aula' ? `${nome}: ${nomeC[x.conceito_id] || 'conceito removido'}` : nome;
+    const tag = x.tipo === 'aula' ? (x.resumo?.concluido ? '<span class="tag">conceito dominado</span>' : !x.encerrada_em ? '<span class="tag" style="color:var(--cyan)">em andamento</span>' : '') : '';
+    return `<div class="atv"><div class="ico">${icon(ic)}</div><div class="txt">
+        <div class="t">${esc(titulo)} ${tag}</div>
+        <div class="s">${esc(nomeT[x.trilha_id] || '')} · ${nomeDia(new Date(x.iniciada_em))} às ${hora(x.iniciada_em)} · ${fmtMin(x.duracao_seg || 0)}</div>
+      </div></div>`;
+  }).join('');
+  const atividade = `<div class="card">
+      <div class="sec-title">${icon('i-clock')}Atividade recente</div>
+      ${recentes || '<div class="small-note" style="margin-top:0">Nenhuma atividade ainda. Faça um diagnóstico ou uma aula para começar.</div>'}
+    </div>`;
+
+  return head + kpis + `<div class="pg-grid">${grafico}${constancia}</div>` + porTrilha + atividade;
 }
 
 /* =========================================================
@@ -2794,7 +3093,7 @@ function bindEvents() {
     const b = e.target.closest('.tab'); if (!b) return;
     pararDitado();
     if (state.revisao && b.dataset.tab !== 'agenda') { encerrarRevisao(true); }
-    state.tab = b.dataset.tab; if (state.tab === 'mapa') state.detCache = {}; renderTabs(); renderMain();
+    state.tab = b.dataset.tab; if (state.tab === 'mapa') state.detCache = {}; if (state.tab === 'progresso') state.prog = null; renderTabs(); renderMain();
   });
 
   $('#trackList').addEventListener('click', e => {
@@ -2857,6 +3156,10 @@ function bindEvents() {
       return;
     }
     if (alvo('[data-editar]')) return abrirEditor();
+    // Progresso
+    const pe = alvo('[data-periodo]'); if (pe && state.prog) { state.prog.periodo = Number(pe.dataset.periodo); return renderMain(); }
+    const dia = alvo('[data-dia]'); if (dia && state.prog) { state.prog.sel = dia.dataset.dia; return renderMain(); }
+    const at = alvo('[data-abrir-trilha]'); if (at) { state.selectedId = at.dataset.abrirTrilha; state.tab = 'aula'; state.mapaSel = null; return render(); }
     // Cartões e Agenda
     const gc = alvo('[data-gerar-cartoes]'); if (gc) return gerarCartoesDe(gc.dataset.gerarCartoes);
     const ce = alvo('[data-card-edit]'); if (ce) return abrirCartao(ce.dataset.cardEdit);
@@ -2919,6 +3222,7 @@ function bindEvents() {
     if (alvo('[data-diag-next]')) return diagAvancar(false);
   });
   $('#main').addEventListener('change', e => {
+    if (e.target.matches('[data-meta]')) { salvarMeta(e.target.value); return; }
     if (e.target.matches('[data-map-trilha]')) { pararDitado(); state.selectedId = e.target.value; state.mapaSel = null; render(); }
     if (e.target.matches('[data-ed-dom]') && state.editor) { state.editor.itens[+e.target.dataset.edDom].dominado = e.target.checked; renderMain(); }
   });
