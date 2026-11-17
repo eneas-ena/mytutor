@@ -757,6 +757,109 @@ button { cursor: pointer; }
   .topbar { gap: 10px; padding-left: 12px; padding-right: 12px; }
   .modes { margin-left: 0; }
 }
+/* =========================================================
+   CURSOS
+   ========================================================= */
+#trackList > * { flex-shrink: 0; }
+.side-sec { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); margin: 8px 4px 0; }
+.catalogo { border: 1px dashed var(--cyan); background: var(--chip-bg); border-radius: 14px; padding: 12px 14px; }
+.catalogo .cat-sub { font-size: 12px; color: var(--text-2); margin-bottom: 10px; }
+.curso-g { border: 1px solid var(--line); border-radius: 14px; background: var(--panel); overflow: hidden; }
+.curso-g.selected { border-color: var(--cyan); box-shadow: 0 0 0 1px var(--cyan) inset; }
+.curso-head { padding: 12px 14px; cursor: pointer; }
+.curso-head .track-title { padding-right: 0; margin: 6px 0 8px; }
+.curso-tog { border: 1px solid transparent; background: transparent; color: var(--text-3); border-radius: 8px; width: 28px; height: 28px; display: grid; place-items: center; cursor: pointer; }
+.curso-tog:hover { border-color: var(--line-2); color: var(--text); }
+.curso-tog .ic { width: 16px; height: 16px; }
+.mods { border-top: 1px solid var(--line); padding: 6px; display: flex; flex-direction: column; gap: 2px; }
+.track.mod { display: flex; align-items: center; gap: 8px; padding: 7px 8px; border-radius: 9px; border: 1px solid transparent; background: transparent; font-size: 13px; }
+.track.mod:hover { background: var(--bg-2); }
+.track.mod.selected { background: var(--chip-bg); border-color: var(--cyan); }
+.mod-c { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700; color: var(--cyan); min-width: 22px; text-align: center; border: 1px solid var(--line-2); border-radius: 6px; padding: 1px 3px; }
+.track.mod.apoio .mod-c { color: var(--amber); border-style: dashed; }
+.mod-n { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text); }
+.mod-p { font-size: 11px; color: var(--text-3); font-family: "JetBrains Mono", monospace; }
+.mod-ok { color: var(--green); display: grid; }
+.mod-ok .ic { width: 14px; height: 14px; }
+.dot-now { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 3px var(--chip-bg); flex: none; }
+
+.pill { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 2px 9px; border: 1px solid var(--line-2); color: var(--text-2); white-space: nowrap; }
+.pill.ok { color: var(--green); border-color: rgba(52,211,153,.45); }
+.pill.warn { color: var(--amber); border-color: rgba(245,158,11,.45); }
+.pill.bad { color: var(--red); border-color: rgba(248,113,113,.45); }
+.pill.now { color: var(--cyan); border-color: var(--cyan); background: var(--chip-bg); }
+
+.curso-hero .curso-t { margin: 4px 0 2px; font-size: 26px; letter-spacing: -.02em; }
+.curso-sub { color: var(--text-2); font-weight: 600; }
+.curso-obj { color: var(--text); margin: 12px 0 0; max-width: 820px; }
+.fase-h { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 10px; }
+.fase-n { flex: none; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--blue-2); border-radius: 8px; padding: 4px 8px; margin-top: 2px; }
+.fase-t { font-weight: 800; font-size: 17px; }
+.fase-d { color: var(--text-2); font-size: 14px; margin-top: 2px; }
+.mod-row { display: flex; gap: 14px; align-items: center; padding: 12px 10px; border-top: 1px solid var(--line); cursor: pointer; border-radius: 10px; }
+.mod-row:hover { background: var(--bg-2); }
+.mod-row .mod-cod { flex: none; width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; font-family: "JetBrains Mono", monospace; font-weight: 800; color: var(--cyan); border: 1px solid var(--line-2); background: var(--bg-2); }
+.mod-row.apoio .mod-cod { color: var(--amber); border-style: dashed; }
+.mod-txt { flex: 1; min-width: 0; }
+.mod-t { font-weight: 700; }
+.mod-s { font-size: 13px; color: var(--text-3); margin: 2px 0 6px; }
+.mod-tags { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+@media (max-width: 640px) { .mod-row { flex-wrap: wrap; } .mod-tags { flex-direction: row; align-items: center; width: 100%; padding-left: 54px; flex-wrap: wrap; } }
+.ck-row { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-top: 1px solid var(--line); cursor: pointer; }
+.ck-row:first-of-type { border-top: none; }
+.ck-row input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--cyan); flex: none; }
+.ck-t { font-weight: 600; }
+.ck-s { font-size: 13px; color: var(--text-2); margin-top: 2px; }
+.ck-d { font-size: 11px; font-weight: 600; color: var(--green); margin-left: 4px; }
+ul.plain { margin: 0; padding-left: 18px; }
+ul.plain li + li { margin-top: 6px; }
+.mes-tbl tr.agora td { background: var(--chip-bg); }
+.mes-tbl td { font-size: 13px; }
+.mod-nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.back-link { display: inline-flex; align-items: center; gap: 6px; border: none; background: transparent; color: var(--cyan); font-weight: 700; font-size: 14px; cursor: pointer; padding: 4px 0; text-align: left; }
+.back-link .ic { width: 16px; height: 16px; flex: none; }
+.leituras { margin-top: 4px; }
+.leituras .k, .ent-form .k { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 6px; }
+.leituras ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--text-2); }
+.leituras li + li { margin-top: 4px; }
+.leituras a { color: var(--cyan); white-space: nowrap; }
+.ent-t { font-weight: 800; font-size: 17px; margin-bottom: 4px; }
+.rubrica { background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; margin-bottom: 14px; }
+.rubrica summary { cursor: pointer; font-weight: 700; font-size: 14px; }
+.rubrica ul { margin: 10px 0 0; padding-left: 18px; font-size: 14px; }
+.rubrica li + li { margin-top: 4px; }
+.vers { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.parecer { border: 1px solid var(--line-2); border-radius: 14px; padding: 16px; background: var(--bg-2); }
+.par-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.par-top .pill { font-size: 14px; padding: 4px 12px; }
+.par-v { font-size: 13px; color: var(--text-3); }
+.crit-list { display: flex; flex-direction: column; gap: 10px; }
+.crit { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.crit-h { display: flex; justify-content: space-between; gap: 10px; align-items: center; flex-wrap: wrap; }
+.crit-c { font-size: 14px; color: var(--text); margin-top: 6px; }
+.crit-s { font-size: 14px; color: var(--text-2); margin-top: 6px; }
+.crit-s b { color: var(--amber); }
+.prox { font-size: 14px; color: var(--text-2); }
+.prox b { color: var(--cyan); }
+.ent-form { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 14px; }
+.ent-form textarea { width: 100%; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 12px; color: var(--text); padding: 12px; font: inherit; font-size: 14px; resize: vertical; outline: none; }
+.ent-form textarea:focus { border-color: var(--cyan); }
+.ent-acts { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
+.ent-acts label.btn { cursor: pointer; }
+.radio-row { display: flex !important; gap: 10px; align-items: flex-start; font-weight: 400 !important; color: var(--text) !important; margin: 0 0 8px !important; cursor: pointer; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+.radio-row input { margin-top: 3px; accent-color: var(--cyan); width: auto !important; }
+.radio-row small { color: var(--text-2); font-size: 13px; }
+.previsao { font-size: 14px; color: var(--text-2); background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+.previsao b { color: var(--text); }
+
+/* Meta flexível */
+.meta-cfg { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 14px; }
+.meta-l1 { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.meta-l2 { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 12px; font-size: 14px; color: var(--text-2); }
+.meta-l2 span { margin-right: 4px; }
+.meta-l2 .chip-btn { min-width: 44px; justify-content: center; }
+.heat .cel.plan { box-shadow: inset 0 0 0 2px var(--amber); }
+.heat-leg .cel.plan { box-shadow: inset 0 0 0 2px var(--amber); }
 </style>
 </head>
 <body>
@@ -927,6 +1030,27 @@ button { cursor: pointer; }
   </form>
 </div>
 
+<!-- Modal instalar / ajustar curso -->
+<div class="overlay hidden" id="cursoModal">
+  <form class="modal" id="cursoForm" autocomplete="off">
+    <h3 id="cursoModalTitle">Instalar curso</h3>
+    <p class="sub" id="cursoModalSub"></p>
+    <div class="field"><label for="cMes">Mês de início</label>
+      <div style="display:flex;gap:8px"><select id="cMes" style="flex:1"></select><select id="cAno" style="width:110px"></select></div>
+    </div>
+    <div class="field"><label for="cHoras">Quanto tempo por semana você terá para o curso?</label><select id="cHoras"></select></div>
+    <div class="field"><label>Cronograma</label>
+      <label class="radio-row"><input type="radio" name="cRitmo" id="cRitmoAjustar"><span><b>Ajustar ao meu ritmo</b><br><small>Os meses do plano se alongam na proporção das horas disponíveis.</small></span></label>
+      <label class="radio-row"><input type="radio" name="cRitmo" id="cRitmoPlano"><span><b>Manter o cronograma do plano</b><br><small>Os mesmos meses do plano original, qualquer que seja o tempo semanal.</small></span></label>
+    </div>
+    <div class="previsao" id="cPrevisao"></div>
+    <div class="modal-actions">
+      <button type="button" class="btn" data-close>Cancelar</button>
+      <button type="submit" class="btn btn-primary" id="instalarBtn">Instalar curso</button>
+    </div>
+  </form>
+</div>
+
 <!-- Modal confirmar exclusão -->
 <div class="overlay hidden" id="delModal">
   <div class="modal">
@@ -951,7 +1075,7 @@ button { cursor: pointer; }
 /* =========================================================
    CONFIGURAÇÃO
    ========================================================= */
-const APP_VERSION = '1.5.0';
+const APP_VERSION = '1.6.0';
 const SUPABASE_URL = 'https://ghjbljypxksubmcsvaig.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_qXCYqg1WdmelY9D1mptZXg_U8NdoKby';
 const DB_SCHEMA = 'mytutor';
@@ -985,7 +1109,14 @@ const state = {
   agFiltro: null,     // filtro de trilha na Agenda
   cardEdit: null,     // cartão sendo criado/editado
   gerando: {},        // conceitos com cartões sendo gerados
-  prog: null          // dados do painel de Progresso
+  prog: null,         // dados do painel de Progresso
+  cursos: [],         // cursos instalados
+  catalogo: null,     // cursos disponíveis para instalar
+  cursoSel: null,     // visão geral do curso aberta
+  cursoAberto: {},    // grupos de curso recolhidos na barra lateral
+  entregas: {},       // entregas por trilha (módulo)
+  entregaUI: {},      // rascunho da entrega por trilha
+  instalando: null    // curso sendo instalado/ajustado
 };
 
 const $ = (s) => document.querySelector(s);
@@ -1016,9 +1147,9 @@ function toast(msg, isErr = false) {
 function dbErrorMessage(err) {
   const m = (err && (err.message || err.details || '')) + '';
   if (/schema must be one of|Invalid schema|PGRST106/i.test(m)) return 'O schema "mytutor" ainda não está exposto no Supabase (Data API → Exposed schemas).';
-  if (/permission denied/i.test(m)) return 'Permissão negada no banco. Confira se o script SQL da Etapa 1 rodou inteiro.';
-  if (/relation .* does not exist|PGRST205|Could not find the table/i.test(m)) return 'Tabelas não encontradas. Rode o script SQL da Etapa 1.';
-  if (/column .* does not exist|PGRST204|Could not find the '.*' column/i.test(m)) return 'Falta uma coluna nova no banco. Rode o script SQL da etapa mais recente (Etapa 3).';
+  if (/permission denied/i.test(m)) return 'Permissão negada no banco. Confira se o script SQL mais recente rodou inteiro.';
+  if (/relation .* does not exist|PGRST205|Could not find the table/i.test(m)) return 'Tabela não encontrada no banco. Rode no Supabase o script SQL mais recente (mytutor-etapa7-cursos.sql).';
+  if (/column .* does not exist|PGRST204|Could not find the '.*' column/i.test(m)) return 'Falta uma coluna nova no banco. Rode no Supabase o script SQL mais recente (mytutor-etapa7-cursos.sql).';
   if (/Failed to fetch|NetworkError/i.test(m)) return 'Sem conexão com o servidor. Verifique a internet.';
   return 'Erro: ' + m;
 }
@@ -1156,7 +1287,17 @@ async function loadData() {
   if (error) { toast(dbErrorMessage(error), true); return; }
   state.trilhas = data || [];
   if (state.selectedId && !state.trilhas.find(t => t.id === state.selectedId)) state.selectedId = null;
-  if (!state.selectedId && state.trilhas.length) state.selectedId = state.trilhas[0].id;
+  if (!state.selectedId && state.trilhas.length) state.selectedId = (state.trilhas.find(t => !t.curso_id) || state.trilhas[0]).id;
+
+  // Cursos instalados (se a tabela ainda não existir, o app segue sem cursos)
+  const cu = await sb.from('cursos').select('*').order('created_at');
+  state.cursos = cu.error ? [] : (cu.data || []);
+  state.entregas = {};
+  if (state.cursos.length) {
+    const en = await sb.from('entregas').select('id, trilha_id, versao, arquivo_nome, parecer, concluida, created_at').order('versao', { ascending: false });
+    if (!en.error) state.trilhas.filter(t => t.curso_id).forEach(t => { state.entregas[t.id] = (en.data || []).filter(e => e.trilha_id === t.id); });
+    if (!state.trilhas.some(t => !t.curso_id) && !state.cursoSel) state.cursoSel = state.cursos[0].id;
+  }
 
   const s = await sb.from('sessoes').select('duracao_seg');
   state.totalSeg = (!s.error && s.data) ? s.data.reduce((a, r) => a + (r.duracao_seg || 0), 0) : 0;
@@ -1166,6 +1307,7 @@ async function loadData() {
   else state.cartoes = cr.data || [];
 
   render();
+  carregarCatalogo();
 }
 
 async function createTrack(e) {
@@ -1255,25 +1397,19 @@ function render() {
 
 function renderSidebar() {
   const q = state.search.toLowerCase();
-  const list = state.trilhas.filter(t => !q || (t.titulo + ' ' + (t.area || '')).toLowerCase().includes(q));
-  const n = state.trilhas.length;
-  $('#trackCount').textContent = n === 1 ? '1 trilha' : `${n} trilhas`;
+  const casa = (t) => !q || (t.titulo + ' ' + (t.area || '') + ' ' + (t.modulo_codigo ? 'módulo ' + t.modulo_codigo : '')).toLowerCase().includes(q);
+  const proprias = state.trilhas.filter(t => !t.curso_id);
+  const nP = proprias.length, nC = state.cursos.length;
+  $('#trackCount').textContent = [nC ? (nC === 1 ? '1 curso' : `${nC} cursos`) : '', nP === 1 ? '1 trilha' : `${nP} trilhas`].filter(Boolean).join(' · ');
   $('#totalTime').textContent = fmtTime(state.totalSeg);
+  const naAula = state.tab === 'aula' || state.tab === 'mapa';
 
-  if (!n) {
-    $('#trackList').innerHTML = `<div class="empty-side">Nenhuma trilha ainda.<br>Toque em <b>Nova trilha</b> para começar.</div>`;
-    return;
-  }
-  if (!list.length) {
-    $('#trackList').innerHTML = `<div class="empty-side">Nada encontrado para "${esc(state.search)}".</div>`;
-    return;
-  }
-  $('#trackList').innerHTML = list.map(t => {
+  const cardTrilha = (t) => {
     const atras = state.cartoes.some(c => c.trilha_id === t.id && atrasado(c));
     const stKey = atras ? 'revisao' : t.status;
     const st = STATUS[stKey] || STATUS.nova;
     return `
-      <div class="track ${t.id === state.selectedId ? 'selected' : ''}" data-id="${t.id}" role="button" tabindex="0">
+      <div class="track ${t.id === state.selectedId && !state.cursoSel ? 'selected' : ''}" data-id="${t.id}" role="button" tabindex="0">
         <div class="track-top">
           <span class="track-area">${esc(t.area || 'Geral')}</span>
           <span class="status st-${stKey}">${icon(st.ic, 'style="width:12px;height:12px"')}${st.label}</span>
@@ -1283,7 +1419,56 @@ function renderSidebar() {
         <div class="bar ${t.dominio >= 100 ? 'done' : ''}"><span style="width:${t.dominio}%"></span></div>
         <button class="track-del" data-del="${t.id}" title="Apagar trilha">${icon('i-trash')}</button>
       </div>`;
-  }).join('');
+  };
+
+  let html = '';
+  const disp = (state.catalogo || []).filter(d => !state.cursos.some(c => c.chave === d.id));
+  if (!q) html += disp.map(d => `
+    <div class="catalogo">
+      <div class="track-area">${icon('i-cap', 'style="width:13px;height:13px;vertical-align:-2px"')} Curso disponível</div>
+      <div class="track-title" style="padding-right:0;margin-bottom:4px">${esc(d.titulo)}</div>
+      <div class="cat-sub">${d.modulos.length} módulos · plano de ${d.meses_plano} meses</div>
+      <button class="btn btn-sm btn-primary" data-instalar="${esc(d.id)}">${icon('i-plus', 'style="width:14px;height:14px"')}Instalar curso</button>
+    </div>`).join('');
+
+  state.cursos.forEach(c => {
+    const todos = modulosDoCurso(c.id);
+    const mods = todos.filter(casa);
+    if (q && !mods.length && !c.titulo.toLowerCase().includes(q)) return;
+    const aberto = q ? true : state.cursoAberto[c.id] !== false;
+    const media = todos.length ? Math.round(todos.reduce((a, t) => a + (t.dominio || 0), 0) / todos.length) : 0;
+    const ma = mesAtual(c), tot = totalMeses(c);
+    html += `
+    <div class="curso-g ${state.cursoSel === c.id ? 'selected' : ''}">
+      <div class="curso-head" data-curso-abrir="${c.id}" role="button" tabindex="0">
+        <div class="track-top">
+          <span class="track-area">${icon('i-cap', 'style="width:13px;height:13px;vertical-align:-2px"')} Curso</span>
+          <button class="curso-tog" data-curso-toggle="${c.id}" title="${aberto ? 'Recolher módulos' : 'Mostrar módulos'}" aria-expanded="${aberto}">${icon(aberto ? 'i-up' : 'i-down')}</button>
+        </div>
+        <div class="track-title">${esc(c.titulo)}</div>
+        <div class="track-meta"><span>${ma < 1 ? `Começa em ${rotMes(inicioCurso(c))}` : ma > tot ? 'Cronograma encerrado' : `Mês ${ma} de ${tot}`}</span><span>${media}%</span></div>
+        <div class="bar"><span style="width:${media}%"></span></div>
+      </div>
+      ${aberto ? `<div class="mods">${mods.map(t => {
+        const m = moduloDe(t);
+        const sit = m ? situacaoModulo(c, t, m)[0] : '';
+        const fim = entregaStatus(t.id) === 'concluida';
+        return `<div class="track mod ${t.id === state.selectedId && !state.cursoSel && naAula ? 'selected' : ''} ${m && m.apoio ? 'apoio' : ''}" data-id="${t.id}" role="button" tabindex="0" title="${esc((m && m.apoio ? 'Trilha de apoio · ' : 'Módulo ' + t.modulo_codigo + ' · ') + t.titulo)}">
+          <span class="mod-c">${esc(t.modulo_codigo || '')}</span>
+          <span class="mod-n">${esc(t.titulo)}</span>
+          ${fim ? `<span class="mod-ok" title="Entrega concluída">${icon('i-check')}</span>` : sit === 'Agora' ? '<span class="dot-now" title="Módulo do mês"></span>' : ''}
+          <span class="mod-p">${t.dominio}%</span>
+        </div>`;
+      }).join('')}</div>` : ''}
+    </div>`;
+  });
+
+  const lista = proprias.filter(casa);
+  if (nC || disp.length) html += `<div class="side-sec">Minhas trilhas</div>`;
+  if (!nP) html += `<div class="empty-side">${nC ? 'Nenhuma trilha avulsa.' : 'Nenhuma trilha ainda.'}<br>Toque em <b>Nova trilha</b> para começar.</div>`;
+  else if (!lista.length) html += `<div class="empty-side">Nada encontrado para "${esc(state.search)}".</div>`;
+  else html += lista.map(cardTrilha).join('');
+  $('#trackList').innerHTML = html;
 }
 
 function renderTabs() {
@@ -1307,6 +1492,7 @@ const FUTURE = {
 function renderMain() {
   const main = $('#main');
   const tSel = currentTrack();
+  if (state.tab === 'aula' && state.cursoSel) { main.innerHTML = renderCurso(state.cursoSel); return; }
   if (state.editor && tSel && state.editor.trilhaId === tSel.id) { main.innerHTML = renderEditor(tSel); return; }
   if (state.tab === 'mapa') { main.innerHTML = renderMapa(); return; }
   if (state.tab === 'progresso') { main.innerHTML = renderProgresso(); return; }
@@ -1366,6 +1552,9 @@ function lousaHead(t, label) {
 function renderTrilha(t) {
   const st = STATUS[t.status] || STATUS.nova;
   const d = t.diagnostico;
+  const ehCurso = !!(t.curso_id && moduloDe(t));
+  const modI = ehCurso ? moduloDe(t) : null;
+  const janI = ehCurso ? janelaModulo(cursoDe(t), modI) : null;
 
   if (!d) {
     return `
@@ -1428,16 +1617,20 @@ function renderTrilha(t) {
 
   return `
     <div class="stack">
+      ${ehCurso ? voltarCurso(t) : ''}
       <div class="card">
         ${lousaHead(t, 'LOUSA INTELIGENTE')}
         <div class="info-grid">
-          <div class="info"><div class="k">Área</div><div class="v">${esc(t.area || 'Geral')}</div></div>
+          ${ehCurso
+            ? `<div class="info"><div class="k">${modI.apoio ? 'Trilha de apoio' : 'Módulo ' + esc(modI.codigo)}</div><div class="v">${janI.iniMes === janI.fimMes ? 'Mês ' + janI.iniMes : 'Meses ' + janI.iniMes + '–' + janI.fimMes} · ${rotMes(janI.de)}${janI.de.getTime() !== janI.ate.getTime() ? ' – ' + rotMes(janI.ate) : ''}</div></div>`
+            : `<div class="info"><div class="k">Área</div><div class="v">${esc(t.area || 'Geral')}</div></div>`}
           <div class="info"><div class="k">Situação</div><div class="v">${st.label} · domínio ${t.dominio}%</div></div>
           <div class="info"><div class="k">Conceitos dominados</div><div class="v">${conc ? `${dominados} de ${conc.length}` : '…'}</div></div>
         </div>
         ${nextBox}
       </div>
 
+      ${ehCurso ? blocoSobreModulo(t) : `
       <div class="card">
         <div class="sec-title">${icon('i-target')}Seu ponto de partida</div>
         <p class="resumo">${esc(d.resumo)}</p>
@@ -1446,16 +1639,16 @@ function renderTrilha(t) {
           <div class="list-box gap"><div class="k">O que precisa de atenção</div><ul>${itens(d.lacunas)}</ul></div>
         </div>
         ${d.justificativa_modo ? `<div class="modo-note">Modo sugerido: <b>${modoNome}</b>. ${esc(d.justificativa_modo)}</div>` : ''}
-      </div>
+      </div>`}
 
       <div class="card">
-        <div class="sec-title">${icon('i-layers')}Plano da trilha<span style="flex:1"></span>${conc ? `<button class="btn btn-sm" data-editar>${icon('i-edit', 'style="width:14px;height:14px"')}Editar plano</button>` : ''}</div>
+        <div class="sec-title">${icon('i-layers')}${ehCurso ? 'Conceitos do módulo' : 'Plano da trilha'}<span style="flex:1"></span>${conc ? `<button class="btn btn-sm" data-editar>${icon('i-edit', 'style="width:14px;height:14px"')}Editar plano</button>` : ''}</div>
         ${listaConceitos}
       </div>
 
-      <div class="row-actions">
+      ${ehCurso ? blocoEntrega(t) : `<div class="row-actions">
         <button class="btn" data-diag-redo>${icon('i-refresh')}Refazer diagnóstico</button>
-      </div>
+      </div>`}
     </div>`;
 }
 
@@ -1473,7 +1666,9 @@ async function loadConceitos(trilhaId) {
    DIAGNÓSTICO COM IA
    ========================================================= */
 function trilhaParaIA(t) {
-  return { titulo: t.titulo, area: t.area, objetivo: t.objetivo, conhecimento_previo: t.conhecimento_previo };
+  const base = { titulo: t.titulo, area: t.area, objetivo: t.objetivo, conhecimento_previo: t.conhecimento_previo };
+  const ctx = contextoCurso(t);
+  return ctx ? { ...base, contexto_curso: ctx } : base;
 }
 
 async function callIA(rota, corpo) {
@@ -2501,7 +2696,7 @@ async function loadTodosConceitos() {
   const porTrilha = {};
   (data || []).forEach(c => { (porTrilha[c.trilha_id] = porTrilha[c.trilha_id] || []).push(c); });
   state.trilhas.forEach(t => { if (!state.conceitos[t.id]) state.conceitos[t.id] = porTrilha[t.id] || []; });
-  if (state.tab === 'agenda') renderMain();
+  if (state.tab === 'agenda' || (state.tab === 'aula' && state.cursoSel)) renderMain();
 }
 
 function lerHoraLembrete() { try { return localStorage.getItem('mytutor-lembrete') || '07:00'; } catch { return '07:00'; } }
@@ -2510,8 +2705,10 @@ function baixarLembrete(hhmm) {
   if (!/^\d{2}:\d{2}$/.test(hhmm)) { toast('Escolha um horário.', true); return; }
   try { localStorage.setItem('mytutor-lembrete', hhmm); } catch {}
   const [h, m] = hhmm.split(':').map(Number);
+  const dias = diasLembrete();
   const ini = new Date(); ini.setHours(h, m, 0, 0);
   if (ini <= new Date()) ini.setDate(ini.getDate() + 1);
+  if (dias) while (!dias.includes(ini.getDay())) ini.setDate(ini.getDate() + 1);
   const p2 = (n) => String(n).padStart(2, '0');
   const local = `${ini.getFullYear()}${p2(ini.getMonth() + 1)}${p2(ini.getDate())}T${p2(h)}${p2(m)}00`;
   const agora = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
@@ -2523,11 +2720,11 @@ function baixarLembrete(hhmm) {
     `DTSTAMP:${agora}`,
     `DTSTART:${local}`,
     'DURATION:PT15M',
-    'RRULE:FREQ=DAILY',
-    'SUMMARY:Revisar MyTutor',
-    `DESCRIPTION:Hora de revisar seus cartões no MyTutor.\\n${url}`,
+    dias ? `RRULE:FREQ=WEEKLY;BYDAY=${dias.map(i => ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'][i]).join(',')}` : 'RRULE:FREQ=DAILY',
+    dias ? 'SUMMARY:Estudar no MyTutor' : 'SUMMARY:Revisar MyTutor',
+    dias ? `DESCRIPTION:Hora de estudar e revisar no MyTutor.\\n${url}` : `DESCRIPTION:Hora de revisar seus cartões no MyTutor.\\n${url}`,
     `URL:${url}`,
-    'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:Revisar MyTutor', 'TRIGGER:-PT0M', 'END:VALARM',
+    'BEGIN:VALARM', 'ACTION:DISPLAY', dias ? 'DESCRIPTION:Estudar no MyTutor' : 'DESCRIPTION:Revisar MyTutor', 'TRIGGER:-PT0M', 'END:VALARM',
     'END:VEVENT', 'END:VCALENDAR'
   ].join('\r\n');
   const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
@@ -2536,7 +2733,7 @@ function baixarLembrete(hhmm) {
   a.download = 'lembrete-mytutor.ics';
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(a.href), 60000);
-  toast('Abra o arquivo e toque em "Adicionar" para criar o lembrete diário.');
+  toast(dias ? `Abra o arquivo e toque em "Adicionar": o lembrete vai se repetir toda ${juntarE(dias.map(i => NOMES_DIA_L[i]))}.` : 'Abra o arquivo e toque em "Adicionar" para criar o lembrete diário.');
 }
 
 function renderAgenda() {
@@ -2562,7 +2759,7 @@ function renderAgenda() {
   const maxDia = Math.max(1, ...dias.map(d => d.n));
 
   // Aulas recomendadas
-  const recs = state.trilhas.map(t => {
+  const recs = state.trilhas.filter(trilhaRecomendavel).map(t => {
     const conc = state.conceitos[t.id];
     if (!conc || !conc.length) return null;
     const r = recomendacao(conc);
@@ -2592,7 +2789,7 @@ function renderAgenda() {
         <div class="card">
           <div class="sec-title">${icon('i-book')}Aulas recomendadas</div>
           ${recs.length ? recs.map(({ t, r }) => `<div class="rec-item">
-              <div class="txt"><div class="k">${esc(t.titulo)}</div><div class="v">${esc(r.c.titulo)}</div></div>
+              <div class="txt"><div class="k">${t.modulo_codigo ? (moduloDe(t)?.apoio ? 'Apoio ' : 'Módulo ') + esc(t.modulo_codigo) + ' · ' : ''}${esc(t.titulo)}</div><div class="v">${esc(r.c.titulo)}</div></div>
               <button class="btn btn-sm btn-primary" data-ag-aula="${t.id}:${r.c.id}">${icon('i-play', 'style="width:14px;height:14px"')}${r.tipo === 'continuar' ? 'Continuar' : 'Estudar'}</button>
             </div>`).join('') : `<div class="small-note" style="margin-top:0">${state.trilhas.length ? 'Nenhuma aula pendente nas suas trilhas.' : 'Crie uma trilha para começar.'}</div>`}
         </div>
@@ -2603,8 +2800,10 @@ function renderAgenda() {
           <div class="dias">${dias.map(d => `<div class="dia"><span class="n">${esc(d.nome)}</span><div class="bar"><span style="width:${Math.round(d.n / maxDia * 100)}%"></span></div><span class="c">${d.n}</span></div>`).join('')}</div>
         </div>
         <div class="card">
-          <div class="sec-title">${icon('i-clock')}Lembrete diário</div>
-          <div style="font-size:14px;color:var(--text-2)">Crie na agenda do seu iPad, iPhone ou Mac um lembrete que se repete todos os dias para revisar.</div>
+          ${diasLembrete() ? `<div class="sec-title">${icon('i-clock')}Lembrete nos dias de estudo</div>
+          <div style="font-size:14px;color:var(--text-2)">Crie na agenda do seu iPad, iPhone ou Mac um lembrete que se repete toda semana, na ${juntarE(diasLembrete().map(i => NOMES_DIA_L[i]))}. Os dias são escolhidos no Progresso, na meta semanal.</div>`
+          : `<div class="sec-title">${icon('i-clock')}Lembrete diário</div>
+          <div style="font-size:14px;color:var(--text-2)">Crie na agenda do seu iPad, iPhone ou Mac um lembrete que se repete todos os dias para revisar.</div>`}
           <div class="lembrete-row">
             <input type="time" id="lembHora" value="${lerHoraLembrete()}" aria-label="Horário do lembrete">
             <button class="btn btn-primary" data-lembrete>${icon('i-cal')}Adicionar à minha agenda</button>
@@ -2725,16 +2924,143 @@ const metaMin = () => {
 
 async function salvarMeta(v) {
   v = Math.max(5, Math.min(240, Math.round(Number(v) || 30)));
-  const { data, error } = await sb.auth.updateUser({ data: { mytutor_meta_min: v } });
+  return salvarMetaCfg({ mytutor_meta_min: v }, `Meta diária: ${v} minutos.`);
+}
+
+/* =========================================================
+   META FLEXÍVEL (diária ou semanal)
+   ========================================================= */
+const NOMES_DIA = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
+const NOMES_DIA_L = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
+const juntarE = (a) => a.length <= 1 ? a.join('') : a.slice(0, -1).join(', ') + ' e ' + a[a.length - 1];
+
+function getMetaCfg() {
+  const md = state.user?.user_metadata || {};
+  const s = Number(md.mytutor_meta_semana_min);
+  return {
+    modo: md.mytutor_meta_modo === 'semanal' ? 'semanal' : 'diaria',
+    dia: metaMin(),
+    semana: Number.isFinite(s) && s >= 30 ? s : 240,
+    dias: Array.isArray(md.mytutor_dias_estudo) ? md.mytutor_dias_estudo.map(Number).filter(n => Number.isInteger(n) && n >= 0 && n <= 6).sort() : [2, 4]
+  };
+}
+
+async function salvarMetaCfg(patch, msg) {
+  const { data, error } = await sb.auth.updateUser({ data: patch });
   if (error) { toast('Não foi possível salvar a meta: ' + error.message, true); return; }
-  if (data?.user) state.user = data.user;
-  else state.user = { ...state.user, user_metadata: { ...(state.user.user_metadata || {}), mytutor_meta_min: v } };
-  toast(`Meta diária: ${v} minutos.`);
+  state.user = data?.user || { ...state.user, user_metadata: { ...(state.user.user_metadata || {}), ...patch } };
+  if (msg) toast(msg);
   renderMain();
 }
 
+function inicioSemana(d = new Date()) { const x = inicioDia(d); x.setDate(x.getDate() - x.getDay()); return x; }
+function semanaMenos(n) { const d = inicioSemana(); d.setDate(d.getDate() - 7 * n); return d; }
+function segSemana(porDia, ini) {
+  let s = 0;
+  for (let i = 0; i < 7; i++) { const d = new Date(ini); d.setDate(d.getDate() + i); s += porDia[diaKey(d)] || 0; }
+  return s;
+}
+
+// Sequência em semanas: a semana atual ainda em andamento não quebra a sequência
+function sequenciaSemanas(porDia, metaSeg) {
+  const ok = (ini) => segSemana(porDia, ini) >= metaSeg;
+  let atual = 0, i = ok(semanaMenos(0)) ? 0 : 1;
+  while (i < 600 && ok(semanaMenos(i))) { atual++; i++; }
+  const dias = Object.keys(porDia).filter(k => porDia[k] > 0).sort();
+  let rec = 0, run = 0;
+  if (dias.length) {
+    const w = inicioSemana(new Date(dias[0] + 'T12:00:00')), fim = semanaMenos(0);
+    while (w <= fim) { run = ok(w) ? run + 1 : 0; rec = Math.max(rec, run); w.setDate(w.getDate() + 7); }
+  }
+  return { atual, recorde: Math.max(rec, atual), semanaOk: ok(semanaMenos(0)) };
+}
+
+function graficoSemanas(porDia, n, metaSeg, selK) {
+  const W = 640, H = 220, L = 38, R = 10, T = 14, B = 26;
+  const sems = [];
+  for (let i = n - 1; i >= 0; i--) { const d = semanaMenos(i); sems.push({ k: diaKey(d), d, seg: segSemana(porDia, d) }); }
+  const selSem = diaKey(inicioSemana(new Date(selK + 'T12:00:00')));
+  const maxMin = Math.max(metaSeg / 60 * 1.2, ...sems.map(x => x.seg / 60), 30);
+  const passo = maxMin > 720 ? 180 : maxMin > 360 ? 120 : maxMin > 180 ? 60 : maxMin > 90 ? 30 : 15;
+  const topo = Math.ceil(maxMin / passo) * passo;
+  const y = (min) => T + (H - T - B) * (1 - min / topo);
+  const slot = (W - L - R) / n, bw = Math.max(6, Math.min(36, slot - 12));
+  const rotY = (v) => v === 0 ? '0' : v % 60 === 0 ? v / 60 + 'h' : `${Math.floor(v / 60)}h${String(v % 60).padStart(2, '0')}`;
+  let g = '';
+  for (let v = 0; v <= topo; v += passo) g += `<line class="gl" x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}"/><text class="ax" x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${rotY(v)}</text>`;
+  const bars = sems.map((x, i) => {
+    const min = x.seg / 60, cx = L + slot * i + slot / 2;
+    const h = min > 0 ? Math.max(3, y(0) - y(min)) : 0;
+    const top = y(0) - h, r = Math.min(4, bw / 2, h);
+    const cls = x.k === selSem ? 'on' : x.seg >= metaSeg ? 'hit' : 'low';
+    const path = h ? `<path class="bar-r ${cls}" d="M${cx - bw / 2},${y(0)} V${top + r} Q${cx - bw / 2},${top} ${cx - bw / 2 + r},${top} H${cx + bw / 2 - r} Q${cx + bw / 2},${top} ${cx + bw / 2},${top + r} V${y(0)} Z"/>` : '';
+    const rot = (i % 2 === (n - 1) % 2) ? `<text class="ax" x="${cx}" y="${H - 8}" text-anchor="middle">${i === n - 1 ? 'Esta' : x.d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}</text>` : '';
+    const fimS = new Date(x.d); fimS.setDate(fimS.getDate() + 6);
+    return `${path}<rect class="hitbox" data-dia="${x.k}" x="${L + slot * i}" y="${T}" width="${slot}" height="${H - T - B}"><title>Semana de ${x.d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })} a ${fimS.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}: ${fmtMin(x.seg)}</title></rect>${rot}`;
+  }).join('');
+  const ym = y(metaSeg / 60);
+  const meta = `<line class="meta-l" x1="${L}" x2="${W - R}" y1="${ym}" y2="${ym}"/><text class="meta-t" x="${W - R}" y="${ym - 6}" text-anchor="end">meta ${fmtMin(metaSeg)}</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Tempo estudado por semana nas últimas ${n} semanas">${g}${bars}${meta}<line class="gl" x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" style="stroke:var(--line-2)"/></svg>`;
+}
+
+function metaEditor(cfg) {
+  const semanal = cfg.modo === 'semanal';
+  const uniq = (a) => a.filter((v, i) => a.indexOf(v) === i).sort((x, y) => x - y);
+  const optsDia = uniq([10, 15, 20, 30, 45, 60, 90, 120, cfg.dia]);
+  const optsSem = uniq([60, 90, 120, 180, 240, 300, 360, 480, 600, 720, cfg.semana]);
+  return `<div class="meta-cfg">
+    <div class="meta-l1">
+      <div class="seg" role="group" aria-label="Tipo de meta">
+        <button class="${!semanal ? 'on' : ''}" data-meta-modo="diaria">Meta diária</button>
+        <button class="${semanal ? 'on' : ''}" data-meta-modo="semanal">Meta semanal</button>
+      </div>
+      ${semanal
+        ? `<select class="sel" data-meta-semana aria-label="Meta semanal">${optsSem.map(v => `<option value="${v}" ${v === cfg.semana ? 'selected' : ''}>${fmtMin(v * 60)} por semana</option>`).join('')}</select>`
+        : `<select class="sel" data-meta aria-label="Meta diária em minutos">${optsDia.map(v => `<option value="${v}" ${v === cfg.dia ? 'selected' : ''}>${v} minutos por dia</option>`).join('')}</select>`}
+    </div>
+    ${semanal ? `
+    <div class="meta-l2"><span>Dias de estudo:</span>${NOMES_DIA.map((n, i) => `<button class="chip-btn ${cfg.dias.includes(i) ? 'on' : ''}" data-meta-dia="${i}" aria-pressed="${cfg.dias.includes(i)}">${n}</button>`).join('')}</div>
+    <div class="small-note">Vale o total da semana (domingo a sábado): 15 minutos num dia e 2 horas em outro contam do mesmo jeito, e um dia sem estudo não quebra a sequência. Os dias marcados aparecem destacados no calendário e definem o lembrete da Agenda.</div>`
+    : `<div class="small-note">Um dia entra na sequência quando a meta é atingida, somando todas as sessões do dia (ex.: 15 minutos de manhã e 15 à noite).</div>`}
+  </div>`;
+}
+
+function diasLembrete() {
+  const c = getMetaCfg();
+  return c.modo === 'semanal' && c.dias.length && c.dias.length < 7 ? c.dias : null;
+}
+
+/* =========================================================
+   CURSOS: ligações com o restante do app
+   ========================================================= */
+function voltarCurso(t) {
+  const c = cursoDe(t), m = moduloDe(t); if (!c || !m) return '';
+  const mods = modulosDoCurso(c.id);
+  const i = mods.findIndex(x => x.id === t.id);
+  const ant = mods[i - 1], prox = mods[i + 1];
+  return `<div class="mod-nav">
+    <button class="back-link" data-curso-ver="${c.id}">${icon('i-back')}${esc(c.titulo)}</button>
+    <span style="flex:1"></span>
+    ${ant ? `<button class="btn btn-sm" data-abrir-trilha="${ant.id}" title="${esc(ant.titulo)}">${icon('i-back', 'style="width:14px;height:14px"')}${esc(ant.modulo_codigo)}</button>` : ''}
+    ${prox ? `<button class="btn btn-sm" data-abrir-trilha="${prox.id}" title="${esc(prox.titulo)}">${esc(prox.modulo_codigo)}<svg class="ic" style="width:14px;height:14px;transform:rotate(180deg)"><use href="#i-back"/></svg></button>` : ''}
+  </div>`;
+}
+
+// Nas recomendações da Agenda, só os módulos do momento (ou já iniciados)
+function trilhaRecomendavel(t) {
+  if (!t.curso_id) return true;
+  const c = cursoDe(t), m = moduloDe(t);
+  if (!c || !m) return false;
+  if ((state.conceitos[t.id] || []).some(x => x.status === 'em_estudo')) return true;
+  if (entregaStatus(t.id) === 'concluida') return false;
+  const ma = mesAtual(c);
+  if (ma < 1) return t.ordem_curso === 0;
+  return ma >= janelaModulo(c, m).iniMes;
+}
+
+
 async function carregarProgresso() {
-  state.prog = { carregando: true, periodo: state.prog?.periodo || 7 };
+  state.prog = { carregando: true, periodo: state.prog?.periodo || (getMetaCfg().modo === 'semanal' ? 'sem' : 7) };
   const r = await sb.from('sessoes').select('id, trilha_id, conceito_id, tipo, iniciada_em, encerrada_em, duracao_seg, tempo_dia, resumo').order('iniciada_em', { ascending: false });
   if (r.error) { state.prog = { erro: dbErrorMessage(r.error), periodo: 7 }; if (state.tab === 'progresso') renderMain(); return; }
   state.prog = { sessoes: r.data || [], periodo: state.prog.periodo, sel: null };
@@ -2791,7 +3117,7 @@ function graficoBarras(porDia, n, metaSeg, selK) {
   const W = 640, H = 220, L = 34, R = 10, T = 14, B = 26;
   const dias = [];
   for (let i = n - 1; i >= 0; i--) { const d = diaMenos(i); dias.push({ k: diaKey(d), d, seg: porDia[diaKey(d)] || 0 }); }
-  const maxMin = Math.max(metaSeg / 60 * 1.25, ...dias.map(x => x.seg / 60), 10);
+  const maxMin = Math.max((metaSeg || 0) / 60 * 1.25, ...dias.map(x => x.seg / 60), 10);
   const passo = maxMin > 120 ? 60 : maxMin > 60 ? 30 : maxMin > 30 ? 15 : 10;
   const topo = Math.ceil(maxMin / passo) * passo;
   const y = (min) => T + (H - T - B) * (1 - min / topo);
@@ -2802,19 +3128,19 @@ function graficoBarras(porDia, n, metaSeg, selK) {
     const min = x.seg / 60, cx = L + slot * i + slot / 2;
     const h = min > 0 ? Math.max(3, y(0) - y(min)) : 0;
     const top = y(0) - h, r = Math.min(4, bw / 2, h);
-    const cls = x.k === selK ? 'on' : x.seg >= metaSeg ? 'hit' : 'low';
+    const cls = x.k === selK ? 'on' : metaSeg == null || x.seg >= metaSeg ? 'hit' : 'low';
     const path = h ? `<path class="bar-r ${cls}" d="M${cx - bw / 2},${y(0)} V${top + r} Q${cx - bw / 2},${top} ${cx - bw / 2 + r},${top} H${cx + bw / 2 - r} Q${cx + bw / 2},${top} ${cx + bw / 2},${top + r} V${y(0)} Z"/>` : '';
     const mostrarRot = n <= 7 || i % 5 === (n - 1) % 5;
     const curto = i === n - 1 ? 'Hoje' : n <= 7 ? x.d.toLocaleDateString('pt-BR', { weekday: 'short' }).replace('.', '') : x.d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
     const rot = mostrarRot ? `<text class="ax" x="${cx}" y="${H - 8}" text-anchor="middle">${curto}</text>` : '';
     return `${path}<rect class="hitbox" data-dia="${x.k}" x="${L + slot * i}" y="${T}" width="${slot}" height="${H - T - B}"><title>${nomeDia(x.d)}: ${fmtMin(x.seg)}</title></rect>${rot}`;
   }).join('');
-  const ym = y(metaSeg / 60);
-  const meta = `<line class="meta-l" x1="${L}" x2="${W - R}" y1="${ym}" y2="${ym}"/><text class="meta-t" x="${W - R}" y="${ym - 6}" text-anchor="end">meta ${Math.round(metaSeg / 60)} min</text>`;
+  const ym = metaSeg == null ? 0 : y(metaSeg / 60);
+  const meta = metaSeg == null ? '' : `<line class="meta-l" x1="${L}" x2="${W - R}" y1="${ym}" y2="${ym}"/><text class="meta-t" x="${W - R}" y="${ym - 6}" text-anchor="end">meta ${Math.round(metaSeg / 60)} min</text>`;
   return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Minutos estudados por dia nos últimos ${n} dias">${g}${bars}${meta}<line class="gl" x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" style="stroke:var(--line-2)"/></svg>`;
 }
 
-function calendarioConstancia(porDia, metaSeg, selK) {
+function calendarioConstancia(porDia, metaSeg, selK, planejados = null) {
   // 12 semanas, colunas = semanas (domingo a sábado)
   const hoje = inicioDia();
   const fim = new Date(hoje); fim.setDate(fim.getDate() + (6 - fim.getDay()));
@@ -2824,13 +3150,14 @@ function calendarioConstancia(porDia, metaSeg, selK) {
     const k = diaKey(d), seg = porDia[k] || 0;
     const futuro = d > hoje;
     const nivel = !seg ? 0 : seg < metaSeg / 2 ? 1 : seg < metaSeg ? 2 : seg < metaSeg * 2 ? 3 : 4;
-    cels.push(`<div class="cel l${nivel} ${futuro ? 'fut' : ''} ${k === diaKey(hoje) ? 'hoje' : ''}" ${futuro ? '' : `data-dia="${k}"`} title="${nomeDia(d)}: ${fmtMin(seg)}" ${k === selK ? 'style="outline:2px solid var(--cyan);outline-offset:1px"' : ''}></div>`);
+    const plan = planejados && planejados.includes(d.getDay()) && !futuro;
+    cels.push(`<div class="cel l${nivel} ${futuro ? 'fut' : ''} ${plan ? 'plan' : ''} ${k === diaKey(hoje) ? 'hoje' : ''}" ${futuro ? '' : `data-dia="${k}"`} title="${nomeDia(d)}: ${fmtMin(seg)}${plan ? ' · dia de estudo' : ''}" ${k === selK ? 'style="outline:2px solid var(--cyan);outline-offset:1px"' : ''}></div>`);
   }
   return `<div class="heat-wrap">
       <div class="heat-dias"><span>dom</span><span></span><span>ter</span><span></span><span>qui</span><span></span><span>sáb</span></div>
       <div class="heat">${cels.join('')}</div>
     </div>
-    <div class="heat-leg">Menos <span class="cel"></span><span class="cel l1"></span><span class="cel l2"></span><span class="cel l3"></span><span class="cel l4"></span> Mais · a 3ª cor já é a meta</div>`;
+    <div class="heat-leg">Menos <span class="cel"></span><span class="cel l1"></span><span class="cel l2"></span><span class="cel l3"></span><span class="cel l4"></span> Mais${planejados ? ' · <span class="cel plan"></span> dia de estudo planejado' : ' · a 3ª cor já é a meta'}</div>`;
 }
 
 function renderProgresso() {
@@ -2841,11 +3168,15 @@ function renderProgresso() {
   if (P.erro) return head + `<div class="card"><div class="err-box">${esc(P.erro)}</div></div>`;
 
   const meta = metaMin(), metaSeg = meta * 60;
+  const cfg = getMetaCfg(), semanal = cfg.modo === 'semanal';
+  const metaSemSeg = semanal ? cfg.semana * 60 : metaSeg * 7;
+  const refDia = semanal ? metaSemSeg / Math.max(1, cfg.dias.length || 7) : metaSeg;
   const porDia = segundosPorDia(P.sessoes);
   const totalSeg = Object.values(porDia).reduce((a, b) => a + b, 0);
   let sem = 0; for (let i = 0; i < 7; i++) sem += porDia[diaKey(diaMenos(i))] || 0;
   const hojeSeg = porDia[diaKey()] || 0;
-  const seq = sequencias(porDia, metaSeg);
+  const seq = semanal ? sequenciaSemanas(porDia, metaSemSeg) : sequencias(porDia, metaSeg);
+  const semAtualSeg = segSemana(porDia, inicioSemana());
 
   const todos = state.trilhas.flatMap(t => state.conceitos[t.id] || []);
   const dom = todos.filter(c => c.status === 'dominado').length;
@@ -2859,16 +3190,32 @@ function renderProgresso() {
   const selK = P.sel || diaKey();
   const selD = new Date(selK + 'T12:00:00');
   const selSes = P.sessoes.filter(x => (x.tempo_dia && x.tempo_dia[selK]) || (!Object.keys(x.tempo_dia || {}).length && diaKey(x.iniciada_em) === selK));
-  const readout = `<b>${nomeDia(selD)}</b>: ${fmtMin(porDia[selK] || 0)} · ${selSes.length} ${selSes.length === 1 ? 'sessão' : 'sessões'} · ${(porDia[selK] || 0) >= metaSeg ? '<span style="color:var(--green);font-weight:700">meta atingida</span>' : `faltaram ${fmtMin(Math.max(0, metaSeg - (porDia[selK] || 0)))}`}`;
+  let readout;
+  if (P.periodo === 'sem') {
+    const iS = inicioSemana(selD), fS = new Date(iS); fS.setDate(fS.getDate() + 6);
+    const sS = segSemana(porDia, iS), atualS = diaKey(iS) === diaKey(inicioSemana());
+    readout = `<b>Semana de ${iS.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })} a ${fS.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}</b>: ${fmtMin(sS)} · ${sS >= metaSemSeg ? '<span style="color:var(--green);font-weight:700">meta atingida</span>' : atualS ? `faltam ${fmtMin(metaSemSeg - sS)}` : `faltaram ${fmtMin(metaSemSeg - sS)}`}`;
+  } else if (semanal) {
+    readout = `<b>${nomeDia(selD)}</b>: ${fmtMin(porDia[selK] || 0)} · ${selSes.length} ${selSes.length === 1 ? 'sessão' : 'sessões'}${cfg.dias.includes(selD.getDay()) ? ' · dia de estudo planejado' : ''}`;
+  } else {
+    readout = `<b>${nomeDia(selD)}</b>: ${fmtMin(porDia[selK] || 0)} · ${selSes.length} ${selSes.length === 1 ? 'sessão' : 'sessões'} · ${(porDia[selK] || 0) >= metaSeg ? '<span style="color:var(--green);font-weight:700">meta atingida</span>' : `faltaram ${fmtMin(Math.max(0, metaSeg - (porDia[selK] || 0)))}`}`;
+  }
 
   const kpis = `<div class="kpis">
-    <div class="kpi"><div class="top">Hoje ${icon('i-clock')}</div>
+    ${semanal ? `<div class="kpi"><div class="top">Esta semana ${icon('i-clock')}</div>
+      <div class="val">${fmtMin(semAtualSeg)}</div>
+      <div class="sub">${semAtualSeg >= metaSemSeg ? '<span class="ok">Meta da semana atingida</span>' : `Faltam <b>${fmtMin(metaSemSeg - semAtualSeg)}</b> para a meta de ${fmtMin(metaSemSeg)}`} · hoje: <b>${fmtMin(hojeSeg)}</b></div>
+      <div class="bar ${semAtualSeg >= metaSemSeg ? 'done' : ''}"><span style="width:${Math.min(100, Math.round(semAtualSeg / metaSemSeg * 100))}%"></span></div></div>
+    <div class="kpi"><div class="top">Sequência de semanas ${icon('i-flame')}</div>
+      <div class="val">${seq.atual} ${seq.atual === 1 ? 'semana' : 'semanas'}</div>
+      <div class="sub">Recorde: <b>${seq.recorde} ${seq.recorde === 1 ? 'semana' : 'semanas'}</b>${!seq.semanaOk && seq.atual ? ' · bata a meta até sábado para manter' : ''}</div></div>`
+    : `<div class="kpi"><div class="top">Hoje ${icon('i-clock')}</div>
       <div class="val">${fmtMin(hojeSeg)}</div>
       <div class="sub">${hojeSeg >= metaSeg ? '<span class="ok">Meta de hoje atingida</span>' : `Faltam <b>${fmtMin(metaSeg - hojeSeg)}</b> para a meta de ${meta} min`}</div>
       <div class="bar ${hojeSeg >= metaSeg ? 'done' : ''}"><span style="width:${Math.min(100, Math.round(hojeSeg / metaSeg * 100))}%"></span></div></div>
     <div class="kpi"><div class="top">Sequência de estudos ${icon('i-flame')}</div>
       <div class="val">${seq.atual} ${seq.atual === 1 ? 'dia' : 'dias'}</div>
-      <div class="sub">Recorde: <b>${seq.recorde} ${seq.recorde === 1 ? 'dia' : 'dias'}</b>${!seq.hojeOk && seq.atual ? ' · estude hoje para manter' : ''}</div></div>
+      <div class="sub">Recorde: <b>${seq.recorde} ${seq.recorde === 1 ? 'dia' : 'dias'}</b>${!seq.hojeOk && seq.atual ? ' · estude hoje para manter' : ''}</div></div>`}
     <div class="kpi"><div class="top">Conceitos dominados ${icon('i-target')}</div>
       <div class="val">${dom} / ${todos.length}</div>
       <div class="sub">${todos.length ? `${Math.round(dom / todos.length * 100)}% de todas as trilhas` : 'Nenhum conceito ainda'}</div></div>
@@ -2879,32 +3226,30 @@ function renderProgresso() {
 
   const grafico = `<div class="card chart">
       <div class="ch-head">
-        <div class="sec-title">${icon('i-trend')}Tempo estudado por dia</div>
+        <div class="sec-title">${icon('i-trend')}${P.periodo === 'sem' ? 'Tempo estudado por semana' : 'Tempo estudado por dia'}</div>
         <div class="seg" role="group" aria-label="Período">
           <button class="${P.periodo === 7 ? 'on' : ''}" data-periodo="7">7 dias</button>
           <button class="${P.periodo === 30 ? 'on' : ''}" data-periodo="30">30 dias</button>
+          <button class="${P.periodo === 'sem' ? 'on' : ''}" data-periodo="sem">12 semanas</button>
         </div>
       </div>
       <div class="readout">${readout}</div>
-      <div class="plot">${graficoBarras(porDia, P.periodo, metaSeg, selK)}</div>
-      <div class="heat-leg" style="justify-content:flex-start;margin-top:4px"><span class="cel" style="background:var(--cyan);border:none"></span> meta atingida <span class="cel" style="background:var(--blue);border:none;margin-left:10px"></span> abaixo da meta <span style="display:inline-block;width:16px;border-top:2px dashed var(--amber);margin:0 4px 0 10px"></span> meta diária</div>
+      <div class="plot">${P.periodo === 'sem' ? graficoSemanas(porDia, 12, metaSemSeg, selK) : graficoBarras(porDia, P.periodo, semanal ? null : metaSeg, selK)}</div>
+      ${P.periodo !== 'sem' && semanal
+        ? `<div class="heat-leg" style="justify-content:flex-start;margin-top:4px">Com a meta semanal não há meta por dia: veja a visão de 12 semanas para comparar com a meta.</div>`
+        : `<div class="heat-leg" style="justify-content:flex-start;margin-top:4px"><span class="cel" style="background:var(--cyan);border:none"></span> meta atingida <span class="cel" style="background:var(--blue);border:none;margin-left:10px"></span> abaixo da meta <span style="display:inline-block;width:16px;border-top:2px dashed var(--amber);margin:0 4px 0 10px"></span> ${P.periodo === 'sem' ? (semanal ? 'meta semanal' : 'meta diária × 7') : 'meta diária'}</div>`}
       <div class="small-note" style="margin-top:6px">Total desde o início: <b style="color:var(--text)">${fmtMin(totalSeg)}</b> · média dos últimos 7 dias: <b style="color:var(--text)">${fmtMin(sem / 7)}</b> por dia</div>
     </div>`;
 
   const constancia = `<div class="card">
       <div class="sec-title">${icon('i-cal')}Constância — últimas 12 semanas</div>
-      ${calendarioConstancia(porDia, metaSeg, selK)}
-      <div class="meta-row">
-        <span>Meta diária:</span>
-        <select class="sel" data-meta aria-label="Meta diária em minutos">
-          ${[10, 15, 20, 30, 45, 60, 90, 120].concat([meta]).filter((v, i, a) => a.indexOf(v) === i).sort((a, b) => a - b).map(v => `<option value="${v}" ${v === meta ? 'selected' : ''}>${v} minutos</option>`).join('')}
-        </select>
-        <span style="font-size:13px">Um dia entra na sequência quando a meta é atingida, somando todas as sessões do dia.</span>
-      </div>
+      ${calendarioConstancia(porDia, refDia, selK, semanal ? cfg.dias : null)}
+      ${metaEditor(cfg)}
     </div>`;
 
   // Por trilha
-  const linhas = state.trilhas.map(t => {
+  const trilhasTab = state.trilhas.filter(t => !t.curso_id || t.dominio > 0 || P.sessoes.some(x => x.trilha_id === t.id));
+  const linhas = trilhasTab.map(t => {
     const conc = state.conceitos[t.id] || [];
     const ses = P.sessoes.filter(x => x.trilha_id === t.id);
     const seg = ses.reduce((a, x) => a + (x.duracao_seg || 0), 0);
@@ -2912,7 +3257,7 @@ function renderProgresso() {
     const ult = datas.length ? new Date(Math.max(...datas)) : new Date(t.updated_at || t.created_at);
     const pend = cartoes.filter(c => c.trilha_id === t.id && vence(c)).length;
     return `<tr>
-      <td><div class="ar">${esc(t.area || 'Geral')}</div><div class="tt">${esc(t.titulo)}</div></td>
+      <td><div class="ar">${t.modulo_codigo ? 'Curso · ' + (moduloDe(t)?.apoio ? 'Apoio ' : 'Módulo ') + esc(t.modulo_codigo) : esc(t.area || 'Geral')}</div><div class="tt">${esc(t.titulo)}</div></td>
       <td class="n"><span class="bar ${t.dominio >= 100 ? 'done' : ''}"><span style="width:${t.dominio}%"></span></span>${t.dominio}%</td>
       <td class="n">${conc.filter(c => c.status === 'dominado').length} / ${conc.length}</td>
       <td class="n">${fmtMin(seg)}</td>
@@ -2923,7 +3268,7 @@ function renderProgresso() {
   }).join('');
   const porTrilha = `<div class="card" style="margin-bottom:16px">
       <div class="sec-title">${icon('i-layers')}Por trilha</div>
-      ${state.trilhas.length ? `<div class="tbl-wrap"><table class="tbl">
+      ${trilhasTab.length ? `<div class="tbl-wrap"><table class="tbl">
         <thead><tr><th>Trilha</th><th>Domínio</th><th>Conceitos</th><th>Tempo</th><th>Revisões hoje</th><th>Última atividade</th><th></th></tr></thead>
         <tbody>${linhas}</tbody></table></div>` : '<div class="small-note" style="margin-top:0">Nenhuma trilha ainda.</div>'}
     </div>`;
@@ -2947,6 +3292,481 @@ function renderProgresso() {
     </div>`;
 
   return head + kpis + `<div class="pg-grid">${grafico}${constancia}</div>` + porTrilha + atividade;
+}
+
+/* =========================================================
+   CURSOS ESTRUTURADOS
+   ========================================================= */
+const CATALOGO = ['curso-ia-ensino-teologico.json'];
+const MESES_LONGOS = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+const MESES_ABR = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+
+async function carregarCatalogo() {
+  const lista = [];
+  for (const arq of CATALOGO) {
+    try {
+      const r = await fetch(arq + '?v=' + APP_VERSION, { cache: 'no-cache' });
+      if (r.ok) { const j = await r.json(); if (j && j.id && Array.isArray(j.modulos)) lista.push(j); }
+    } catch {}
+  }
+  state.catalogo = lista;
+  renderSidebar();
+}
+
+const cursoDe = (t) => t && t.curso_id ? state.cursos.find(c => c.id === t.curso_id) : null;
+const moduloDe = (t) => { const c = cursoDe(t); return c ? (c.dados.modulos || []).find(m => m.codigo === t.modulo_codigo) : null; };
+const modulosDoCurso = (cid) => state.trilhas.filter(t => t.curso_id === cid).sort((a, b) => (a.ordem_curso ?? 0) - (b.ordem_curso ?? 0));
+
+function mesesEntre(a, b) { return (b.getFullYear() - a.getFullYear()) * 12 + (b.getMonth() - a.getMonth()); }
+function inicioCurso(c) { const [y, m] = String(c.inicio).slice(0, 7).split('-').map(Number); return new Date(y, m - 1, 1); }
+function addMeses(d, n) { return new Date(d.getFullYear(), d.getMonth() + n, 1); }
+const rotMes = (d) => `${MESES_ABR[d.getMonth()]}/${d.getFullYear()}`;
+
+// Mês (1, 2, …) no cronograma ajustado ao ritmo
+function janelaModulo(c, m) {
+  const f = Number(c.fator) || 1;
+  const ini = Math.max(0, Math.round((m.meses[0] - 1) * f));
+  const fim = Math.max(ini, Math.round(m.meses[1] * f) - 1);
+  const base = inicioCurso(c);
+  return { iniMes: ini + 1, fimMes: fim + 1, de: addMeses(base, ini), ate: addMeses(base, fim) };
+}
+const totalMeses = (c) => Math.round((c.dados.meses_plano || 30) * (Number(c.fator) || 1));
+function mesAtual(c) { return mesesEntre(inicioCurso(c), new Date()) + 1; }
+
+function entregaStatus(tid) {
+  const l = state.entregas[tid];
+  if (!l) return null;
+  if (l.some(e => e.concluida)) return 'concluida';
+  if (!l.length) return 'pendente';
+  return l[0].parecer ? l[0].parecer.parecer : 'pendente';
+}
+const ENT_ROT = { concluida: ['Concluída', 'ok'], aprovado: ['Aprovada pelo Tutor', 'ok'], ajustar: ['Ajustar', 'warn'], refazer: ['Refazer', 'bad'], pendente: ['Pendente', 'neutro'] };
+
+function situacaoModulo(c, t, m) {
+  const j = janelaModulo(c, m), ma = mesAtual(c);
+  const st = entregaStatus(t.id);
+  if (st === 'concluida') return ['Concluído', 'ok'];
+  if (ma < j.iniMes) return ['Futuro', 'neutro'];
+  if (ma > j.fimMes) return ['Atrasado', 'warn'];
+  return ['Agora', 'now'];
+}
+
+async function carregarEntregas(ids) {
+  const faltam = ids.filter(id => state.entregas[id] === undefined);
+  if (!faltam.length) return;
+  faltam.forEach(id => { state.entregas[id] = state.entregas[id] || null; });
+  const r = await sb.from('entregas').select('id, trilha_id, versao, arquivo_nome, parecer, concluida, created_at').in('trilha_id', faltam).order('versao', { ascending: false });
+  if (r.error) { toast(dbErrorMessage(r.error), true); return; }
+  faltam.forEach(id => { state.entregas[id] = (r.data || []).filter(e => e.trilha_id === id); });
+  renderMain(); renderSidebar();
+}
+
+// Contexto que o Tutor recebe nas trilhas de curso
+function contextoCurso(t) {
+  const c = cursoDe(t), m = moduloDe(t);
+  if (!c || !m) return '';
+  const d = c.dados;
+  return [
+    `CURSO: ${d.titulo}. Objetivo central: ${d.objetivo_central}`,
+    `PRINCÍPIO: ${d.principio}`,
+    `QUEM É O ALUNO: ${d.aluno}`,
+    `MÓDULO ${m.codigo}: ${m.titulo}`,
+    `OBJETIVOS DO MÓDULO:\n${(m.objetivos || []).map(o => '- ' + o).join('\n')}`,
+    `O QUE ESTUDAR: ${m.estudar}`,
+    `PRÁTICA DO MÓDULO: ${m.pratica}`,
+    `ENTREGA DO MÓDULO: ${m.entrega.titulo} — ${m.entrega.descricao}`,
+    `REGRAS PARA O TUTOR NESTE CURSO:\n${(d.regras_tutor || []).map(r => '- ' + r).join('\n')}`
+  ].join('\n\n').slice(0, 7800);
+}
+
+/* ---------- Instalação ---------- */
+const valInicio = () => `${$('#cAno').value}-${$('#cMes').value}`;
+function setInicio(v) {
+  const [y, m] = v.split('-');
+  const anoAtual = new Date().getFullYear();
+  const anos = []; for (let a = Math.min(anoAtual, Number(y)); a <= Math.max(anoAtual + 3, Number(y)); a++) anos.push(a);
+  $('#cAno').innerHTML = anos.map(a => `<option value="${a}">${a}</option>`).join('');
+  $('#cMes').innerHTML = MESES_LONGOS.map((n, i) => `<option value="${String(i + 1).padStart(2, '0')}">${n}</option>`).join('');
+  $('#cAno').value = y; $('#cMes').value = m;
+}
+function setHoras(h) {
+  const ops = [1, 2, 3, 4, 5, 6, 8, 10, 12];
+  if (!ops.includes(h)) ops.push(h);
+  ops.sort((a, b) => a - b);
+  $('#cHoras').innerHTML = ops.map(v => `<option value="${v}">${String(v).replace('.', ',')} ${v === 1 ? 'hora' : 'horas'} por semana</option>`).join('');
+  $('#cHoras').value = String(h);
+}
+
+function abrirInstalacao(chave, cursoId) {
+  const existente = cursoId ? state.cursos.find(c => c.id === cursoId) : null;
+  const dados = existente ? existente.dados : (state.catalogo || []).find(c => c.id === chave);
+  if (!dados) return;
+  const cfg = getMetaCfg();
+  const hoje = new Date();
+  const sugerido = existente ? String(existente.inicio).slice(0, 7) : `${hoje.getFullYear() + 1}-01`;
+  const horas = existente ? Number(existente.horas_semanais) : (cfg.modo === 'semanal' ? Math.round(cfg.semana / 60 * 2) / 2 : dados.horas_semanais_plano);
+  state.instalando = { chave: dados.id, cursoId: existente ? existente.id : null, dados };
+  $('#cursoModalTitle').textContent = existente ? 'Ajustar cronograma' : `Instalar curso: ${dados.titulo}`;
+  $('#cursoModalSub').textContent = existente
+    ? 'Mude o início ou o ritmo. O conteúdo e o seu progresso continuam iguais.'
+    : `${dados.modulos.length} módulos em ${dados.fases.length} fases. O plano original prevê ${dados.horas_semanais_plano}h por semana durante ${dados.meses_plano} meses.`;
+  setInicio(sugerido);
+  setHoras(horas);
+  const ajustar = existente ? Number(existente.fator) !== 1 : horas < dados.horas_semanais_plano;
+  $('#cRitmoAjustar').checked = ajustar; $('#cRitmoPlano').checked = !ajustar;
+  $('#instalarBtn').textContent = existente ? 'Salvar cronograma' : 'Instalar curso';
+  atualizarPrevisao();
+  openModal('#cursoModal');
+}
+
+function fatorEscolhido() {
+  const d = state.instalando?.dados; if (!d) return 1;
+  const h = Number($('#cHoras').value) || d.horas_semanais_plano;
+  return $('#cRitmoAjustar').checked ? Math.max(1, Math.round(d.horas_semanais_plano / h * 100) / 100) : 1;
+}
+
+function atualizarPrevisao() {
+  const d = state.instalando?.dados; if (!d) return;
+  const v = valInicio(); if (!/^\d{4}-\d{2}$/.test(v)) { $('#cPrevisao').textContent = ''; return; }
+  const [y, m] = v.split('-').map(Number);
+  const meses = Math.round(d.meses_plano * fatorEscolhido());
+  const fim = addMeses(new Date(y, m - 1, 1), meses - 1);
+  const h = Number($('#cHoras').value) || d.horas_semanais_plano;
+  $('#cPrevisao').innerHTML = `Duração: <b>${meses} meses</b> · término previsto em <b>${rotMes(fim)}</b>${h < d.horas_semanais_plano && !$('#cRitmoAjustar').checked ? `<br><span style="color:var(--amber)">Com ${h}h por semana, manter os ${d.meses_plano} meses exigirá um ritmo mais apertado que o do plano (${d.horas_semanais_plano}h).</span>` : ''}`;
+}
+
+async function instalarCurso(e) {
+  e.preventDefault();
+  const ins = state.instalando; if (!ins) return;
+  const v = valInicio();
+  if (!/^\d{4}-\d{2}$/.test(v)) { toast('Escolha o mês de início.', true); return; }
+  const horas = Number($('#cHoras').value) || ins.dados.horas_semanais_plano;
+  const fator = fatorEscolhido();
+  const btn = $('#instalarBtn'); btn.disabled = true; btn.textContent = 'Salvando…';
+  const fim = (msg) => { btn.disabled = false; btn.textContent = ins.cursoId ? 'Salvar cronograma' : 'Instalar curso'; if (msg) toast(msg, true); };
+
+  if (ins.cursoId) {
+    const up = await sb.from('cursos').update({ inicio: v + '-01', horas_semanais: horas, fator }).eq('id', ins.cursoId).select().single();
+    if (up.error) return fim(dbErrorMessage(up.error));
+    Object.assign(state.cursos.find(c => c.id === ins.cursoId), up.data);
+    fim(); closeModal('#cursoModal'); state.instalando = null; toast('Cronograma atualizado.'); render();
+    return;
+  }
+
+  const d = ins.dados;
+  const cr = await sb.from('cursos').insert({ chave: d.id, titulo: d.titulo, versao: d.versao, inicio: v + '-01', horas_semanais: horas, fator, dados: d }).select().single();
+  if (cr.error) return fim(/duplicate|unique/i.test(cr.error.message) ? 'Este curso já está instalado.' : dbErrorMessage(cr.error));
+  const curso = cr.data;
+  const desfazer = async (msg) => { await sb.from('cursos').delete().eq('id', curso.id); fim(msg); };
+
+  const linhasT = d.modulos.map((m, i) => ({
+    titulo: m.titulo, area: d.area, objetivo: (m.objetivos || []).join(' '), modo_preferido: 'socratico', status: 'nova', dominio: 0,
+    curso_id: curso.id, modulo_codigo: m.codigo, ordem_curso: i,
+    diagnostico: { origem: 'curso', resumo: m.estudar, pontos_fortes: [], lacunas: [], modo_sugerido: 'socratico', justificativa_modo: '' }
+  }));
+  const tr = await sb.from('trilhas').insert(linhasT).select();
+  if (tr.error) return desfazer(dbErrorMessage(tr.error));
+  const porCodigo = Object.fromEntries(tr.data.map(t => [t.modulo_codigo, t]));
+
+  const linhasC = [];
+  d.modulos.forEach(m => {
+    const t = porCodigo[m.codigo];
+    const ids = m.conceitos.map(() => crypto.randomUUID());
+    m.conceitos.forEach((c, i) => linhasC.push({
+      id: ids[i], trilha_id: t.id, titulo: c.titulo, descricao: c.descricao, ordem: i,
+      prerequisitos: (c.pre || []).map(k => ids[k]), dominio: 0, status: (c.pre || []).length ? 'bloqueado' : 'disponivel'
+    }));
+  });
+  const cc = await sb.from('conceitos').insert(linhasC).select();
+  if (cc.error) return desfazer(dbErrorMessage(cc.error));
+
+  state.cursos.push(curso);
+  state.trilhas.push(...tr.data);
+  tr.data.forEach(t => { state.conceitos[t.id] = (cc.data || []).filter(c => c.trilha_id === t.id).sort((a, b) => a.ordem - b.ordem); state.entregas[t.id] = []; });
+  state.cursoAberto[curso.id] = true;
+  fim(); closeModal('#cursoModal'); state.instalando = null;
+  state.selectedId = null; state.cursoSel = curso.id; state.tab = 'aula';
+  render();
+  toast(`Curso instalado: ${d.modulos.length} módulos prontos para estudar.`);
+}
+
+async function removerCurso(cid) {
+  const c = state.cursos.find(x => x.id === cid); if (!c) return;
+  if (!confirm(`Remover o curso "${c.titulo}"? Os módulos, aulas, cartões e entregas dele serão apagados. Isso não pode ser desfeito.`)) return;
+  const r = await sb.from('cursos').delete().eq('id', cid);
+  if (r.error) { toast(dbErrorMessage(r.error), true); return; }
+  const ids = state.trilhas.filter(t => t.curso_id === cid).map(t => t.id);
+  state.trilhas = state.trilhas.filter(t => t.curso_id !== cid);
+  state.cartoes = state.cartoes.filter(x => !ids.includes(x.trilha_id));
+  state.cursos = state.cursos.filter(x => x.id !== cid);
+  if (ids.includes(state.selectedId)) state.selectedId = null;
+  if (state.aula && ids.includes(state.aula.trilhaId)) { pararDitado(); state.aula = null; }
+  state.cursoSel = null;
+  render();
+  toast('Curso removido.');
+}
+
+async function marcarChecklist(cid, grupo, chave, valor) {
+  const c = state.cursos.find(x => x.id === cid); if (!c) return;
+  const ck = JSON.parse(JSON.stringify(c.checklist || {}));
+  ck[grupo] = ck[grupo] || {};
+  if (valor) ck[grupo][chave] = diaKey(); else delete ck[grupo][chave];
+  const r = await sb.from('cursos').update({ checklist: ck }).eq('id', cid);
+  if (r.error) { toast(dbErrorMessage(r.error), true); renderMain(); return; }
+  c.checklist = ck;
+  renderMain();
+}
+
+/* ---------- Visão geral do curso ---------- */
+function renderCurso(cid) {
+  const c = state.cursos.find(x => x.id === cid);
+  if (!c) { state.cursoSel = null; return `<div class="card"><div class="small-note" style="margin:0">Curso não encontrado.</div></div>`; }
+  const d = c.dados;
+  const mods = modulosDoCurso(c.id);
+  carregarEntregas(mods.map(t => t.id));
+  loadTodosConceitos();
+  const ma = mesAtual(c), total = totalMeses(c);
+  const fimCurso = addMeses(inicioCurso(c), total - 1);
+  const media = mods.length ? Math.round(mods.reduce((a, t) => a + (t.dominio || 0), 0) / mods.length) : 0;
+  const concl = mods.filter(t => entregaStatus(t.id) === 'concluida').length;
+  const ck = c.checklist || {};
+
+  const agora = mods.filter(t => { const m = moduloDe(t); if (!m) return false; const j = janelaModulo(c, m); return ma >= j.iniMes && ma <= j.fimMes; });
+  const atrasados = mods.filter(t => { const m = moduloDe(t); return m && situacaoModulo(c, t, m)[0] === 'Atrasado'; });
+  const primeiro = mods[0];
+
+  const linhaModulo = (t) => {
+    const m = moduloDe(t); if (!m) return '';
+    const j = janelaModulo(c, m);
+    const [sit, cls] = situacaoModulo(c, t, m);
+    const est = entregaStatus(t.id);
+    const conc = state.conceitos[t.id] || [];
+    const [er, ec] = ENT_ROT[est || 'pendente'];
+    return `<div class="mod-row ${m.apoio ? 'apoio' : ''}" data-abrir-trilha="${t.id}" role="button" tabindex="0">
+      <div class="mod-cod">${esc(m.codigo)}</div>
+      <div class="mod-txt">
+        <div class="mod-t">${esc(m.titulo)}</div>
+        <div class="mod-s">${j.iniMes === j.fimMes ? `Mês ${j.iniMes}` : `Meses ${j.iniMes}–${j.fimMes}`} · ${rotMes(j.de)}${j.de.getTime() !== j.ate.getTime() ? ' – ' + rotMes(j.ate) : ''}${conc.length ? ` · ${conc.filter(x => x.status === 'dominado').length}/${conc.length} conceitos` : ''}</div>
+        <div class="bar" style="max-width:260px"><span style="width:${t.dominio || 0}%"></span></div>
+      </div>
+      <div class="mod-tags"><span class="pill ${cls}">${sit}</span><span class="pill ${ec}">Entrega: ${er}</span></div>
+    </div>`;
+  };
+
+  const fases = d.fases.map(f => {
+    const ms = mods.filter(t => (moduloDe(t) || {}).fase === f.n);
+    return `<div class="card">
+      <div class="fase-h"><span class="fase-n">Fase ${f.n}</span><div><div class="fase-t">${esc(f.titulo)}</div><div class="fase-d">${esc(f.descricao)}</div></div></div>
+      ${ms.map(linhaModulo).join('')}
+    </div>`;
+  }).join('');
+
+  const p30 = (d.primeiros_30_dias || []).map(s => {
+    const feito = ck.p30 && ck.p30[s.semana];
+    return `<label class="ck-row"><input type="checkbox" data-ck="${c.id}|p30|${s.semana}" ${feito ? 'checked' : ''}>
+      <div><div class="ck-t">Semana ${s.semana} · ${esc(s.titulo)}${feito ? ` <span class="ck-d">concluída em ${new Date(feito + 'T12:00:00').toLocaleDateString('pt-BR')}</span>` : ''}</div>
+      <div class="ck-s">${esc(s.tarefa)} <b>Evidência:</b> ${esc(s.evidencia)}</div></div></label>`;
+  }).join('');
+  const conc = (d.checklist_conclusao || []).map((x, i) => {
+    const feito = ck.conc && ck.conc[i];
+    return `<label class="ck-row"><input type="checkbox" data-ck="${c.id}|conc|${i}" ${feito ? 'checked' : ''}><div><div class="ck-t">${esc(x)}${feito ? ` <span class="ck-d">${new Date(feito + 'T12:00:00').toLocaleDateString('pt-BR')}</span>` : ''}</div></div></label>`;
+  }).join('');
+
+  // Painel mensal
+  const linhasMes = [];
+  for (let k = 1; k <= total; k++) {
+    const data = addMeses(inicioCurso(c), k - 1);
+    const ativos = mods.filter(t => { const m = moduloDe(t); if (!m) return false; const j = janelaModulo(c, m); return k >= j.iniMes && k <= j.fimMes; });
+    const vencem = ativos.filter(t => janelaModulo(c, moduloDe(t)).fimMes === k);
+    linhasMes.push(`<tr class="${k === ma ? 'agora' : ''}"><td class="n">${k}</td><td class="n">${rotMes(data)}</td>
+      <td>${ativos.map(t => `${esc(moduloDe(t).codigo)} · ${esc(moduloDe(t).titulo)}`).join('<br>') || '—'}</td>
+      <td>${vencem.map(t => { const [er, ec] = ENT_ROT[entregaStatus(t.id) || 'pendente']; return `<span class="pill ${ec}">${esc(moduloDe(t).codigo)}: ${er}</span>`; }).join(' ') || ''}</td></tr>`);
+  }
+
+  const agoraHtml = ma < 1
+    ? `<div class="next-box"><div class="txt"><div class="k">O curso começa em ${rotMes(inicioCurso(c))}</div><div class="v">Faltam ${1 - ma} ${1 - ma === 1 ? 'mês' : 'meses'}. Se quiser, já pode adiantar o Módulo ${esc(moduloDe(primeiro)?.codigo || '01')}.</div></div>
+        ${primeiro ? `<button class="btn btn-primary" data-abrir-trilha="${primeiro.id}">${icon('i-play')}Abrir Módulo ${esc(moduloDe(primeiro).codigo)}</button>` : ''}</div>`
+    : ma > total
+      ? `<div class="next-box done"><div class="txt"><div class="k">Cronograma encerrado</div><div class="v">${concl === mods.length ? 'Todas as entregas foram concluídas.' : `Faltam ${mods.length - concl} entregas.`}</div></div></div>`
+      : `<div class="next-box"><div class="txt"><div class="k">Agora · mês ${ma} de ${total}</div><div class="v">${agora.map(t => `Módulo ${esc(moduloDe(t).codigo)} · ${esc(moduloDe(t).titulo)}`).join(' &nbsp;+&nbsp; ') || 'Nenhum módulo previsto para este mês'}</div>
+          ${atrasados.length ? `<div style="font-size:13px;color:var(--amber);margin-top:4px">Em atraso: ${atrasados.map(t => 'Módulo ' + esc(moduloDe(t).codigo)).join(', ')}</div>` : ''}</div>
+          ${agora[0] ? `<button class="btn btn-primary" data-abrir-trilha="${agora[0].id}">${icon('i-play')}Abrir</button>` : ''}</div>`;
+
+  return `
+    <div class="card curso-hero">
+      <div class="lousa-label">CURSO</div>
+      <h2 class="curso-t">${esc(d.titulo)}</h2>
+      <div class="curso-sub">${esc(d.subtitulo || '')}</div>
+      <p class="curso-obj">${esc(d.objetivo_central)}</p>
+      <div class="info-grid">
+        <div class="info"><div class="k">Cronograma</div><div class="v">${rotMes(inicioCurso(c))} – ${rotMes(fimCurso)} · ${total} meses</div></div>
+        <div class="info"><div class="k">Ritmo</div><div class="v">${Number(c.horas_semanais)}h por semana${Number(c.fator) !== 1 ? ' · cronograma ajustado' : ' · cronograma do plano'}</div></div>
+        <div class="info"><div class="k">Andamento</div><div class="v">domínio médio ${media}% · ${concl}/${mods.length} entregas concluídas</div></div>
+      </div>
+      ${agoraHtml}
+    </div>
+    <div class="stack" style="margin-top:16px">
+      ${fases}
+      <div class="two">
+        <div class="card"><div class="sec-title">${icon('i-flame')}Primeiros 30 dias</div>${p30}</div>
+        <div class="card"><div class="sec-title">${icon('i-check')}Checklist de conclusão</div>${conc}</div>
+      </div>
+      <div class="card">
+        <div class="sec-title">${icon('i-target')}Critérios de sucesso</div>
+        <ul class="plain">${(d.criterios_sucesso || []).map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+        <div class="modo-note"><b>Princípio norteador:</b> ${esc(d.principio)}</div>
+      </div>
+      <details class="card"><summary class="sec-title" style="cursor:pointer;margin:0">${icon('i-cal')}Painel mensal (${total} meses)</summary>
+        <div class="tbl-wrap" style="margin-top:12px"><table class="tbl mes-tbl"><thead><tr><th>Mês</th><th>Data</th><th>Foco</th><th>Entregas do mês</th></tr></thead><tbody>${linhasMes.join('')}</tbody></table></div>
+      </details>
+      <div class="row-actions">
+        <button class="btn" data-curso-ajustar="${c.id}">${icon('i-cal')}Ajustar cronograma</button>
+        <button class="btn btn-danger" data-curso-remover="${c.id}">${icon('i-trash')}Remover curso</button>
+      </div>
+    </div>`;
+}
+
+/* ---------- Página do módulo ---------- */
+function blocoSobreModulo(t) {
+  const c = cursoDe(t), m = moduloDe(t);
+  if (!c || !m) return '';
+  return `<div class="card">
+    <div class="sec-title">${icon('i-book')}Sobre este módulo</div>
+    <div class="list-box ok" style="margin-bottom:12px"><div class="k">Ao final, você será capaz de</div><ul>${(m.objetivos || []).map(o => `<li>${esc(o)}</li>`).join('')}</ul></div>
+    <p class="resumo"><b>Estudar:</b> ${esc(m.estudar)}</p>
+    <p class="resumo"><b>Praticar:</b> ${esc(m.pratica)}</p>
+    ${(m.leituras || []).length ? `<div class="leituras"><div class="k">Leituras de referência</div><ul>${m.leituras.map(l => `<li>${esc(l.ref)}${l.url ? ` <a href="${esc(l.url)}" target="_blank" rel="noopener">abrir ↗</a>` : ''}</li>`).join('')}</ul></div>` : ''}
+  </div>`;
+}
+
+function blocoEntrega(t) {
+  const c = cursoDe(t), m = moduloDe(t);
+  if (!c || !m) return '';
+  if (state.entregas[t.id] === undefined) carregarEntregas([t.id]);
+  const lista = state.entregas[t.id] || [];
+  const ev = state.entregaUI[t.id] || (state.entregaUI[t.id] = { texto: '', arquivo: '', enviando: false, ver: null, erro: '' });
+  const atual = ev.ver ? lista.find(e => e.id === ev.ver) : lista[0];
+  const concluida = lista.some(e => e.concluida);
+  const NIV = { insuficiente: ['Insuficiente', 'bad'], em_desenvolvimento: ['Em desenvolvimento', 'warn'], proficiente: ['Proficiente', 'ok'], exemplar: ['Exemplar', 'ok'] };
+  const PAR = { aprovado: ['Aprovado', 'ok'], ajustar: ['Ajustar', 'warn'], refazer: ['Refazer', 'bad'] };
+  const p = atual && atual.parecer;
+  const parecerHtml = !p ? '' : `
+    <div class="parecer">
+      <div class="par-top"><span class="pill ${PAR[p.parecer][1]}">${PAR[p.parecer][0]}</span><span class="par-v">Versão ${atual.versao}${atual.arquivo_nome ? ' · ' + esc(atual.arquivo_nome) : ''} · ${new Date(atual.created_at).toLocaleDateString('pt-BR')}</span></div>
+      <p class="resumo">${esc(p.resumo)}</p>
+      ${p.alertas && p.alertas.length ? `<div class="err-box" style="margin:0 0 12px"><b>Alertas:</b><ul style="margin:6px 0 0;padding-left:18px">${p.alertas.map(a => `<li>${esc(a)}</li>`).join('')}</ul></div>` : ''}
+      <div class="crit-list">${p.criterios.map(k => `<div class="crit">
+          <div class="crit-h"><b>${esc(k.criterio)}</b><span class="pill ${NIV[k.nivel][1]}">${NIV[k.nivel][0]}</span></div>
+          <div class="crit-c">${esc(k.comentario)}</div>
+          ${k.sugestao ? `<div class="crit-s"><b>Para melhorar:</b> ${esc(k.sugestao)}</div>` : ''}
+        </div>`).join('')}</div>
+      <div class="two" style="margin-top:12px">
+        <div class="list-box ok"><div class="k">Pontos fortes</div><ul>${(p.pontos_fortes || []).map(x => `<li>${esc(x)}</li>`).join('') || '<li>—</li>'}</ul></div>
+        <div class="list-box gap"><div class="k">Melhorias prioritárias</div><ul>${(p.melhorias || []).map(x => `<li>${esc(x)}</li>`).join('') || '<li>—</li>'}</ul></div>
+      </div>
+      ${p.proximo_passo ? `<div class="prox" style="margin-top:10px"><b>Próximo passo:</b> ${esc(p.proximo_passo)}</div>` : ''}
+    </div>`;
+
+  return `<div class="card" id="entregaCard">
+    <div class="sec-title">${icon('i-target')}Entrega do módulo${concluida ? '<span class="pill ok" style="margin-left:8px">Concluída</span>' : ''}</div>
+    <div class="ent-t">${esc(m.entrega.titulo)}</div>
+    <p class="resumo">${esc(m.entrega.descricao)}</p>
+    <details class="rubrica"><summary>Rubrica de avaliação (${m.rubrica.length} critérios)</summary>
+      <ul>${m.rubrica.map(r => `<li><b>${esc(r.criterio)}:</b> ${esc(r.descricao)}</li>`).join('')}</ul>
+      <div class="small-note">Níveis: insuficiente · em desenvolvimento · proficiente · exemplar.</div>
+    </details>
+    ${lista.length > 1 ? `<div class="vers">${lista.map(e => `<button class="chip-btn ${atual && atual.id === e.id ? 'on' : ''}" data-ent-ver="${t.id}|${e.id}">Versão ${e.versao}${e.parecer ? ' · ' + PAR[e.parecer.parecer][0] : ''}${e.concluida ? ' ✓' : ''}</button>`).join('')}</div>` : ''}
+    ${parecerHtml}
+    ${atual && !concluida ? `<div class="row-actions" style="margin-top:12px"><button class="btn ${p && p.parecer === 'aprovado' ? 'btn-primary' : ''}" data-ent-concluir="${atual.id}">${icon('i-check')}Marcar entrega como concluída</button></div>` : ''}
+    ${concluida ? `<div class="row-actions" style="margin-top:12px"><button class="btn btn-sm" data-ent-reabrir="${t.id}">Reabrir entrega</button></div>` : `
+    <div class="ent-form">
+      <div class="k">${lista.length ? 'Enviar nova versão' : 'Enviar a entrega'}</div>
+      <textarea id="entTexto" rows="8" maxlength="80000" placeholder="Cole aqui o texto da entrega, ou anexe um arquivo .docx, .txt ou .md." ${ev.enviando ? 'disabled' : ''}>${esc(ev.texto)}</textarea>
+      <div class="ent-acts">
+        <label class="btn btn-sm" ${ev.enviando ? 'style="opacity:.5;pointer-events:none"' : ''}>${icon('i-plus', 'style="width:14px;height:14px"')}Anexar arquivo<input type="file" id="entArquivo" accept=".docx,.txt,.md,text/plain,text/markdown,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden></label>
+        ${ev.arquivo ? `<span class="small-note" style="margin:0">${esc(ev.arquivo)} · ${ev.texto.length.toLocaleString('pt-BR')} caracteres</span>` : `<span class="small-note" style="margin:0">${ev.texto.length ? ev.texto.length.toLocaleString('pt-BR') + ' caracteres' : ''}</span>`}
+        <span style="flex:1"></span>
+        <button class="btn btn-primary" data-ent-enviar="${t.id}" ${ev.enviando ? 'disabled' : ''}>${ev.enviando ? '<span class="spinner" style="width:16px;height:16px;border-width:2px;margin:0"></span>Avaliando…' : icon('i-send') + 'Enviar para avaliação'}</button>
+      </div>
+      ${ev.enviando ? '<div class="small-note">O Tutor está lendo e avaliando pela rubrica. Pode levar até um minuto.</div>' : ''}
+      ${ev.erro ? `<div class="err-box">${esc(ev.erro)}</div>` : ''}
+    </div>`}
+  </div>`;
+}
+
+async function lerArquivoEntrega(t, file) {
+  const ev = state.entregaUI[t.id];
+  if (!file) return;
+  if (file.size > 8 * 1024 * 1024) { toast('Arquivo grande demais (máximo 8 MB).', true); return; }
+  try {
+    let texto = '';
+    if (/\.docx$/i.test(file.name)) {
+      if (!window.mammoth) {
+        await new Promise((ok, falha) => {
+          const s = document.createElement('script');
+          s.src = 'https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js';
+          s.onload = ok; s.onerror = () => falha(new Error('Não foi possível carregar o leitor de Word.'));
+          document.head.appendChild(s);
+        });
+      }
+      const r = await window.mammoth.extractRawText({ arrayBuffer: await file.arrayBuffer() });
+      texto = r.value || '';
+    } else {
+      texto = await file.text();
+    }
+    texto = texto.replace(/\r/g, '').replace(/\n{3,}/g, '\n\n').trim();
+    if (!texto) { toast('O arquivo parece vazio.', true); return; }
+    if (texto.length > 80000) { texto = texto.slice(0, 80000); toast('O arquivo é longo: só os primeiros 80 mil caracteres serão avaliados.', true); }
+    ev.texto = texto; ev.arquivo = file.name; ev.erro = '';
+    renderMain();
+  } catch (e) {
+    toast('Não foi possível ler o arquivo: ' + e.message, true);
+  }
+}
+
+async function enviarEntrega(t) {
+  const ev = state.entregaUI[t.id]; const m = moduloDe(t); const c = cursoDe(t);
+  if (!ev || ev.enviando || !m) return;
+  const texto = (ev.texto || '').trim();
+  if (texto.length < 40) { toast('Escreva ou anexe a entrega antes de enviar.', true); return; }
+  const lista = state.entregas[t.id] || [];
+  ev.enviando = true; ev.erro = ''; renderMain();
+  let parecer;
+  try {
+    parecer = await callIA('entrega', {
+      trilha: trilhaParaIA(t),
+      modulo: { titulo: `${m.codigo} · ${m.titulo}`, objetivos: m.objetivos, pratica: m.pratica, entrega: m.entrega, rubrica: m.rubrica },
+      niveis: c.dados.niveis_rubrica, texto, arquivo_nome: ev.arquivo || null,
+      anterior: lista[0] && lista[0].parecer ? { resumo: lista[0].parecer.resumo, melhorias: lista[0].parecer.melhorias } : null
+    });
+  } catch (e) {
+    ev.enviando = false; ev.erro = e.message; renderMain(); return;
+  }
+  const versao = (lista[0] ? lista[0].versao : 0) + 1;
+  const ins = await sb.from('entregas').insert({ trilha_id: t.id, versao, texto, arquivo_nome: ev.arquivo || null, parecer }).select('id, trilha_id, versao, arquivo_nome, parecer, concluida, created_at').single();
+  ev.enviando = false;
+  if (ins.error) { ev.erro = dbErrorMessage(ins.error); renderMain(); return; }
+  state.entregas[t.id] = [ins.data, ...lista];
+  ev.texto = ''; ev.arquivo = ''; ev.ver = null;
+  render();
+  const card = $('#entregaCard'); if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  toast('Parecer do Tutor recebido.');
+}
+
+async function concluirEntrega(eid, valor) {
+  const tid = Object.keys(state.entregas).find(k => (state.entregas[k] || []).some(e => e.id === eid));
+  const r = await sb.from('entregas').update({ concluida: valor }).eq('id', eid);
+  if (r.error) { toast(dbErrorMessage(r.error), true); return; }
+  (state.entregas[tid] || []).forEach(e => { if (e.id === eid) e.concluida = valor; });
+  toast(valor ? 'Entrega concluída.' : 'Entrega reaberta.');
+  render();
+}
+
+async function reabrirEntrega(tid) {
+  const l = (state.entregas[tid] || []).filter(e => e.concluida);
+  for (const e of l) { const r = await sb.from('entregas').update({ concluida: false }).eq('id', e.id); if (!r.error) e.concluida = false; }
+  toast('Entrega reaberta.');
+  render();
 }
 
 /* =========================================================
@@ -3099,17 +3919,26 @@ function bindEvents() {
   $('#trackList').addEventListener('click', e => {
     const del = e.target.closest('[data-del]');
     if (del) { e.stopPropagation(); askDelete(del.dataset.del); return; }
+    const ins = e.target.closest('[data-instalar]');
+    if (ins) { closeSidebar(); return abrirInstalacao(ins.dataset.instalar); }
+    const tg = e.target.closest('[data-curso-toggle]');
+    if (tg) { e.stopPropagation(); const id = tg.dataset.cursoToggle; state.cursoAberto[id] = state.cursoAberto[id] === false; return renderSidebar(); }
+    const ch = e.target.closest('[data-curso-abrir]');
+    if (ch) { pararDitado(); state.cursoSel = ch.dataset.cursoAbrir; state.tab = 'aula'; render(); $('#main').scrollTop = 0; closeSidebar(); return; }
     const card = e.target.closest('.track'); if (!card) return;
     pararDitado();
     if (state.editor && state.editor.trilhaId !== card.dataset.id) state.editor = null;
+    state.cursoSel = null;
     state.selectedId = card.dataset.id; state.mapaSel = null;
     if (state.tab !== 'mapa') state.tab = 'aula';
     render(); closeSidebar();
   });
   $('#trackList').addEventListener('keydown', e => {
     if (e.key !== 'Enter') return;
+    const ch = e.target.closest('[data-curso-abrir]');
+    if (ch && !e.target.closest('[data-curso-toggle]')) { state.cursoSel = ch.dataset.cursoAbrir; state.tab = 'aula'; render(); return; }
     const card = e.target.closest('.track'); if (!card) return;
-    state.selectedId = card.dataset.id; state.tab = 'aula'; render();
+    state.cursoSel = null; state.selectedId = card.dataset.id; state.tab = 'aula'; render();
   });
 
   $('#searchInput').addEventListener('input', e => { state.search = e.target.value; renderSidebar(); });
@@ -3119,6 +3948,35 @@ function bindEvents() {
   $('#main').addEventListener('click', e => {
     const alvo = (sel) => e.target.closest(sel);
     if (alvo('[data-new]')) return openNew();
+    // Cursos e entregas
+    const cv = alvo('[data-curso-ver]'); if (cv) { pararDitado(); state.cursoSel = cv.dataset.cursoVer; render(); $('#main').scrollTop = 0; return; }
+    const cj = alvo('[data-curso-ajustar]'); if (cj) return abrirInstalacao(null, cj.dataset.cursoAjustar);
+    const cr = alvo('[data-curso-remover]'); if (cr) return removerCurso(cr.dataset.cursoRemover);
+    const at0 = alvo('[data-abrir-trilha]');
+    if (at0) {
+      pararDitado();
+      if (state.editor && state.editor.trilhaId !== at0.dataset.abrirTrilha) state.editor = null;
+      state.cursoSel = null; state.selectedId = at0.dataset.abrirTrilha; state.tab = 'aula'; state.mapaSel = null;
+      render(); $('#main').scrollTop = 0; return;
+    }
+    if (alvo('[data-ck]')) return;
+    const ev = alvo('[data-ent-ver]'); if (ev) { const [tid, eid] = ev.dataset.entVer.split('|'); state.entregaUI[tid].ver = eid; return renderMain(); }
+    const ec = alvo('[data-ent-concluir]'); if (ec) return concluirEntrega(ec.dataset.entConcluir, true);
+    const er = alvo('[data-ent-reabrir]'); if (er) return reabrirEntrega(er.dataset.entReabrir);
+    const ee = alvo('[data-ent-enviar]'); if (ee) { const t = state.trilhas.find(x => x.id === ee.dataset.entEnviar); if (t) enviarEntrega(t); return; }
+    // Meta flexível
+    const mm = alvo('[data-meta-modo]');
+    if (mm) {
+      const modo = mm.dataset.metaModo; if (getMetaCfg().modo === modo) return;
+      if (state.prog) { state.prog.periodo = modo === 'semanal' ? 'sem' : 7; state.prog.sel = null; }
+      return salvarMetaCfg({ mytutor_meta_modo: modo }, modo === 'semanal' ? 'Meta semanal ativada.' : 'Meta diária ativada.');
+    }
+    const md = alvo('[data-meta-dia]');
+    if (md) {
+      const i = Number(md.dataset.metaDia), dias = getMetaCfg().dias;
+      const novo = dias.includes(i) ? dias.filter(x => x !== i) : [...dias, i].sort();
+      return salvarMetaCfg({ mytutor_dias_estudo: novo }, novo.length ? `Dias de estudo: ${juntarE(novo.map(x => NOMES_DIA_L[x]))}.` : 'Nenhum dia de estudo marcado.');
+    }
     const m = alvo('[data-mode]'); if (m) return setMode(m.dataset.mode);
     if (alvo('[data-diag-start]')) return startDiagnostico(state.selectedId);
     if (alvo('[data-diag-redo]')) {
@@ -3157,7 +4015,7 @@ function bindEvents() {
     }
     if (alvo('[data-editar]')) return abrirEditor();
     // Progresso
-    const pe = alvo('[data-periodo]'); if (pe && state.prog) { state.prog.periodo = Number(pe.dataset.periodo); return renderMain(); }
+    const pe = alvo('[data-periodo]'); if (pe && state.prog) { state.prog.periodo = pe.dataset.periodo === 'sem' ? 'sem' : Number(pe.dataset.periodo); return renderMain(); }
     const dia = alvo('[data-dia]'); if (dia && state.prog) { state.prog.sel = dia.dataset.dia; return renderMain(); }
     const at = alvo('[data-abrir-trilha]'); if (at) { state.selectedId = at.dataset.abrirTrilha; state.tab = 'aula'; state.mapaSel = null; return render(); }
     // Cartões e Agenda
@@ -3223,11 +4081,15 @@ function bindEvents() {
   });
   $('#main').addEventListener('change', e => {
     if (e.target.matches('[data-meta]')) { salvarMeta(e.target.value); return; }
+    if (e.target.matches('[data-meta-semana]')) { const v = Math.max(30, Math.min(1200, Number(e.target.value) || 240)); salvarMetaCfg({ mytutor_meta_semana_min: v }, `Meta semanal: ${fmtMin(v * 60)}.`); return; }
+    if (e.target.matches('[data-ck]')) { const [cid, g, k] = e.target.dataset.ck.split('|'); marcarChecklist(cid, g, k, e.target.checked); return; }
+    if (e.target.id === 'entArquivo') { const t = currentTrack(); const f = e.target.files && e.target.files[0]; if (t && f) lerArquivoEntrega(t, f); e.target.value = ''; return; }
     if (e.target.matches('[data-map-trilha]')) { pararDitado(); state.selectedId = e.target.value; state.mapaSel = null; render(); }
     if (e.target.matches('[data-ed-dom]') && state.editor) { state.editor.itens[+e.target.dataset.edDom].dominado = e.target.checked; renderMain(); }
   });
   $('#main').addEventListener('input', e => {
     if (e.target.id === 'rResp' && state.revisao) { state.revisao.resposta = e.target.value; return; }
+    if (e.target.id === 'entTexto' && state.entregaUI[state.selectedId]) { state.entregaUI[state.selectedId].texto = e.target.value; return; }
     const ed = state.editor;
     if (ed && e.target.dataset.edTitulo !== undefined) { ed.itens[+e.target.dataset.edTitulo].titulo = e.target.value; return; }
     if (ed && e.target.dataset.edDesc !== undefined) { ed.itens[+e.target.dataset.edDesc].descricao = e.target.value; return; }
@@ -3247,6 +4109,8 @@ function bindEvents() {
 
   $('#trackForm').addEventListener('submit', createTrack);
   $('#cardForm').addEventListener('submit', salvarCartao);
+  $('#cursoForm').addEventListener('submit', instalarCurso);
+  ['#cMes', '#cAno', '#cHoras', '#cRitmoAjustar', '#cRitmoPlano'].forEach(sel => $(sel).addEventListener('change', atualizarPrevisao));
   // Atalhos da revisão: espaço mostra a resposta; 1 a 4 avaliam
   document.addEventListener('keydown', e => {
     const r = state.revisao;

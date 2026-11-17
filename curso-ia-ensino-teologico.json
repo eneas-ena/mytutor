@@ -1,0 +1,1619 @@
+{
+ "id": "ia-ensino-teologico",
+ "versao": "1.0",
+ "titulo": "IA Aplicada ao Ensino Teológico",
+ "subtitulo": "Roteiro progressivo de formação, experimentação e especialização",
+ "objetivo_central": "Desenvolver a capacidade de pesquisar, criar, avaliar e ensinar metodologias de educação teológica apoiadas por IA, com rigor bíblico, qualidade pedagógica e responsabilidade ética.",
+ "principio": "A qualidade da inovação será medida pela aprendizagem real: capacidade de ler, interpretar, argumentar, aplicar e pensar com autonomia, e não pela quantidade de ferramentas utilizadas.",
+ "horas_semanais_plano": 6,
+ "meses_plano": 30,
+ "area": "Ensino Teológico com IA",
+ "fases": [
+  {
+   "n": 1,
+   "titulo": "Fundamentação",
+   "descricao": "Construir repertório pedagógico, técnico e ético."
+  },
+  {
+   "n": 2,
+   "titulo": "Aplicação e avaliação",
+   "descricao": "Construir, experimentar e medir."
+  },
+  {
+   "n": 3,
+   "titulo": "Especialização e difusão",
+   "descricao": "Produzir método e formar multiplicadores."
+  }
+ ],
+ "aluno": "O aluno é o Bispo Enéas Araújo: pastor e bispo da Igreja Vidas, professor de Teologia na Escola MENTOR (modelo híbrido, presencial e EAD, em que a apostila é a principal ferramenta de estudo autônomo), graduado em Processamento de Dados e em Teologia, mestre em Homilética, escritor, e concluinte de uma graduação em Inteligência Artificial e Automação Digital. Constrói os próprios apps com IA (HTML, Supabase, Cloudflare Workers), mas não tem formação tradicional em programação.",
+ "regras_tutor": [
+  "Ensine com o rigor de um curso de formação de professores: explique, desenvolva, exemplifique, compare e aplique; ligue cada conceito à prática docente na Escola MENTOR.",
+  "Nunca invente referências, autores, obras, datas, leis ou citações. Se não tiver certeza de uma referência, diga que é preciso verificar.",
+  "Distinga sempre: texto bíblico, interpretação, tradição, posição confessional e inferência sua (da IA).",
+  "Nos temas teológicos, siga o perfil teológico. Nos temas técnicos, pedagógicos ou estatísticos, ensine o conteúdo técnico sem forçar citações bíblicas; use exemplos do ensino teológico quando ajudarem.",
+  "Lembre que a avaliação final e as questões doutrinárias são do professor; a IA apoia, não decide."
+ ],
+ "criterios_sucesso": [
+  "Uma disciplina redesenhada e aplicada com objetivos claros.",
+  "Um tutor de IA testado, com fontes rastreáveis e supervisão docente.",
+  "Uma experiência-piloto avaliada, incluindo limitações e resultados.",
+  "Uma metodologia escrita, revisável e ensinável a outros professores.",
+  "Portfólio com documentação técnica, pedagógica e produção acadêmica."
+ ],
+ "checklist_conclusao": [
+  "Mapeamento de competências docentes concluído",
+  "Disciplina redesenhada e experimentada",
+  "Tutor com fontes rastreáveis testado",
+  "Política de integridade e proteção de dados implementada",
+  "Resultados de aprendizagem analisados",
+  "Metodologia pedagógica documentada",
+  "Curso para professores ofertado e avaliado",
+  "Artigo preparado ou submetido e portfólio reunido"
+ ],
+ "primeiros_30_dias": [
+  {
+   "semana": 1,
+   "titulo": "Diagnosticar",
+   "tarefa": "Ler o referencial de competências docentes em IA da UNESCO, avaliar as próprias competências e selecionar uma disciplina.",
+   "evidencia": "Mapa de competências e lacunas."
+  },
+  {
+   "semana": 2,
+   "titulo": "Planejar",
+   "tarefa": "Escolher uma unidade de Hermenêutica, escrever resultados de aprendizagem e definir rubrica e atividades.",
+   "evidencia": "Plano pedagógico revisado."
+  },
+  {
+   "semana": 3,
+   "titulo": "Construir",
+   "tarefa": "Criar um tutor socrático baseado em materiais selecionados, com regras de citação e limites.",
+   "evidencia": "Protótipo operacional."
+  },
+  {
+   "semana": 4,
+   "titulo": "Testar",
+   "tarefa": "Aplicar exercícios próprios, registrar erros e ajustes e preparar um relatório sobre limites e possibilidades.",
+   "evidencia": "Relatório curto de avaliação."
+  }
+ ],
+ "niveis_rubrica": {
+  "insuficiente": "O critério não é atendido ou é atendido com erros importantes.",
+  "em_desenvolvimento": "O critério é atendido em parte; há lacunas que precisam de ajuste.",
+  "proficiente": "O critério é atendido de forma correta e adequada ao propósito.",
+  "exemplar": "O critério é atendido com profundidade, clareza e qualidade acima do esperado."
+ },
+ "referencias_gerais": [
+  {
+   "ref": "UNESCO. AI competency framework for teachers. Paris: UNESCO, 2024.",
+   "url": "https://www.unesco.org/en/articles/ai-competency-framework-teachers"
+  },
+  {
+   "ref": "UNESCO. Guidance for generative AI in education and research. Paris: UNESCO, 2023.",
+   "url": "https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research"
+  },
+  {
+   "ref": "DeepLearning.AI. Cursos de IA.",
+   "url": "https://www.deeplearning.ai/courses"
+  },
+  {
+   "ref": "HARVARD UNIVERSITY. CS50P: Introduction to Programming with Python.",
+   "url": "https://cs50.harvard.edu/python/"
+  }
+ ],
+ "modulos": [
+  {
+   "codigo": "01",
+   "titulo": "Fundamentos de IA na educação",
+   "fase": 1,
+   "meses": [
+    1,
+    2
+   ],
+   "objetivos": [
+    "Explicar, em linguagem acessível, como um modelo de linguagem produz respostas e por que ele erra.",
+    "Distinguir usos da IA que fortalecem a aprendizagem de usos que a substituem.",
+    "Mapear oportunidades e riscos da IA em disciplinas reais da Escola MENTOR."
+   ],
+   "estudar": "Modelos de linguagem, IA generativa, limitações, alucinações e possibilidades de personalização.",
+   "pratica": "Escolher uma amostra de 4 a 5 disciplinas da Escola MENTOR (por exemplo: Hermenêutica, Homilética, Teologia Sistemática, Introdução Bíblica e uma disciplina prática) e analisar, em cada uma, onde a IA pode ajudar, onde pode atrapalhar e quais cuidados exige.",
+   "entrega": {
+    "titulo": "Mapa de aplicações de IA na educação teológica",
+    "descricao": "Documento com a amostra de disciplinas e, para cada uma: oportunidades de uso, riscos, cuidados necessários e uma prioridade (alta, média, baixa) justificada."
+   },
+   "rubrica": [
+    {
+     "criterio": "Compreensão técnica",
+     "descricao": "Explica corretamente o funcionamento e os limites dos modelos de linguagem ao justificar oportunidades e riscos."
+    },
+    {
+     "criterio": "Análise de riscos",
+     "descricao": "Identifica riscos concretos (alucinação, dependência, integridade, dados de alunos, rigor doutrinário) para cada disciplina."
+    },
+    {
+     "criterio": "Viabilidade pedagógica",
+     "descricao": "As aplicações propostas são realistas para a Escola MENTOR e servem à aprendizagem, não apenas à conveniência."
+    },
+    {
+     "criterio": "Organização e justificativa",
+     "descricao": "As prioridades são justificadas e o mapa é claro o suficiente para orientar decisões."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "UNESCO. Guidance for generative AI in education and research. Paris: UNESCO, 2023.",
+     "url": "https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research"
+    },
+    {
+     "ref": "UNESCO. AI competency framework for teachers. Paris: UNESCO, 2024.",
+     "url": "https://www.unesco.org/en/articles/ai-competency-framework-teachers"
+    },
+    {
+     "ref": "MOLLICK, Ethan. Co-Intelligence: living and working with AI. New York: Portfolio, 2024."
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "Como funciona um modelo de linguagem",
+     "descricao": "Tokens, previsão da próxima palavra e treinamento: por que o modelo escreve com fluência sem 'consultar' fontes.",
+     "pre": []
+    },
+    {
+     "titulo": "IA generativa: o que produz e o que não sabe",
+     "descricao": "A diferença entre gerar texto plausível e conhecer fatos; o papel dos dados de treinamento e da data de corte.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Alucinações e referências inventadas",
+     "descricao": "Por que o modelo inventa citações, versículos e autores, e como detectar e prevenir isso.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Contexto, instruções e personalização",
+     "descricao": "Janela de contexto, instruções de sistema e documentos fornecidos: como orientar o modelo para um uso educacional.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Usos da IA na educação",
+     "descricao": "Tutoria, feedback, geração de materiais, simulações e apoio à avaliação: o que cada uso promove ou ameaça na aprendizagem.",
+     "pre": [
+      3
+     ]
+    },
+    {
+     "titulo": "Referencial da UNESCO para professores",
+     "descricao": "As dimensões de competência docente em IA propostas pela UNESCO e como usá-las para avaliar o próprio ponto de partida.",
+     "pre": [
+      4
+     ]
+    },
+    {
+     "titulo": "Ética: o professor continua responsável",
+     "descricao": "Supervisão humana, transparência com os alunos e a decisão final sempre do professor.",
+     "pre": [
+      2
+     ]
+    },
+    {
+     "titulo": "Como mapear oportunidades e riscos",
+     "descricao": "Um método simples para analisar uma disciplina: objetivos, atividades, pontos de apoio da IA, riscos e cuidados.",
+     "pre": [
+      4,
+      6
+     ]
+    }
+   ]
+  },
+  {
+   "codigo": "02",
+   "titulo": "Ciências da aprendizagem e design instrucional",
+   "fase": 1,
+   "meses": [
+    3,
+    4
+   ],
+   "objetivos": [
+    "Aplicar princípios da ciência da aprendizagem ao planejamento de uma unidade.",
+    "Escrever objetivos de aprendizagem verificáveis com a Taxonomia de Bloom revisada.",
+    "Planejar avaliação formativa e rubricas alinhadas aos objetivos."
+   ],
+   "estudar": "Taxonomia de Bloom revisada, aprendizagem ativa, desenho reverso, avaliação formativa, recuperação ativa e repetição espaçada.",
+   "pratica": "Redesenhar uma unidade de Hermenêutica ou Homilética usando o desenho reverso: primeiro os resultados esperados, depois as evidências de aprendizagem, por último as atividades.",
+   "entrega": {
+    "titulo": "Plano pedagógico de uma unidade",
+    "descricao": "Plano com resultados de aprendizagem, evidências de avaliação, sequência de atividades (com momentos de recuperação ativa) e uma rubrica analítica."
+   },
+   "rubrica": [
+    {
+     "criterio": "Objetivos verificáveis",
+     "descricao": "Os objetivos usam verbos observáveis, estão no nível certo da Taxonomia de Bloom e podem ser avaliados."
+    },
+    {
+     "criterio": "Alinhamento",
+     "descricao": "Objetivos, evidências e atividades estão alinhados (desenho reverso)."
+    },
+    {
+     "criterio": "Princípios de aprendizagem",
+     "descricao": "As atividades usam recuperação ativa, espaçamento, aprendizagem ativa e cuidam da carga cognitiva."
+    },
+    {
+     "criterio": "Rubrica",
+     "descricao": "A rubrica tem critérios claros e níveis distinguíveis, útil para o aluno e para o professor."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "ANDERSON, Lorin W.; KRATHWOHL, David R. (orgs.). A taxonomy for learning, teaching, and assessing: a revision of Bloom's taxonomy of educational objectives. New York: Longman, 2001."
+    },
+    {
+     "ref": "WIGGINS, Grant; McTIGHE, Jay. Understanding by Design. 2. ed. Alexandria: ASCD, 2005."
+    },
+    {
+     "ref": "BROWN, Peter C.; ROEDIGER, Henry L.; McDANIEL, Mark A. Make it stick: the science of successful learning. Cambridge: Harvard University Press, 2014."
+    },
+    {
+     "ref": "BLACK, Paul; WILIAM, Dylan. Inside the black box: raising standards through classroom assessment. Phi Delta Kappan, v. 80, n. 2, 1998."
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "Como a memória funciona",
+     "descricao": "Codificação, armazenamento, recuperação e esquecimento: o que acontece quando um aluno aprende de verdade.",
+     "pre": []
+    },
+    {
+     "titulo": "Recuperação ativa e repetição espaçada",
+     "descricao": "Por que tentar lembrar fortalece a memória mais do que reler, e como espaçar as revisões.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Taxonomia de Bloom revisada",
+     "descricao": "As dimensões do conhecimento e dos processos cognitivos (lembrar, entender, aplicar, analisar, avaliar, criar).",
+     "pre": []
+    },
+    {
+     "titulo": "Objetivos de aprendizagem verificáveis",
+     "descricao": "Como escrever objetivos com verbos observáveis, condições e critérios.",
+     "pre": [
+      2
+     ]
+    },
+    {
+     "titulo": "Desenho reverso",
+     "descricao": "Planejar a partir dos resultados desejados e das evidências, antes das atividades.",
+     "pre": [
+      3
+     ]
+    },
+    {
+     "titulo": "Aprendizagem ativa e carga cognitiva",
+     "descricao": "Atividades que exigem pensar, sem sobrecarregar a memória de trabalho do aluno.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Avaliação formativa e feedback",
+     "descricao": "Avaliar para ensinar: feedback específico, oportuno e acionável.",
+     "pre": [
+      3
+     ]
+    },
+    {
+     "titulo": "Rubricas analíticas",
+     "descricao": "Critérios e níveis de desempenho que tornam a avaliação transparente e consistente.",
+     "pre": [
+      6
+     ]
+    },
+    {
+     "titulo": "Ética: acessibilidade e equidade",
+     "descricao": "Planejar para alunos com ritmos, recursos e condições diferentes, inclusive no uso da IA.",
+     "pre": [
+      5
+     ]
+    }
+   ]
+  },
+  {
+   "codigo": "03",
+   "titulo": "Engenharia de prompts educacionais",
+   "fase": 1,
+   "meses": [
+    5,
+    6
+   ],
+   "objetivos": [
+    "Escrever instruções de sistema que produzam comportamento pedagógico consistente.",
+    "Criar um assistente que conduza o aluno a interpretar, sem entregar a resposta.",
+    "Testar prompts com casos definidos e critérios de qualidade."
+   ],
+   "estudar": "Tutoria socrática, simulações de debates, feedback, instruções, critérios e testes de qualidade.",
+   "pratica": "Criar um assistente que ajude o aluno a interpretar um texto bíblico sem fornecer imediatamente a resposta, e testá-lo com respostas boas, parciais e equivocadas de alunos fictícios.",
+   "entrega": {
+    "titulo": "Biblioteca de 30 prompts pedagógicos testados",
+    "descricao": "Para cada prompt: objetivo pedagógico, texto do prompt, casos de teste usados, resultado observado e ajustes feitos."
+   },
+   "rubrica": [
+    {
+     "criterio": "Clareza das instruções",
+     "descricao": "Os prompts definem papel, contexto, tarefa, limites e formato de saída."
+    },
+    {
+     "criterio": "Valor pedagógico",
+     "descricao": "Os prompts promovem pensamento do aluno (perguntas, feedback, simulações), não respostas prontas."
+    },
+    {
+     "criterio": "Testes e evidências",
+     "descricao": "Cada prompt foi testado com casos definidos, e os resultados e ajustes estão registrados."
+    },
+    {
+     "criterio": "Rigor e cuidados",
+     "descricao": "Os prompts orientam a IA a não inventar referências, a distinguir texto bíblico de interpretação e a respeitar o perfil doutrinário."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "MOLLICK, Ethan; MOLLICK, Lilach. Assigning AI: seven approaches for students, with prompts. SSRN, 2023."
+    },
+    {
+     "ref": "ANTHROPIC. Prompt engineering overview. Documentação da Claude.",
+     "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview"
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "Anatomia de um prompt",
+     "descricao": "Papel, contexto, tarefa, critérios e formato de saída: as partes de uma boa instrução.",
+     "pre": []
+    },
+    {
+     "titulo": "Instruções de sistema e perfis",
+     "descricao": "Como fixar o comportamento do assistente, inclusive o perfil docente e o perfil teológico.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Tutoria socrática",
+     "descricao": "Conduzir por perguntas encadeadas, dar pistas graduais e só explicar quando o aluno empaca.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Feedback alinhado à rubrica",
+     "descricao": "Fazer a IA comentar o trabalho do aluno com base em critérios explícitos.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Simulações e debates",
+     "descricao": "Personagens históricos, objeções teológicas e estudos de caso para exercitar argumentação.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Respostas em formato fixo",
+     "descricao": "Pedir saídas estruturadas para que o resultado seja consistente e utilizável em apps.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Como testar prompts",
+     "descricao": "Casos de teste, critérios de aprovação e reteste depois de cada ajuste.",
+     "pre": [
+      2,
+      3
+     ]
+    },
+    {
+     "titulo": "Ética: transparência e dependência",
+     "descricao": "Avisar quando é IA, evitar que o aluno terceirize o pensamento e cuidar da autonomia.",
+     "pre": [
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "codigo": "04",
+   "titulo": "Ética, integridade e rigor teológico",
+   "fase": 1,
+   "meses": [
+    7,
+    8
+   ],
+   "objetivos": [
+    "Aplicar a LGPD e as regras de direitos autorais ao uso de IA na escola.",
+    "Distinguir com clareza texto bíblico, interpretação, tradição, posição confessional e inferência da IA.",
+    "Redigir uma política de uso responsável de IA aplicável a alunos e professores."
+   ],
+   "estudar": "LGPD, autoria, direitos autorais, vieses, referências fabricadas, transparência e responsabilidade docente.",
+   "pratica": "Definir, com exemplos de uma passagem bíblica, as distinções entre texto bíblico, interpretação, tradição, posição confessional e inferência da IA.",
+   "entrega": {
+    "titulo": "Política de uso responsável da IA",
+    "descricao": "Documento para alunos e professores da Escola MENTOR: usos permitidos e proibidos, declaração de uso, proteção de dados, verificação de fontes e responsabilidade docente."
+   },
+   "rubrica": [
+    {
+     "criterio": "Conformidade legal",
+     "descricao": "Trata corretamente dados pessoais (LGPD) e direitos autorais."
+    },
+    {
+     "criterio": "Integridade acadêmica",
+     "descricao": "Define autoria, declaração de uso de IA e consequências de forma clara e justa."
+    },
+    {
+     "criterio": "Rigor teológico",
+     "descricao": "Exige distinguir texto bíblico, interpretação, tradição, posição confessional e inferência da IA, e verificar citações."
+    },
+    {
+     "criterio": "Aplicabilidade",
+     "descricao": "É clara, curta o bastante para ser lida e possível de aplicar na rotina da escola."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "BRASIL. Lei n. 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD).",
+     "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+    },
+    {
+     "ref": "BRASIL. Lei n. 9.610, de 19 de fevereiro de 1998. Lei de Direitos Autorais.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    },
+    {
+     "ref": "UNESCO. Guidance for generative AI in education and research. Paris: UNESCO, 2023.",
+     "url": "https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research"
+    },
+    {
+     "ref": "BENDER, Emily M. et al. On the dangers of stochastic parrots: can language models be too big? In: FAccT '21. ACM, 2021."
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "LGPD na escola",
+     "descricao": "Dados pessoais e sensíveis de alunos, base legal, finalidade e cuidados ao usar serviços de IA.",
+     "pre": []
+    },
+    {
+     "titulo": "Autoria e integridade acadêmica",
+     "descricao": "O que é trabalho do aluno na era da IA, plágio e uso honesto de ferramentas.",
+     "pre": []
+    },
+    {
+     "titulo": "Direitos autorais e uso de materiais",
+     "descricao": "O que pode ser enviado à IA ou usado num acervo: obras protegidas, domínio público e licenças.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Vieses dos modelos",
+     "descricao": "Vieses culturais, teológicos e confessionais dos modelos e como percebê-los.",
+     "pre": []
+    },
+    {
+     "titulo": "As cinco camadas",
+     "descricao": "Texto bíblico, interpretação, tradição, posição confessional e inferência da IA: distinguir e rotular cada uma.",
+     "pre": [
+      3
+     ]
+    },
+    {
+     "titulo": "Verificação de fontes e citações",
+     "descricao": "Conferir versículos, autores e obras citados pela IA antes de usar.",
+     "pre": [
+      4
+     ]
+    },
+    {
+     "titulo": "Transparência e declaração de uso",
+     "descricao": "Como alunos e professores declaram o uso de IA em seus trabalhos.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Responsabilidade docente",
+     "descricao": "A avaliação final e as questões doutrinárias permanecem com o professor.",
+     "pre": [
+      5,
+      6
+     ]
+    }
+   ]
+  },
+  {
+   "codigo": "A",
+   "titulo": "Apoio A: base técnica para educadores",
+   "fase": 1,
+   "meses": [
+    7,
+    8
+   ],
+   "apoio": true,
+   "objetivos": [
+    "Ler e escrever programas simples em Python.",
+    "Entender como funciona uma API de IA, seus custos e chaves.",
+    "Gravar e consultar dados num banco (Supabase)."
+   ],
+   "estudar": "Lógica de programação, dados estruturados, APIs, chamadas a modelos de linguagem, SQL básico e segurança de chaves. Prepara o Módulo 05.",
+   "pratica": "Escrever um pequeno programa (em Python ou num Worker) que envia uma pergunta a um modelo de linguagem e grava a pergunta e a resposta numa tabela do Supabase.",
+   "entrega": {
+    "titulo": "Programa: pergunta à IA gravada no banco",
+    "descricao": "Código comentado, explicação de cada parte, print do resultado e uma nota sobre onde a chave da API fica guardada."
+   },
+   "rubrica": [
+    {
+     "criterio": "Funcionamento",
+     "descricao": "O programa envia a pergunta, recebe a resposta e grava os dados corretamente."
+    },
+    {
+     "criterio": "Compreensão",
+     "descricao": "A explicação mostra que o autor entende cada parte do código."
+    },
+    {
+     "criterio": "Segurança",
+     "descricao": "A chave da API não aparece no código público nem no navegador."
+    },
+    {
+     "criterio": "Organização",
+     "descricao": "O código é legível, comentado e fácil de adaptar."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "HARVARD UNIVERSITY. CS50's Introduction to Programming with Python (CS50P).",
+     "url": "https://cs50.harvard.edu/python/"
+    },
+    {
+     "ref": "SUPABASE. Documentação oficial.",
+     "url": "https://supabase.com/docs"
+    },
+    {
+     "ref": "CLOUDFLARE. Workers: documentação oficial.",
+     "url": "https://developers.cloudflare.com/workers/"
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "Lógica com Python",
+     "descricao": "Variáveis, listas, condições, repetições e funções.",
+     "pre": []
+    },
+    {
+     "titulo": "Dados estruturados: JSON e tabelas",
+     "descricao": "Como os programas trocam e guardam informações.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "O que é uma API",
+     "descricao": "Requisições, respostas, chaves de acesso, limites e custos.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Chamar um modelo de linguagem pela API",
+     "descricao": "Montar a mensagem, enviar, ler a resposta e tratar erros.",
+     "pre": [
+      2
+     ]
+    },
+    {
+     "titulo": "SQL básico no Supabase",
+     "descricao": "Criar tabelas, inserir e consultar dados; noção de RLS.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Chaves e segredos",
+     "descricao": "Por que a chave fica no servidor (Worker) e nunca no navegador.",
+     "pre": [
+      3
+     ]
+    },
+    {
+     "titulo": "Ética: proteção de dados no código",
+     "descricao": "Não registrar dados de alunos sem necessidade e anonimizar quando possível.",
+     "pre": [
+      4,
+      5
+     ]
+    }
+   ]
+  },
+  {
+   "codigo": "05",
+   "titulo": "Sistemas educacionais inteligentes",
+   "fase": 2,
+   "meses": [
+    9,
+    11
+   ],
+   "pre_modulos": [
+    "A"
+   ],
+   "objetivos": [
+    "Projetar a arquitetura de um tutor que consulta documentos autorizados.",
+    "Implementar recuperação de trechos com busca semântica e citações rastreáveis.",
+    "Avaliar a precisão e a fidelidade das respostas às fontes."
+   ],
+   "estudar": "APIs, agentes, RAG, recuperação de fontes, bancos vetoriais e avaliação da precisão das respostas.",
+   "pratica": "Criar um tutor que consulte documentos autorizados (por exemplo, apostilas próprias da MENTOR) e apresente referências verificáveis em cada resposta.",
+   "entrega": {
+    "titulo": "Protótipo MENTOR AI: Tutor Teológico",
+    "descricao": "Protótipo funcionando, descrição da arquitetura e do acervo, e relatório de precisão com um conjunto de perguntas-teste e os acertos e falhas observados."
+   },
+   "rubrica": [
+    {
+     "criterio": "Arquitetura",
+     "descricao": "As partes (interface, servidor, modelo, acervo) estão bem definidas e documentadas."
+    },
+    {
+     "criterio": "Fontes rastreáveis",
+     "descricao": "As respostas citam trechos verificáveis do acervo autorizado."
+    },
+    {
+     "criterio": "Avaliação de precisão",
+     "descricao": "Há um conjunto de perguntas-teste, critérios de acerto e resultados registrados com honestidade."
+    },
+    {
+     "criterio": "Cuidados",
+     "descricao": "O acervo respeita direitos autorais, não expõe dados de alunos e o tutor admite quando a fonte não responde."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "LEWIS, Patrick et al. Retrieval-augmented generation for knowledge-intensive NLP tasks. In: NeurIPS 2020."
+    },
+    {
+     "ref": "ANTHROPIC. Introducing Contextual Retrieval. 2024.",
+     "url": "https://www.anthropic.com/news/contextual-retrieval"
+    },
+    {
+     "ref": "SUPABASE. AI & Vectors (pgvector).",
+     "url": "https://supabase.com/docs/guides/ai"
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "Arquitetura de um tutor",
+     "descricao": "Interface, servidor (Worker), modelo de linguagem e dados: como as partes conversam.",
+     "pre": []
+    },
+    {
+     "titulo": "Agentes e ferramentas",
+     "descricao": "Quando o modelo pode chamar funções (buscar, calcular, consultar) e quando isso é desnecessário.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "RAG: recuperar antes de gerar",
+     "descricao": "Buscar trechos relevantes no acervo e entregá-los ao modelo junto com a pergunta.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Busca por significado (embeddings)",
+     "descricao": "Como textos viram vetores e por que trechos parecidos ficam próximos.",
+     "pre": [
+      2
+     ]
+    },
+    {
+     "titulo": "Bancos vetoriais com pgvector",
+     "descricao": "Guardar e consultar vetores no Supabase.",
+     "pre": [
+      3
+     ]
+    },
+    {
+     "titulo": "Preparo do acervo",
+     "descricao": "Direitos de uso, divisão em trechos, metadados (obra, capítulo, página) e atualização.",
+     "pre": [
+      2
+     ]
+    },
+    {
+     "titulo": "Citações rastreáveis",
+     "descricao": "Fazer o tutor responder só com base nos trechos e indicar a origem de cada afirmação.",
+     "pre": [
+      4,
+      5
+     ]
+    },
+    {
+     "titulo": "Como medir a precisão",
+     "descricao": "Perguntas-teste, gabarito, fidelidade às fontes e registro de falhas.",
+     "pre": [
+      6
+     ]
+    },
+    {
+     "titulo": "Ética: quando a fonte não responde",
+     "descricao": "O tutor deve dizer que não encontrou, em vez de completar com invenção.",
+     "pre": [
+      6
+     ]
+    }
+   ]
+  },
+  {
+   "codigo": "06",
+   "titulo": "Aprendizagem adaptativa",
+   "fase": 2,
+   "meses": [
+    12,
+    14
+   ],
+   "objetivos": [
+    "Definir um modelo do aluno e critérios de domínio para uma disciplina.",
+    "Construir percursos diferenciados ajustados pelo desempenho observado.",
+    "Explicar ao aluno, com transparência, por que o sistema recomendou cada passo."
+   ],
+   "estudar": "Diagnósticos, percursos personalizados, rubricas, feedback e mecanismos de recomendação.",
+   "pratica": "Criar trilhas iniciante, intermediária e avançada para uma disciplina, ajustadas pelo desempenho observado. O próprio MyTutor pode servir de ponto de partida e de caso de estudo.",
+   "entrega": {
+    "titulo": "Sistema adaptativo experimental para uma disciplina",
+    "descricao": "Descrição do modelo do aluno, do diagnóstico, do mapa de pré-requisitos, das regras de avanço e de recomendação, com exemplos de percursos de alunos diferentes."
+   },
+   "rubrica": [
+    {
+     "criterio": "Modelo do aluno",
+     "descricao": "Define o que é medido, como e com que frequência."
+    },
+    {
+     "criterio": "Regras de adaptação",
+     "descricao": "Os critérios de domínio, avanço e recomendação são claros e justificados pedagogicamente."
+    },
+    {
+     "criterio": "Percursos",
+     "descricao": "Os percursos iniciante, intermediário e avançado são coerentes e testados com exemplos."
+    },
+    {
+     "criterio": "Transparência e cuidado",
+     "descricao": "O sistema explica suas decisões, evita rótulos e preserva a autonomia do aluno."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "BLOOM, Benjamin S. The 2 sigma problem: the search for methods of group instruction as effective as one-to-one tutoring. Educational Researcher, v. 13, n. 6, 1984."
+    },
+    {
+     "ref": "VanLEHN, Kurt. The relative effectiveness of human tutoring, intelligent tutoring systems, and other tutoring systems. Educational Psychologist, v. 46, n. 4, 2011."
+    },
+    {
+     "ref": "CORBETT, Albert T.; ANDERSON, John R. Knowledge tracing: modeling the acquisition of procedural knowledge. User Modeling and User-Adapted Interaction, v. 4, 1995."
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "O modelo do aluno",
+     "descricao": "O que o sistema precisa saber sobre o aluno: conhecimentos, erros frequentes, ritmo.",
+     "pre": []
+    },
+    {
+     "titulo": "Diagnóstico e nivelamento",
+     "descricao": "Perguntas iniciais que revelam o ponto de partida, inclusive o grau de certeza.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Mapas de pré-requisitos",
+     "descricao": "Organizar os conceitos de uma disciplina num grafo de dependências.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Domínio e critérios de avanço",
+     "descricao": "Aprendizagem para o domínio: quando considerar que o aluno pode seguir.",
+     "pre": [
+      1,
+      2
+     ]
+    },
+    {
+     "titulo": "Percursos diferenciados",
+     "descricao": "Iniciante, intermediário e avançado: o que muda em conteúdo, ritmo e apoio.",
+     "pre": [
+      3
+     ]
+    },
+    {
+     "titulo": "Recomendação do próximo passo",
+     "descricao": "Regras para sugerir o que estudar e o que revisar.",
+     "pre": [
+      3
+     ]
+    },
+    {
+     "titulo": "Feedback adaptativo com rubricas",
+     "descricao": "Ajustar o feedback ao nível e aos erros de cada aluno.",
+     "pre": [
+      4
+     ]
+    },
+    {
+     "titulo": "Ética: rótulos e autonomia",
+     "descricao": "Evitar rotular alunos, explicar as decisões do sistema e deixar o aluno escolher.",
+     "pre": [
+      5
+     ]
+    }
+   ]
+  },
+  {
+   "codigo": "07",
+   "titulo": "Laboratório de inovação teológica",
+   "fase": 2,
+   "meses": [
+    15,
+    16
+   ],
+   "objetivos": [
+    "Planejar um projeto-piloto com pergunta, escopo e instrumentos definidos.",
+    "Conduzir o piloto com participação voluntária, proteção de dados e supervisão pedagógica.",
+    "Relatar resultados e limitações com honestidade."
+   ],
+   "estudar": "Planejamento de projetos-piloto, participação voluntária, proteção de dados e supervisão pedagógica.",
+   "pratica": "Experimentar com uma turma, aplicando instrumentos comparáveis antes e depois do uso do tutor ou do sistema adaptativo.",
+   "entrega": {
+    "titulo": "Relatório do piloto",
+    "descricao": "Pergunta do piloto, participantes (sem dados identificáveis), instrumentos, resultados antes e depois, incidentes, ajustes, limitações e melhorias propostas."
+   },
+   "rubrica": [
+    {
+     "criterio": "Desenho do piloto",
+     "descricao": "Pergunta, escopo, cronograma e instrumentos estão definidos antes da aplicação."
+    },
+    {
+     "criterio": "Cuidados éticos",
+     "descricao": "Há consentimento, participação voluntária e proteção de dados."
+    },
+    {
+     "criterio": "Resultados",
+     "descricao": "Os resultados vêm de instrumentos comparáveis e são apresentados com clareza."
+    },
+    {
+     "criterio": "Limitações e melhorias",
+     "descricao": "O relatório reconhece limites (amostra, viés, contexto) e propõe melhorias concretas."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "CRESWELL, John W.; CRESWELL, J. David. Research design: qualitative, quantitative, and mixed methods approaches. 5. ed. Thousand Oaks: SAGE, 2018."
+    },
+    {
+     "ref": "SHADISH, William R.; COOK, Thomas D.; CAMPBELL, Donald T. Experimental and quasi-experimental designs for generalized causal inference. Boston: Houghton Mifflin, 2002."
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "Desenho do piloto",
+     "descricao": "Pergunta, escopo, duração, turma e o que será comparado.",
+     "pre": []
+    },
+    {
+     "titulo": "Consentimento e participação voluntária",
+     "descricao": "Termo de consentimento, direito de não participar e de sair a qualquer momento.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Pré-teste e pós-teste",
+     "descricao": "Instrumentos comparáveis para medir a aprendizagem antes e depois.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Grupo de comparação e seus limites",
+     "descricao": "O que se pode concluir com e sem grupo de comparação.",
+     "pre": [
+      2
+     ]
+    },
+    {
+     "titulo": "Coleta e proteção de dados",
+     "descricao": "Coletar só o necessário, anonimizar e guardar com segurança.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Supervisão pedagógica",
+     "descricao": "O professor acompanha, corrige rumos e responde pelas questões doutrinárias.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Registro de incidentes e ajustes",
+     "descricao": "Anotar problemas, decisões e mudanças durante o piloto.",
+     "pre": [
+      5
+     ]
+    },
+    {
+     "titulo": "Relatório honesto",
+     "descricao": "Apresentar resultados, limitações e o que não deu certo.",
+     "pre": [
+      3,
+      4,
+      6
+     ]
+    }
+   ]
+  },
+  {
+   "codigo": "B",
+   "titulo": "Apoio B: estatística para avaliação educacional",
+   "fase": 2,
+   "meses": [
+    15,
+    16
+   ],
+   "apoio": true,
+   "objetivos": [
+    "Descrever um conjunto de notas com medidas e gráficos adequados.",
+    "Comparar resultados antes e depois e estimar o tamanho do efeito.",
+    "Reconhecer o que uma amostra pequena permite e não permite concluir."
+   ],
+   "estudar": "Estatística descritiva, comparação antes e depois, tamanho de efeito e cuidados com amostras pequenas. Prepara o Módulo 08.",
+   "pratica": "Analisar numa planilha um conjunto de notas simuladas de pré-teste e pós-teste de uma turma.",
+   "entrega": {
+    "titulo": "Análise de notas simuladas",
+    "descricao": "Planilha ou texto com médias, dispersão, gráfico, ganho entre pré e pós-teste, tamanho de efeito e uma conclusão cautelosa."
+   },
+   "rubrica": [
+    {
+     "criterio": "Cálculos corretos",
+     "descricao": "Média, desvio-padrão, ganho e tamanho de efeito estão corretos."
+    },
+    {
+     "criterio": "Gráficos adequados",
+     "descricao": "Os gráficos representam os dados com honestidade e clareza."
+    },
+    {
+     "criterio": "Interpretação",
+     "descricao": "A conclusão é proporcional aos dados e reconhece os limites da amostra."
+    },
+    {
+     "criterio": "Clareza",
+     "descricao": "A análise pode ser entendida por um professor sem formação em estatística."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "BUSSAB, Wilton O.; MORETTIN, Pedro A. Estatística básica. São Paulo: Saraiva."
+    },
+    {
+     "ref": "HAKE, Richard R. Interactive-engagement versus traditional methods: a six-thousand-student survey of mechanics test data for introductory physics courses. American Journal of Physics, v. 66, n. 1, 1998."
+    },
+    {
+     "ref": "COHEN, Jacob. Statistical power analysis for the behavioral sciences. 2. ed. Hillsdale: Lawrence Erlbaum, 1988."
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "Tipos de dados",
+     "descricao": "Dados categóricos, ordinais e numéricos, e o que se pode calcular com cada um.",
+     "pre": []
+    },
+    {
+     "titulo": "Média, mediana e dispersão",
+     "descricao": "Medidas de centro e de variação: média, mediana, amplitude e desvio-padrão.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Gráficos para dados educacionais",
+     "descricao": "Histogramas, barras e diagramas de caixa: quando usar cada um.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Comparar antes e depois",
+     "descricao": "Diferença entre pré e pós-teste e ganho normalizado.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Tamanho de efeito",
+     "descricao": "Quanto mudou, não só se mudou: a ideia do d de Cohen.",
+     "pre": [
+      3
+     ]
+    },
+    {
+     "titulo": "Amostras pequenas",
+     "descricao": "O que uma turma de 15 ou 20 alunos permite e não permite concluir.",
+     "pre": [
+      4
+     ]
+    },
+    {
+     "titulo": "Planilha na prática",
+     "descricao": "Fórmulas e gráficos para fazer a análise sem programação.",
+     "pre": [
+      2,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "codigo": "08",
+   "titulo": "Dados e avaliação educacional",
+   "fase": 2,
+   "meses": [
+    17,
+    18
+   ],
+   "pre_modulos": [
+    "B"
+   ],
+   "objetivos": [
+    "Escolher indicadores que meçam aprendizagem, e não apenas satisfação ou engajamento.",
+    "Avaliar a qualidade dos instrumentos e das questões usadas.",
+    "Construir um painel e um relatório técnico honestos."
+   ],
+   "estudar": "Estatística aplicada, indicadores, visualização, interpretação e avaliação de intervenções.",
+   "pratica": "Analisar a aprendizagem obtida no piloto do Módulo 07, separando indicadores de aprendizagem, de engajamento e de satisfação.",
+   "entrega": {
+    "titulo": "Painel de indicadores e relatório técnico",
+    "descricao": "Painel (pode ser feito no próprio app ou numa planilha) e relatório com os indicadores escolhidos, a qualidade dos instrumentos, a análise e as conclusões."
+   },
+   "rubrica": [
+    {
+     "criterio": "Indicadores",
+     "descricao": "Os indicadores medem aprendizagem e estão separados de engajamento e satisfação."
+    },
+    {
+     "criterio": "Qualidade dos instrumentos",
+     "descricao": "Discute validade, confiabilidade e a qualidade das questões."
+    },
+    {
+     "criterio": "Visualização",
+     "descricao": "O painel é claro, honesto e útil para o professor."
+    },
+    {
+     "criterio": "Interpretação",
+     "descricao": "As conclusões distinguem correlação de causa e são proporcionais aos dados."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "PASQUALI, Luiz. Psicometria: teoria dos testes na psicologia e na educação. Petrópolis: Vozes."
+    },
+    {
+     "ref": "TUFTE, Edward R. The visual display of quantitative information. Cheshire: Graphics Press, 1983."
+    },
+    {
+     "ref": "FEW, Stephen. Information dashboard design. Sebastopol: O'Reilly, 2006."
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "Aprendizagem, engajamento e satisfação",
+     "descricao": "Três coisas diferentes que costumam ser confundidas nos relatórios.",
+     "pre": []
+    },
+    {
+     "titulo": "Validade e confiabilidade",
+     "descricao": "Se o instrumento mede o que diz medir e se mede de forma consistente.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Análise das questões",
+     "descricao": "Índice de dificuldade e de discriminação de cada questão.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Visualização honesta",
+     "descricao": "Escalas, comparações e escolhas que não distorcem os dados.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Painéis para professores",
+     "descricao": "O que mostrar, para quê e com que frequência.",
+     "pre": [
+      3
+     ]
+    },
+    {
+     "titulo": "Causa ou correlação",
+     "descricao": "Por que a melhora pode não ter sido causada pela intervenção.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Relatório técnico",
+     "descricao": "Estrutura, linguagem e apresentação de limitações.",
+     "pre": [
+      4,
+      5
+     ]
+    },
+    {
+     "titulo": "Ética: dados dos alunos",
+     "descricao": "Anonimização, acesso restrito e uso apenas para a finalidade declarada.",
+     "pre": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "codigo": "09",
+   "titulo": "Pesquisa científica em educação",
+   "fase": 3,
+   "meses": [
+    19,
+    21
+   ],
+   "objetivos": [
+    "Transformar um problema de ensino numa pergunta de pesquisa.",
+    "Escolher e justificar um método adequado.",
+    "Redigir um projeto de pesquisa com instrumentos e cuidados éticos."
+   ],
+   "estudar": "Métodos qualitativos, quantitativos e mistos, revisão bibliográfica, pesquisa-ação e Design-Based Research.",
+   "pratica": "Investigar o efeito de um tutor de IA na aprendizagem de princípios hermenêuticos.",
+   "entrega": {
+    "titulo": "Projeto de pesquisa",
+    "descricao": "Problema, pergunta, objetivos, revisão bibliográfica, método, instrumentos, cronograma e cuidados éticos."
+   },
+   "rubrica": [
+    {
+     "criterio": "Problema e pergunta",
+     "descricao": "A pergunta é clara, relevante e possível de investigar."
+    },
+    {
+     "criterio": "Revisão bibliográfica",
+     "descricao": "Situa o estudo no que já se sabe, com fontes reais e verificáveis."
+    },
+    {
+     "criterio": "Método e instrumentos",
+     "descricao": "O método é adequado à pergunta e os instrumentos estão definidos."
+    },
+    {
+     "criterio": "Ética da pesquisa",
+     "descricao": "Prevê consentimento, proteção de dados e submissão ao comitê de ética quando necessário."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "GIL, Antonio Carlos. Como elaborar projetos de pesquisa. São Paulo: Atlas."
+    },
+    {
+     "ref": "CRESWELL, John W.; CRESWELL, J. David. Research design: qualitative, quantitative, and mixed methods approaches. 5. ed. Thousand Oaks: SAGE, 2018."
+    },
+    {
+     "ref": "BARAB, Sasha; SQUIRE, Kurt. Design-based research: putting a stake in the ground. Journal of the Learning Sciences, v. 13, n. 1, 2004."
+    },
+    {
+     "ref": "THIOLLENT, Michel. Metodologia da pesquisa-ação. São Paulo: Cortez."
+    },
+    {
+     "ref": "BRASIL. Conselho Nacional de Saúde. Resolução n. 510, de 7 de abril de 2016 (ética em pesquisa em Ciências Humanas e Sociais)."
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "Do problema à pergunta de pesquisa",
+     "descricao": "Delimitar um problema real do ensino e formular uma pergunta investigável.",
+     "pre": []
+    },
+    {
+     "titulo": "Revisão bibliográfica",
+     "descricao": "Buscar, selecionar e sintetizar estudos; cuidado redobrado com referências inventadas pela IA.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Métodos quantitativos",
+     "descricao": "Medir, comparar e testar: quando os números respondem à pergunta.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Métodos qualitativos",
+     "descricao": "Entrevistas, observação e análise de conteúdo: compreender sentidos e processos.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Métodos mistos",
+     "descricao": "Combinar números e narrativas para responder melhor à pergunta.",
+     "pre": [
+      2,
+      3
+     ]
+    },
+    {
+     "titulo": "Pesquisa-ação",
+     "descricao": "Pesquisar enquanto se transforma a própria prática, em ciclos.",
+     "pre": [
+      3
+     ]
+    },
+    {
+     "titulo": "Design-Based Research",
+     "descricao": "Pesquisar e aperfeiçoar uma intervenção educacional em ciclos de desenho e teste.",
+     "pre": [
+      4,
+      5
+     ]
+    },
+    {
+     "titulo": "Ética em pesquisa com pessoas",
+     "descricao": "Comitê de ética, consentimento e proteção dos participantes.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Estrutura do projeto",
+     "descricao": "Partes do projeto e como elas se encaixam.",
+     "pre": [
+      1,
+      6,
+      7
+     ]
+    }
+   ]
+  },
+  {
+   "codigo": "10",
+   "titulo": "Metodologia própria de ensino teológico com IA",
+   "fase": 3,
+   "meses": [
+    22,
+    24
+   ],
+   "objetivos": [
+    "Formular princípios, procedimentos e instrumentos de uma metodologia própria.",
+    "Integrar didática, exegese, aprendizagem adaptativa e avaliação.",
+    "Documentar evidências e limites para que a metodologia possa ser revisada e ensinada."
+   ],
+   "estudar": "Integração entre didática, exegese, aprendizagem adaptativa e avaliação.",
+   "pratica": "Documentar princípios, procedimentos, instrumentos, evidências e limites da abordagem desenvolvida nos módulos anteriores.",
+   "entrega": {
+    "titulo": "Manual da metodologia",
+    "descricao": "Manual revisável com princípios, papéis do professor, do aluno e da IA, sequências didáticas modelo, instrumentos de avaliação, evidências e limites."
+   },
+   "rubrica": [
+    {
+     "criterio": "Fundamentação",
+     "descricao": "Os princípios estão fundamentados nas ciências da aprendizagem e na hermenêutica bíblica."
+    },
+    {
+     "criterio": "Procedimentos e instrumentos",
+     "descricao": "Os procedimentos são claros e podem ser reproduzidos por outro professor."
+    },
+    {
+     "criterio": "Evidências",
+     "descricao": "Apresenta evidências reais dos módulos anteriores, com seus limites."
+    },
+    {
+     "criterio": "Fidelidade bíblica",
+     "descricao": "A metodologia protege a autoridade das Escrituras e a responsabilidade docente."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "ZABALA, Antoni. A prática educativa: como ensinar. Porto Alegre: Artmed, 1998."
+    },
+    {
+     "ref": "OSBORNE, Grant R. A espiral hermenêutica: uma nova abordagem à interpretação bíblica. São Paulo: Vida Nova."
+    },
+    {
+     "ref": "FEE, Gordon D.; STUART, Douglas. Entendes o que lês? São Paulo: Vida Nova."
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "O que é uma metodologia",
+     "descricao": "Princípios, procedimentos e instrumentos: diferença entre método, técnica e ferramenta.",
+     "pre": []
+    },
+    {
+     "titulo": "Didática integrada à exegese",
+     "descricao": "Ensinar a interpretar seguindo os passos da exegese com apoio pedagógico.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Papéis do professor, do aluno e da IA",
+     "descricao": "O que cada um faz, e o que a IA nunca deve fazer.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Sequência didática com IA",
+     "descricao": "Uma sequência modelo para hermenêutica, do texto à aplicação.",
+     "pre": [
+      1,
+      2
+     ]
+    },
+    {
+     "titulo": "Avaliação integrada e evidências",
+     "descricao": "Como a metodologia mostra que o aluno aprendeu.",
+     "pre": [
+      3
+     ]
+    },
+    {
+     "titulo": "Limites e contraindicações",
+     "descricao": "Quando a abordagem não serve ou exige adaptação.",
+     "pre": [
+      4
+     ]
+    },
+    {
+     "titulo": "Documentação revisável",
+     "descricao": "Versões, registro de mudanças e revisão por pares.",
+     "pre": [
+      5
+     ]
+    },
+    {
+     "titulo": "Ética: fidelidade bíblica como critério",
+     "descricao": "A qualidade da metodologia inclui fidelidade às Escrituras e clareza doutrinária.",
+     "pre": [
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "codigo": "11",
+   "titulo": "Formação de professores",
+   "fase": 3,
+   "meses": [
+    25,
+    27
+   ],
+   "objetivos": [
+    "Planejar uma formação para professores com prática supervisionada.",
+    "Lidar com resistências e conduzir uma implantação gradual.",
+    "Avaliar a formação em diferentes níveis."
+   ],
+   "estudar": "Formação de formadores, oficinas, competências digitais e implantação institucional.",
+   "pratica": "Oferecer um curso-piloto para professores, com práticas supervisionadas.",
+   "entrega": {
+    "titulo": "Programa de capacitação, apostila e avaliação",
+    "descricao": "Programa do curso para professores, apostila e instrumentos de avaliação da formação, com os resultados do curso-piloto."
+   },
+   "rubrica": [
+    {
+     "criterio": "Desenho da formação",
+     "descricao": "Objetivos, conteúdos e atividades estão adequados a professores adultos."
+    },
+    {
+     "criterio": "Prática supervisionada",
+     "descricao": "Há momentos de prática real com acompanhamento e feedback."
+    },
+    {
+     "criterio": "Apostila",
+     "descricao": "A apostila é completa o bastante para estudo autônomo, alinhada ao padrão da Escola MENTOR."
+    },
+    {
+     "criterio": "Avaliação da formação",
+     "descricao": "Avalia reação, aprendizagem e mudança de prática dos professores."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "KNOWLES, Malcolm S.; HOLTON, Elwood F.; SWANSON, Richard A. The adult learner. 8. ed. London: Routledge, 2015."
+    },
+    {
+     "ref": "KIRKPATRICK, Donald L.; KIRKPATRICK, James D. Evaluating training programs: the four levels. 3. ed. San Francisco: Berrett-Koehler, 2006."
+    },
+    {
+     "ref": "UNESCO. AI competency framework for teachers. Paris: UNESCO, 2024.",
+     "url": "https://www.unesco.org/en/articles/ai-competency-framework-teachers"
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "Como adultos aprendem",
+     "descricao": "Princípios da andragogia: experiência, autonomia e aplicação imediata.",
+     "pre": []
+    },
+    {
+     "titulo": "Competências digitais docentes",
+     "descricao": "O que um professor precisa saber e fazer com IA, segundo a UNESCO.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Desenho de oficinas",
+     "descricao": "Oficinas práticas, com tarefas reais das disciplinas dos participantes.",
+     "pre": [
+      0,
+      1
+     ]
+    },
+    {
+     "titulo": "Prática supervisionada e mentoria",
+     "descricao": "Acompanhar o professor aplicando na própria turma.",
+     "pre": [
+      2
+     ]
+    },
+    {
+     "titulo": "Resistências e mudança",
+     "descricao": "Medos, objeções e como conduzir a mudança com respeito.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Implantação gradual",
+     "descricao": "Pilotos, apoio contínuo e expansão por etapas.",
+     "pre": [
+      4
+     ]
+    },
+    {
+     "titulo": "Avaliação da formação",
+     "descricao": "Os quatro níveis: reação, aprendizagem, comportamento e resultados.",
+     "pre": [
+      3
+     ]
+    },
+    {
+     "titulo": "Ética: autonomia docente",
+     "descricao": "Formar sem impor; respeitar o juízo profissional de cada professor.",
+     "pre": [
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "codigo": "12",
+   "titulo": "Publicação e consolidação",
+   "fase": 3,
+   "meses": [
+    28,
+    30
+   ],
+   "objetivos": [
+    "Escrever um artigo científico com resultados, limites e replicabilidade.",
+    "Escolher onde publicar e responder a pareceristas.",
+    "Reunir um portfólio e propor a formação continuada."
+   ],
+   "estudar": "Escrita acadêmica, apresentação de resultados, portfólio e revisão por pares.",
+   "pratica": "Submeter um artigo e apresentar resultados, limitações e replicabilidade da metodologia.",
+   "entrega": {
+    "titulo": "Portfólio, artigo submetido e proposta de formação continuada",
+    "descricao": "Artigo (ou comprovante de submissão), portfólio com as entregas dos módulos e proposta de formação continuada."
+   },
+   "rubrica": [
+    {
+     "criterio": "Qualidade do artigo",
+     "descricao": "Estrutura adequada, argumentação clara e resultados bem apresentados."
+    },
+    {
+     "criterio": "Integridade",
+     "descricao": "Referências reais e verificáveis, uso de IA declarado e limitações reconhecidas."
+    },
+    {
+     "criterio": "Portfólio",
+     "descricao": "Reúne as evidências técnicas, pedagógicas e acadêmicas da jornada."
+    },
+    {
+     "criterio": "Continuidade",
+     "descricao": "A proposta de formação continuada é concreta e viável."
+    }
+   ],
+   "leituras": [
+    {
+     "ref": "DAY, Robert A.; GASTEL, Barbara. How to write and publish a scientific paper. Cambridge: Cambridge University Press."
+    },
+    {
+     "ref": "MEDEIROS, João Bosco. Redação científica: a prática de fichamentos, resumos, resenhas. São Paulo: Atlas."
+    },
+    {
+     "ref": "COPE (Committee on Publication Ethics). Authorship and AI tools: COPE position statement. 2023.",
+     "url": "https://publicationethics.org/guidance/cope-position/authorship-and-ai-tools"
+    }
+   ],
+   "conceitos": [
+    {
+     "titulo": "Estrutura do artigo científico",
+     "descricao": "Introdução, método, resultados e discussão (IMRaD).",
+     "pre": []
+    },
+    {
+     "titulo": "Escrita acadêmica clara",
+     "descricao": "Precisão, concisão e argumentação baseada em evidências.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Onde publicar",
+     "descricao": "Escolher periódicos e eventos adequados, evitando periódicos predatórios.",
+     "pre": [
+      0
+     ]
+    },
+    {
+     "titulo": "Revisão por pares",
+     "descricao": "Como funciona e como responder aos pareceristas.",
+     "pre": [
+      2
+     ]
+    },
+    {
+     "titulo": "Replicabilidade",
+     "descricao": "Descrever o estudo de forma que outros possam repetir ou adaptar.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Portfólio profissional",
+     "descricao": "Reunir e apresentar as evidências da jornada.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Integridade na publicação",
+     "descricao": "Autoria, declaração do uso de IA e referências verificadas.",
+     "pre": [
+      1
+     ]
+    },
+    {
+     "titulo": "Formação continuada",
+     "descricao": "Como manter a metodologia viva e atualizada depois do curso.",
+     "pre": [
+      5
+     ]
+    }
+   ]
+  }
+ ]
+}
